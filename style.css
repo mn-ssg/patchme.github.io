@@ -20,7 +20,7 @@
   --font-body: 'Space Grotesk', sans-serif;
   --font-korean: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 
-  --max-width: 1280px;
+  --max-width: 1920px;
   --nav-height: 80px;
 }
 
@@ -172,9 +172,9 @@ a {
 .hero-bg {
   position: absolute;
   top: 0;
-  left: -108px;
-  width: 1390px;
-  height: 776px;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
 }
 
 .hero-bg img {
