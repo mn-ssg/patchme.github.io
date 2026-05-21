@@ -139,54 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (ctaTitle) { ctaTitle.classList.add('m-reveal'); revealObserver.observe(ctaTitle); }
     if (ctaBtn) { ctaBtn.classList.add('m-reveal', 'm-delay-2'); revealObserver.observe(ctaBtn); }
 
-    // --- GLITCH EFFECT on hero title ---
-    if (heroTitle) {
-      heroTitle.setAttribute('data-text', heroTitle.textContent);
-      heroTitle.classList.add('glitch-text');
-      // Trigger glitch periodically
-      function triggerGlitch() {
-        heroTitle.classList.add('is-glitching');
-        setTimeout(() => heroTitle.classList.remove('is-glitching'), 200);
-      }
-      // Initial glitch after load
-      setTimeout(triggerGlitch, 1200);
-      // Random periodic glitch
-      setInterval(() => {
-        if (Math.random() > 0.6) triggerGlitch();
-      }, 4000);
-    }
-
-    // --- PARALLAX on scroll ---
-    const parallaxElements = document.querySelectorAll('.m-hero-bg, .m-solution-bg, .m-features-bg');
-    parallaxElements.forEach(el => el.classList.add('m-parallax-bg'));
-
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const scrollY = window.scrollY;
-          parallaxElements.forEach(el => {
-            const section = el.closest('section');
-            if (!section) return;
-            const rect = section.getBoundingClientRect();
-            const inView = rect.top < window.innerHeight && rect.bottom > 0;
-            if (inView) {
-              const offset = (rect.top / window.innerHeight) * -30;
-              el.style.transform = `translateY(${offset}px)`;
-            }
-          });
-          ticking = false;
-        });
-        ticking = true;
-      }
-    });
-
-    // --- Footer reveal ---
-    const footerBrand = document.querySelector('.m-footer-brand');
-    const footerLinks = document.querySelector('.m-footer-links');
-    if (footerBrand) { footerBrand.classList.add('m-reveal-left'); revealObserver.observe(footerBrand); }
-    if (footerLinks) { footerLinks.classList.add('m-reveal-right'); revealObserver.observe(footerLinks); }
-
     // --- Section labels - observe for divider animation ---
     document.querySelectorAll('.m-section-label').forEach(label => {
       if (!label.classList.contains('m-reveal') && !label.classList.contains('m-reveal-left')) {
@@ -195,6 +147,51 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // --- GLOBAL GLITCH EFFECT ---
+  document.querySelectorAll('.glitch-text').forEach(el => {
+    if (!el.hasAttribute('data-text')) {
+      el.setAttribute('data-text', el.textContent.trim());
+    }
+    
+    function triggerGlitch() {
+      el.classList.add('is-glitching');
+      setTimeout(() => el.classList.remove('is-glitching'), 200 + Math.random() * 200);
+    }
+    
+    setTimeout(triggerGlitch, 1000 + Math.random() * 500);
+    setInterval(() => {
+      if (Math.random() > 0.6) triggerGlitch();
+    }, 3000 + Math.random() * 2000);
+  });
+
+  // --- GLOBAL PARALLAX EFFECT ---
+  const parallaxElements = document.querySelectorAll('.m-parallax-bg');
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        parallaxElements.forEach(el => {
+          const section = el.closest('section');
+          if (!section) return;
+          const rect = section.getBoundingClientRect();
+          const inView = rect.top < window.innerHeight && rect.bottom > 0;
+          if (inView) {
+            const offset = (rect.top / window.innerHeight) * -30;
+            el.style.transform = `translateY(${offset}px)`;
+          }
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // --- GLOBAL FOOTER REVEAL ---
+  const footerBrand = document.querySelector('.m-footer-brand');
+  const footerLinks = document.querySelector('.m-footer-links');
+  if (footerBrand) { footerBrand.classList.add('m-reveal-left'); revealObserver.observe(footerBrand); }
+  if (footerLinks) { footerLinks.classList.add('m-reveal-right'); revealObserver.observe(footerLinks); }
 
   // --- TEAM PAGE ANIMATIONS (kept from before) ---
   const isTeamPage = document.querySelector('.hero-section');

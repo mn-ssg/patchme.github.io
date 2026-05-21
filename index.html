@@ -7,296 +7,297 @@
   <title>PATCH ME // TECHNICAL GEAR DIVISION</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=Orbitron:wght@400;500;600;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
 
-  <!-- Mobile Overlay -->
-  <div class="mobile-overlay" id="mobile-overlay"></div>
+<!-- Mobile Overlay -->
+<div class="mobile-overlay" id="mobile-overlay"></div>
 
-  <!-- Top Navigation Bar -->
-  <nav class="top-nav" id="top-nav">
-    <a href="index.html" class="nav-logo">
-      <img src="assets/logo.png" alt="PATCH ME Logo">
-    </a>
-    <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-    </button>
-    <div class="nav-menu" id="nav-menu">
-      <div class="nav-links">
-        <a href="team.html" class="nav-link">TEAM</a>
-        <a href="#" class="nav-link">MISSION</a>
-        <a href="#features" class="nav-link">GEAR</a>
-        <a href="#how-it-works" class="nav-link">LAB</a>
+<!-- Top Navigation Bar -->
+<nav class="top-nav" id="top-nav">
+  <a href="index.html" class="nav-logo">
+    <img src="assets/logo.png" alt="PATCH ME Logo">
+  </a>
+  <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+  </button>
+  <div class="nav-menu" id="nav-menu">
+    <div class="nav-links">
+      <a href="team.html" class="nav-link">TEAM</a>
+      <a href="product.html#" class="nav-link">PRODUCT</a>
+      <a href="#features" class="nav-link">GEAR</a>
+      <a href="#how-it-works" class="nav-link">LAB</a>
+    </div>
+    <a href="#cta" class="btn-join" id="btn-join-squad">JOIN SQUAD</a>
+  </div>
+</nav>
+
+<!-- 1. Hero Section -->
+<section class="m-hero" id="hero">
+  <div class="m-hero-bg">
+    <img src="assets/hero-main.png" alt="">
+    <div class="m-hero-gradient"></div>
+  </div>
+  <div class="m-hero-inner">
+    <div class="m-hero-image">
+      <div class="m-hero-image-frame">
+        <img src="assets/hero-main.png" alt="High performance techwear">
       </div>
-      <a href="#cta" class="btn-join" id="btn-join-squad">JOIN SQUAD</a>
+      <div class="m-hero-image-corner"></div>
     </div>
-  </nav>
+    <div class="m-hero-content">
+      <div class="m-section-label">
+        <span class="m-divider-line"></span>
+        <span class="m-label-text">INITIATING DEPLOYMENT</span>
+      </div>
+      <h1 class="m-hero-title">
+        <span class="m-accent">PATCH</span> UP<br>
+        SHOW UP
+      </h1>
+      <p class="m-hero-desc">
+        고성능 스포츠와 미래형 어반 유틸리티가 교차하는 지점에서 설계되었습니다. 우리는 타협하지 않습니다. <br>
+        피부 때문에 멈춰야 했던 순간들, 포기해야 했던 것들 그 모든 한계를 넘어서려는 사람들을 위해 만듭니다.<br>
+        PATCH ME의 웨어는 단순한 옷이 아닙니다.<br>
+        마찰 없이, 자극 없이, 그리고 아무것도 포기하지 않고 당신이 원하는 모든 것을 할 수 있도록 설계된 퍼포먼스 기어입니다.
+      </p>
+      <div class="m-hero-cta">
+        <a href="#features" class="m-cta-circle">
+          <img src="assets/icon-play.svg" alt="">
+        </a>
+        <span class="m-cta-label">EXPLORE COLLECTION</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- 1. Hero Section -->
-  <section class="m-hero" id="hero">
-    <div class="m-hero-bg">
-      <img src="assets/hero-main.png" alt="">
-      <div class="m-hero-gradient"></div>
+<!-- 2. Problem Section -->
+<section class="m-problem" id="problem">
+  <div class="m-problem-overlay"></div>
+  <div class="m-problem-inner">
+    <div class="m-problem-image">
+      <img src="assets/problem-bg.png" alt="">
     </div>
-    <div class="m-hero-inner">
-      <div class="m-hero-image">
-        <div class="m-hero-image-frame">
-          <img src="assets/hero-main.png" alt="High performance techwear">
+    <div class="m-section-label m-problem-label-top">
+      <span class="m-divider-line"></span>
+      <span class="m-label-text">01 // THE PROBLEM</span>
+    </div>
+    <div class="m-section-label m-problem-label-mid">
+      <span class="m-divider-line"></span>
+    </div>
+    <h2 class="m-problem-title">
+      DESIGNED FOR<br>
+      THE <span class="m-accent">WRONG SKIN</span>
+    </h2>
+    <p class="m-problem-desc">
+      마찰은 퍼포먼스의 적입니다. 일반 소재는 고강도 운동 중 <br>
+      피부를 자극하고, 열감을 유발하며, 움직임을 제한합니다.<br>
+    </p>
+  </div>
+</section>
+
+<!-- 3. Solution Section -->
+<section class="m-solution" id="solution">
+  <div class="m-solution-bg">
+    <div class="m-solution-gradient"></div>
+  </div>
+  <div class="m-solution-inner">
+    <div class="m-section-label">
+      <span class="m-divider-line"></span>
+      <span class="m-label-text m-accent">02 // THE SOLUTION</span>
+    </div>
+    <div class="m-solution-grid">
+      <div class="m-solution-image">
+        <div class="m-solution-image-frame">
+          <img src="assets/skin-texture.png" alt="Skin texture analysis">
+          <div class="m-solution-desat"></div>
         </div>
-        <div class="m-hero-image-corner"></div>
+        <div class="m-solution-badge">
+          <span class="m-badge-dot"></span>
+          <span class="m-badge-text">PROTOCOL ACTIVE</span>
+        </div>
       </div>
-      <div class="m-hero-content">
+      <div class="m-solution-content">
+        <h2 class="m-solution-title">
+          THE <span class="m-accent">FRICTION</span> PROTOCOL
+        </h2>
+        <p class="m-solution-desc">
+          마찰은 퍼포먼스의 적입니다. 일반 소재는 격렬한 움직임 속에서 피부를 긁고, 자극하고, 당신의 한계를 끌어내립니다.
+          땀이 차고, 소재가 쓸리고, 집중해야 할 순간에 피부가 먼저 무너집니다.
+          그 불편함에 익숙해질 필요 없습니다.
+          PATCH ME는 다릅니다. 피부가 가장 민감한 사람을 기준으로 설계된 퍼포먼스 웨어 마찰 없이, 자극
+          없이, 오직 움직임만 남습니다.
+        </p>
+        <div class="m-solution-specs">
+          <div class="m-spec-row m-spec-row-active">
+            <span class="m-spec-label">01. MICRO-ABRASION</span>
+            <span class="m-spec-desc">마이크로 구조로 인한 피부 자극을 정확히 겨냥합니다.</span>
+          </div>
+          <div class="m-spec-row">
+            <span class="m-spec-label">02. THERMAL TRAP</span>
+            <span class="m-spec-desc">갇힌 열로 인한 피부 손상 메커니즘을 차단합니다.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Features Section -->
+<section class="m-features" id="features">
+  <!--    <div class="m-features-bg">-->
+  <!--      <div class="m-features-gradient"></div>-->
+  <!--    </div>-->
+  <div class="m-features-inner">
+    <div class="m-features-header">
+      <div class="m-features-header-left">
         <div class="m-section-label">
           <span class="m-divider-line"></span>
-          <span class="m-label-text">INITIATING DEPLOYMENT</span>
+          <span class="m-label-text">03 // CORE TECHNOLOGY</span>
         </div>
-        <h1 class="m-hero-title">
-          <span class="m-accent">PATCH</span> UP<br>
-          SHOW UP
-        </h1>
-        <p class="m-hero-desc">
-          고성능 스포츠와 미래형 어반 유틸리티가 교차하는 지점에서 설계되었습니다. 우리는 타협하지 않습니다. <br>
-          피부 때문에 멈춰야 했던 순간들, 포기해야 했던 것들 그 모든 한계를 넘어서려는 사람들을 위해 만듭니다.<br>
-          PATCH ME의 웨어는 단순한 옷이 아닙니다.<br>
-          마찰 없이, 자극 없이, 그리고 아무것도 포기하지 않고 당신이 원하는 모든 것을 할 수 있도록 설계된 퍼포먼스 기어입니다.
-        </p>
-        <div class="m-hero-cta">
-          <a href="#features" class="m-cta-circle">
-            <img src="assets/icon-play.svg" alt="">
-          </a>
-          <span class="m-cta-label">EXPLORE COLLECTION</span>
+        <h2 class="m-features-title">
+          SYSTEM<br>SPECIFICATIONS
+        </h2>
+      </div>
+      <a href="#" class="m-view-all">
+        <span>VIEW ALL SPECS</span>
+        <img src="assets/icon-arrow.svg" alt="">
+      </a>
+    </div>
+    <div class="m-features-list">
+      <div class="m-feature-item">
+        <div class="m-feature-item-bg">
+          <img src="assets/spec-row-1.png" alt="">
+          <div class="m-feature-item-overlay"></div>
+        </div>
+        <div class="m-feature-left">
+          <span class="m-feature-data">DATA_01</span>
+          <span class="m-feature-name">SEAMLESS WELDING</span>
+        </div>
+        <div class="m-feature-right">
+          <p class="m-feature-desc">초음파 본딩 솔기로 실 마찰을 완전히 제거합니다.</p>
+          <img src="assets/icon-chevron.svg" alt="" class="m-feature-chevron">
+        </div>
+      </div>
+      <div class="m-feature-item">
+        <div class="m-feature-item-bg">
+          <img src="assets/spec-row-2.png" alt="">
+          <div class="m-feature-item-overlay"></div>
+        </div>
+        <div class="m-feature-left">
+          <span class="m-feature-data">DATA_02</span>
+          <span class="m-feature-name">NANO-COATING</span>
+        </div>
+        <div class="m-feature-right">
+          <p class="m-feature-desc">소수성 배리어가 수분을 차단하고 마찰을 방지합니다.</p>
+          <img src="assets/icon-chevron.svg" alt="" class="m-feature-chevron">
+        </div>
+      </div>
+      <div class="m-feature-item">
+        <div class="m-feature-item-bg">
+          <img src="assets/spec-row-3.png" alt="">
+          <div class="m-feature-item-overlay"></div>
+        </div>
+        <div class="m-feature-left">
+          <span class="m-feature-data">DATA_03</span>
+          <span class="m-feature-name">AERO-MESH</span>
+        </div>
+        <div class="m-feature-right">
+          <p class="m-feature-desc">타겟 환기 존이 고열 부위에 맞게 설계되었습니다.</p>
+          <img src="assets/icon-chevron.svg" alt="" class="m-feature-chevron">
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- 2. Problem Section -->
-  <section class="m-problem" id="problem">
-    <div class="m-problem-overlay"></div>
-    <div class="m-problem-inner">
-      <div class="m-problem-image">
-        <img src="assets/problem-bg.png" alt="">
-      </div>
-      <div class="m-section-label m-problem-label-top">
-        <span class="m-divider-line"></span>
-        <span class="m-label-text">01 // THE PROBLEM</span>
-      </div>
-      <div class="m-section-label m-problem-label-mid">
-        <span class="m-divider-line"></span>
-      </div>
-      <h2 class="m-problem-title">
-        DESIGNED FOR<br>
-        THE <span class="m-accent">WRONG SKIN</span>
-      </h2>
-      <p class="m-problem-desc">
-        마찰은 퍼포먼스의 적입니다. 일반 소재는 고강도 운동 중 <br>
-        피부를 자극하고, 열감을 유발하며, 움직임을 제한합니다.<br>
-      </p>
+<!-- 5. How It Works Section -->
+<section class="m-howitworks" id="how-it-works">
+  <div class="m-howitworks-bg" style="background-image: url('assets/howitworks-bg.png')"></div>
+  <div class="m-howitworks-overlay"></div>
+  <div class="m-howitworks-inner">
+    <div class="m-section-label">
+      <span class="m-divider-line"></span>
+      <span class="m-label-text m-accent">04 // DEPLOYMENT SEQUENCE</span>
     </div>
-  </section>
+    <div class="m-phases-grid">
+      <div class="m-phase-card" id="phase-scan">
+        <div class="m-phase-card-bg">
+          <img src="assets/phase-1.png" alt="">
+          <div class="m-phase-card-overlay"></div>
+        </div>
+        <span class="m-phase-number">PHASE // 1</span>
+        <div class="m-phase-bottom">
+          <h3 class="m-phase-title">SCAN</h3>
+          <p class="m-phase-desc">마찰 부위를 파악합니다.</p>
+        </div>
+      </div>
+      <div class="m-phase-card" id="phase-analyze">
+        <div class="m-phase-card-bg">
+          <img src="assets/phase-2.png" alt="">
+          <div class="m-phase-card-overlay"></div>
+        </div>
+        <span class="m-phase-number">PHASE // 2</span>
+        <div class="m-phase-bottom">
+          <h3 class="m-phase-title">ANALYZE</h3>
+          <p class="m-phase-desc">최적의 핏을 계산합니다.</p>
+        </div>
+      </div>
+      <div class="m-phase-card" id="phase-deploy">
+        <div class="m-phase-card-bg">
+          <img src="assets/phase-3.png" alt="">
+          <div class="m-phase-card-overlay"></div>
+        </div>
+        <span class="m-phase-number">PHASE // 3</span>
+        <div class="m-phase-bottom">
+          <h3 class="m-phase-title">DEPLOY</h3>
+          <p class="m-phase-desc">퍼포먼스 기어를 완성합니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- 3. Solution Section -->
-  <section class="m-solution" id="solution">
-    <div class="m-solution-bg">
-      <div class="m-solution-gradient"></div>
-    </div>
-    <div class="m-solution-inner">
-      <div class="m-section-label">
-        <span class="m-divider-line"></span>
-        <span class="m-label-text m-accent">02 // THE SOLUTION</span>
-      </div>
-      <div class="m-solution-grid">
-        <div class="m-solution-image">
-          <div class="m-solution-image-frame">
-            <img src="assets/skin-texture.png" alt="Skin texture analysis">
-            <div class="m-solution-desat"></div>
-          </div>
-          <div class="m-solution-badge">
-            <span class="m-badge-dot"></span>
-            <span class="m-badge-text">PROTOCOL ACTIVE</span>
-          </div>
-        </div>
-        <div class="m-solution-content">
-          <h2 class="m-solution-title">
-            THE <span class="m-accent">FRICTION</span> PROTOCOL
-          </h2>
-          <p class="m-solution-desc">
-            마찰은 퍼포먼스의 적입니다. 일반 소재는 격렬한 움직임 속에서 피부를 긁고, 자극하고, 당신의 한계를 끌어내립니다.
-            땀이 차고, 소재가 쓸리고, 집중해야 할 순간에 피부가 먼저 무너집니다.
-            그 불편함에 익숙해질 필요 없습니다.
-            PATCH ME는 다릅니다. 피부가 가장 민감한 사람을 기준으로 설계된 퍼포먼스 웨어 마찰 없이, 자극
-            없이, 오직 움직임만 남습니다.
-          </p>
-          <div class="m-solution-specs">
-            <div class="m-spec-row m-spec-row-active">
-              <span class="m-spec-label">01. MICRO-ABRASION</span>
-              <span class="m-spec-desc">마이크로 구조로 인한 피부 자극을 정확히 겨냥합니다.</span>
-            </div>
-            <div class="m-spec-row">
-              <span class="m-spec-label">02. THERMAL TRAP</span>
-              <span class="m-spec-desc">갇힌 열로 인한 피부 손상 메커니즘을 차단합니다.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- 6. CTA Section -->
+<section class="m-cta" id="cta">
+  <div class="m-cta-bg">
+    <img src="assets/cta-bg.png" alt="">
+    <div class="m-cta-overlay"></div>
+  </div>
+  <div class="m-cta-inner">
+    <h2 class="m-cta-title">READY FOR DEPLOYMENT?</h2>
+    <a href="#" class="m-cta-btn">GET THE GEAR</a>
+  </div>
+</section>
 
-  <!-- 4. Features Section -->
-  <section class="m-features" id="features">
-<!--    <div class="m-features-bg">-->
-<!--      <div class="m-features-gradient"></div>-->
-<!--    </div>-->
-    <div class="m-features-inner">
-      <div class="m-features-header">
-        <div class="m-features-header-left">
-          <div class="m-section-label">
-            <span class="m-divider-line"></span>
-            <span class="m-label-text">03 // CORE TECHNOLOGY</span>
-          </div>
-          <h2 class="m-features-title">
-            SYSTEM<br>SPECIFICATIONS
-          </h2>
-        </div>
-        <a href="#" class="m-view-all">
-          <span>VIEW ALL SPECS</span>
-          <img src="assets/icon-arrow.svg" alt="">
-        </a>
+<!-- Footer -->
+<footer class="m-footer" id="m-footer">
+  <div class="m-footer-inner">
+    <div class="m-footer-brand">
+      <div class="m-footer-logo-text">
+        <span class="m-footer-patch">PATCH</span>
+        <span class="m-footer-me">ME</span>
       </div>
-      <div class="m-features-list">
-        <div class="m-feature-item">
-          <div class="m-feature-item-bg">
-            <img src="assets/spec-row-1.png" alt="">
-            <div class="m-feature-item-overlay"></div>
-          </div>
-          <div class="m-feature-left">
-            <span class="m-feature-data">DATA_01</span>
-            <span class="m-feature-name">SEAMLESS WELDING</span>
-          </div>
-          <div class="m-feature-right">
-            <p class="m-feature-desc">초음파 본딩 솔기로 실 마찰을 완전히 제거합니다.</p>
-            <img src="assets/icon-chevron.svg" alt="" class="m-feature-chevron">
-          </div>
-        </div>
-        <div class="m-feature-item">
-          <div class="m-feature-item-bg">
-            <img src="assets/spec-row-2.png" alt="">
-            <div class="m-feature-item-overlay"></div>
-          </div>
-          <div class="m-feature-left">
-            <span class="m-feature-data">DATA_02</span>
-            <span class="m-feature-name">NANO-COATING</span>
-          </div>
-          <div class="m-feature-right">
-            <p class="m-feature-desc">소수성 배리어가 수분을 차단하고 마찰을 방지합니다.</p>
-            <img src="assets/icon-chevron.svg" alt="" class="m-feature-chevron">
-          </div>
-        </div>
-        <div class="m-feature-item">
-          <div class="m-feature-item-bg">
-            <img src="assets/spec-row-3.png" alt="">
-            <div class="m-feature-item-overlay"></div>
-          </div>
-          <div class="m-feature-left">
-            <span class="m-feature-data">DATA_03</span>
-            <span class="m-feature-name">AERO-MESH</span>
-          </div>
-          <div class="m-feature-right">
-            <p class="m-feature-desc">타겟 환기 존이 고열 부위에 맞게 설계되었습니다.</p>
-            <img src="assets/icon-chevron.svg" alt="" class="m-feature-chevron">
-          </div>
-        </div>
+      <span class="m-footer-copy">© 2026 PATCH ME. ENGINEERED FOR SUPREMACY.</span>
+    </div>
+    <div class="m-footer-links">
+      <div class="m-footer-col">
+        <a href="#" class="m-footer-link">PRIVACY PROTOCOL</a>
+        <a href="#" class="m-footer-link">TECHNICAL SUPPORT</a>
+      </div>
+      <div class="m-footer-col">
+        <a href="#" class="m-footer-link">GLOBAL DISTRIBUTION</a>
+        <a href="#" class="m-footer-link">PRESS KIT</a>
       </div>
     </div>
-  </section>
+  </div>
+</footer>
 
-  <!-- 5. How It Works Section -->
-  <section class="m-howitworks" id="how-it-works">
-    <div class="m-howitworks-bg" style="background-image: url('assets/howitworks-bg.png')"></div>
-    <div class="m-howitworks-overlay"></div>
-    <div class="m-howitworks-inner">
-      <div class="m-section-label">
-        <span class="m-divider-line"></span>
-        <span class="m-label-text m-accent">04 // DEPLOYMENT SEQUENCE</span>
-      </div>
-      <div class="m-phases-grid">
-        <div class="m-phase-card" id="phase-scan">
-          <div class="m-phase-card-bg">
-            <img src="assets/phase-1.png" alt="">
-            <div class="m-phase-card-overlay"></div>
-          </div>
-          <span class="m-phase-number">PHASE // 1</span>
-          <div class="m-phase-bottom">
-            <h3 class="m-phase-title">SCAN</h3>
-            <p class="m-phase-desc">마찰 부위를 파악합니다.</p>
-          </div>
-        </div>
-        <div class="m-phase-card" id="phase-analyze">
-          <div class="m-phase-card-bg">
-            <img src="assets/phase-2.png" alt="">
-            <div class="m-phase-card-overlay"></div>
-          </div>
-          <span class="m-phase-number">PHASE // 2</span>
-          <div class="m-phase-bottom">
-            <h3 class="m-phase-title">ANALYZE</h3>
-            <p class="m-phase-desc">최적의 핏을 계산합니다.</p>
-          </div>
-        </div>
-        <div class="m-phase-card" id="phase-deploy">
-          <div class="m-phase-card-bg">
-            <img src="assets/phase-3.png" alt="">
-            <div class="m-phase-card-overlay"></div>
-          </div>
-          <span class="m-phase-number">PHASE // 3</span>
-          <div class="m-phase-bottom">
-            <h3 class="m-phase-title">DEPLOY</h3>
-            <p class="m-phase-desc">퍼포먼스 기어를 완성합니다.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. CTA Section -->
-  <section class="m-cta" id="cta">
-    <div class="m-cta-bg">
-      <img src="assets/cta-bg.png" alt="">
-      <div class="m-cta-overlay"></div>
-    </div>
-    <div class="m-cta-inner">
-      <h2 class="m-cta-title">READY FOR DEPLOYMENT?</h2>
-      <a href="#" class="m-cta-btn">GET THE GEAR</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="m-footer" id="m-footer">
-    <div class="m-footer-inner">
-      <div class="m-footer-brand">
-        <div class="m-footer-logo-text">
-          <span class="m-footer-patch">PATCH</span>
-          <span class="m-footer-me">ME</span>
-        </div>
-        <span class="m-footer-copy">© 2026 PATCH ME. ENGINEERED FOR SUPREMACY.</span>
-      </div>
-      <div class="m-footer-links">
-        <div class="m-footer-col">
-          <a href="#" class="m-footer-link">PRIVACY PROTOCOL</a>
-          <a href="#" class="m-footer-link">TECHNICAL SUPPORT</a>
-        </div>
-        <div class="m-footer-col">
-          <a href="#" class="m-footer-link">GLOBAL DISTRIBUTION</a>
-          <a href="#" class="m-footer-link">PRESS KIT</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,645 @@
+/* ============================================
+   PATCH ME // Product Page Styles (product.css)
+   ============================================ */
+
+/* ============================================
+   1. HERO SECTION
+   ============================================ */
+.p-hero {
+  position: relative;
+  min-height: 1080px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.p-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.p-hero-bg img {
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  position: absolute;
+  top: -10%;
+  left: 0;
+}
+
+.p-hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0) 50%, #0a0a0a 100%);
+}
+
+.p-hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.p-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+}
+
+.p-hero-content .m-section-label {
+  margin-bottom: 16px;
+}
+
+.p-hero-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 64px;
+  letter-spacing: -3.2px;
+  text-transform: uppercase;
+  color: #f5f4f0;
+  line-height: 1;
+}
+
+.p-hero-desc {
+  font-family: var(--font-korean);
+  font-weight: 400;
+  font-size: 14px;
+  color: #888780;
+  letter-spacing: 0.5px;
+  line-height: 22.75px;
+  margin-top: 16px;
+}
+
+.p-hero-cta {
+  margin-top: 48px;
+}
+
+.p-cta-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-korean);
+  font-weight: 400;
+  font-size: 16px;
+  color: #e5e2e1;
+  transition: all 0.3s ease;
+}
+
+.p-cta-btn:hover {
+  color: #3dffd0;
+  transform: translateY(4px);
+}
+
+.p-cta-arrow {
+  font-size: 20px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+/* ============================================
+   2. PROBLEM SECTION
+   ============================================ */
+.p-problem {
+  padding: 128px 24px;
+  background-color: #0a0a0a;
+  position: relative;
+}
+
+.p-problem-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.p-problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 96px;
+  align-items: center;
+}
+
+.p-problem-subtitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #e5e2e1;
+  display: block;
+  margin-bottom: 24px;
+}
+
+.p-problem-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 36px;
+  color: #3dffd0;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.p-problem-desc p {
+  font-family: var(--font-korean);
+  font-size: 14px;
+  color: #888780;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+}
+
+.p-irritation-badge {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  background: #131313;
+  border: 1px solid #242424;
+  padding: 13px;
+  border-radius: 2px;
+  margin-top: 32px;
+}
+
+.p-badge-label {
+  font-family: var(--font-display);
+  font-size: 10px;
+  color: #ffb4ab;
+  letter-spacing: 3px;
+}
+
+.p-badge-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  color: #f5f4f0;
+  letter-spacing: 2px;
+}
+
+.p-problem-visual {
+  position: relative;
+}
+
+.p-problem-image-frame {
+  position: relative;
+  border: 1px solid #2e2e2e;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+}
+
+.p-problem-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.p-problem-image-frame:hover img {
+  transform: scale(1.05);
+}
+
+.p-visual-crosshair {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 20px;
+  height: 20px;
+  background: url('assets/icon-crosshair.svg') no-repeat center center;
+  background-size: contain;
+}
+
+/* ============================================
+   3. SOLUTION (3 STEPS) SECTION
+   ============================================ */
+.p-steps {
+  padding: 128px 24px;
+  background: #111;
+  border-top: 1px solid #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.p-steps-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.p-steps-header {
+  text-align: center;
+  margin-bottom: 96px;
+}
+
+.p-steps-subtitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #e5e2e1;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.p-steps-title {
+  font-family: var(--font-display);
+  font-size: 36px;
+  color: #f5f4f0;
+  text-transform: uppercase;
+}
+
+.p-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+
+.p-step-card {
+  position: relative;
+}
+
+.p-step-number {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 36px;
+  color: #3dffd0;
+  position: absolute;
+  top: -28px;
+  left: 0;
+  letter-spacing: -1px;
+  z-index: 999;
+}
+
+.p-step-image {
+  background: #0a0a0a;
+  border: 1px solid #242424;
+  border-radius: 8px;
+  padding: 1px;
+  height: 376px;
+  overflow: hidden;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.p-step-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: luminosity;
+  opacity: 0.8;
+  transition: all 0.5s ease;
+}
+
+.p-step-card:hover .p-step-image img {
+  mix-blend-mode: normal;
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.p-step-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.p-step-title {
+  font-family: var(--font-korean);
+  font-weight: 600;
+  font-size: 24px;
+  color: #f5f4f0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.p-step-en {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 14px;
+  color: #888780;
+}
+
+.p-step-desc {
+  font-family: var(--font-korean);
+  font-size: 14px;
+  color: #888780;
+  line-height: 1.6;
+}
+
+/* ============================================
+   4. CORE SPECS SECTION
+   ============================================ */
+.p-specs {
+  padding: 128px 24px;
+  background: #0a0a0a;
+}
+
+.p-specs-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.p-specs-header {
+  text-align: center;
+  margin-bottom: 96px;
+}
+
+.p-specs-subtitle {
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: #e5e2e1;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.p-specs-title {
+  font-family: var(--font-display);
+  font-size: 36px;
+  color: #f5f4f0;
+  text-transform: uppercase;
+}
+
+.p-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.p-bento-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.p-bento-image {
+  background: #131313;
+  border: 1px solid #1a1a1a;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  padding: 1px;
+}
+
+.p-bento-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.p-bento-item:hover .p-bento-image img {
+  transform: scale(1.05);
+}
+
+.bento-1 .p-bento-image { height: 220px; }
+.bento-2 .p-bento-image { height: 220px; }
+.bento-3 .p-bento-image { height: 251px; border: none; background: transparent; }
+.bento-3 .p-bento-image img { border: 1px solid #1a1a1a; border-radius: 4px; }
+
+.p-bento-tint {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.1);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.p-bento-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: #3dffd0;
+  letter-spacing: 1px;
+}
+
+.p-bento-title.text-light {
+  color: #f5f4f0;
+}
+
+.p-bento-desc {
+  font-family: var(--font-korean);
+  font-weight: 500;
+  font-size: 14px;
+  color: #888780;
+}
+
+/* ============================================
+   5. IN ACTION SECTION
+   ============================================ */
+.p-action {
+  height: 570px;
+  background: #0a0a0a;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.p-action-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(61,255,208,0.1) 0%, transparent 60%);
+}
+
+.p-action-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 768px;
+  padding: 0 24px;
+}
+
+.p-action-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.p-quote-icon {
+  font-family: var(--font-display);
+  font-size: 48px;
+  color: #3dffd0;
+  line-height: 1;
+  opacity: 0.5;
+}
+
+.p-action-title {
+  font-family: var(--font-display);
+  font-size: 36px;
+  color: #f5f4f0;
+  text-transform: uppercase;
+}
+
+.p-testimonial-card {
+  background: rgba(19,19,19,0.8);
+  backdrop-filter: blur(2px);
+  border: 1px solid #2e2e2e;
+  border-radius: 8px;
+  padding: 73px 49px 49px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.p-quote-text {
+  font-family: var(--font-korean);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 14px;
+  color: #888780;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.p-quote-highlight {
+  font-family: var(--font-korean);
+  font-weight: 500;
+  font-size: 14px;
+  color: #3dffd0;
+  letter-spacing: 0.5px;
+}
+
+.p-testimonial-footer {
+  border-top: 1px solid #242424;
+  padding-top: 17px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.p-log-badge {
+  width: 40px;
+  height: 40px;
+  background: #0a0a0a;
+  border: 1px solid #2e2e2e;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 10px;
+  color: #888780;
+}
+
+.p-log-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 10px;
+  color: #888780;
+  letter-spacing: 3px;
+}
+
+.p-testimonial-accent {
+  position: absolute;
+  left: 0;
+  top: 24px;
+  bottom: 24px;
+  width: 8px;
+  background: #3dffd0;
+  opacity: 0.8;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+/* ============================================
+   6. CTA SECTION
+   ============================================ */
+.p-cta {
+  height: 800px;
+}
+
+.p-cta .m-cta-bg img {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  object-position: center center;
+}
+
+.p-cta-subtitle {
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: #e5e2e1;
+  margin-bottom: 24px;
+}
+
+.p-cta-title {
+  font-family: var(--font-display);
+  font-size: 36px;
+  color: #f5f4f0;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.p-cta-desc {
+  font-family: var(--font-korean);
+  font-size: 14px;
+  color: #888780;
+  text-align: center;
+  line-height: 1.6;
+  max-width: 470px;
+  margin-bottom: 48px;
+}
+
+.p-btn-primary {
+  display: inline-block;
+  background: #3dffd0;
+  color: #0a0a0a;
+  font-family: var(--font-korean);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 16px 32px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.p-btn-primary:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(61,255,208,0.4);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .p-problem-grid { gap: 48px; }
+  .p-steps-grid { gap: 24px; }
+  .p-bento-grid { gap: 16px; }
+}
+
+@media (max-width: 768px) {
+  .p-hero { min-height: 80vh; }
+  .p-hero-title { font-size: 48px; }
+
+  .p-problem-grid { grid-template-columns: 1fr; gap: 40px; }
+
+  .p-steps-grid { grid-template-columns: 1fr; }
+  .p-step-image { height: 250px; }
+
+  .p-bento-grid { grid-template-columns: 1fr; }
+  .bento-1 .p-bento-image, .bento-2 .p-bento-image, .bento-3 .p-bento-image { height: 200px; }
+
+  .p-action { height: auto; padding: 80px 0; }
+  .p-testimonial-card { padding: 40px 30px; }
+}
+
+@media (max-width: 480px) {
+  .p-hero-title { font-size: 32px; }
+  .p-hero-desc { font-size: 13px; }
+  .p-problem-title { font-size: 28px; }
+  .p-steps-title { font-size: 28px; }
+  .p-specs-title { font-size: 28px; }
+  .p-action-title { font-size: 28px; }
+}
