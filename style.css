@@ -20,7 +20,7 @@
   --font-body: 'Space Grotesk', sans-serif;
   --font-korean: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 
-  --max-width: 1920px;
+  --max-width: 1280px;
   --nav-height: 80px;
 }
 
@@ -172,22 +172,21 @@ a {
 .hero-bg {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 1920px;
-  height: 1080px;
+  left: -98px;
+  width: 1390px;
+  height: 776px;
 }
 
 .hero-bg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 50%;
 }
 
 .hero-bg-overlay {
   position: absolute;
   inset: 0;
-  /*background: rgba(171, 171, 171, 0.3);*/
+  background: rgba(171, 171, 171, 0.3);
 }
 
 .hero-gradient-bottom {
