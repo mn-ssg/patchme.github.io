@@ -3,202 +3,192 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="PATCH ME - A performance wear team built for people who refuse to sit out. Technical gear division redefining human mobility.">
-  <title>PATCH ME // CORE SQUAD - Team</title>
+  <meta name="description" content="PATCH ME Core Squad - A performance wear team built for people who refuse to sit out.">
+  <title>PATCH ME // CORE SQUAD</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="team.css">
 </head>
 <body>
 
-  <!-- Top Navigation Bar -->
-  <div class="mobile-overlay" id="mobile-overlay"></div>
-  <nav class="top-nav" id="top-nav">
-    <a href="index.html" class="nav-logo">
-      <img src="assets/logo.png" alt="PATCH ME Logo">
-    </a>
-    <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-    </button>
-    <div class="nav-menu" id="nav-menu">
-      <div class="nav-links">
-        <a href="team.html" class="nav-link active">TEAM</a>
-        <a href="#mission" class="nav-link">MISSION</a>
-        <a href="index.html#features" class="nav-link">GEAR</a>
-        <a href="index.html#how-it-works" class="nav-link">LAB</a>
-      </div>
-      <a href="index.html#cta" class="btn-join" id="btn-join-squad">JOIN SQUAD</a>
+<!-- Mobile Overlay -->
+<div class="mobile-overlay" id="mobile-overlay"></div>
+
+<!-- Top Navigation Bar — identical to index.html -->
+<nav class="top-nav" id="top-nav">
+  <div class="nav-left">
+    <a href="team.html" class="nav-link">TEAM</a>
+    <a href="product.html" class="nav-link">PRODUCT</a>
+  </div>
+  <a href="index.html" class="nav-logo">
+    <img src="assets/nav-logo.png" alt="PATCH ME">
+    <span class="nav-logo-text"><span class="nav-patch">PATCH</span><span class="nav-colon">:</span><span class="nav-me">ME</span></span>
+  </a>
+  <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+  </button>
+  <div class="nav-menu" id="nav-menu">
+    <div class="nav-links">
+      <a href="team.html" class="nav-link">TEAM</a>
+      <a href="product.html" class="nav-link">PRODUCT</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <!-- Main Content -->
-  <main class="main-content">
+<!-- ============================
+     1. HERO SECTION
+============================= -->
+<section class="t-hero" id="t-hero">
+  <div class="t-hero-bg">
+    <img src="assets/team-hero-bg.png" alt="" class="t-hero-bg-img">
+  </div>
+  <div class="t-hero-content">
+    <span class="t-hero-label">BEYOND THE SURFACE</span>
+    <h1 class="t-hero-title glitch-text" data-text="CORE SQUAD">CORE SQUAD</h1>
+    <p class="t-hero-sub">우리는 퍼포먼스의 설계자입니다. 기술적 혁신과 급진적인 원단 과학으로 인간의 움직임을 재정의합니다.</p>
+  </div>
+</section>
 
-    <!-- Hero Section -->
-    <section class="hero-section" id="hero-section">
-      <div class="hero-bg">
-        <img src="assets/hero-bg.png" alt="">
-<!--        <div class="hero-bg-overlay"></div>-->
-      </div>
-      <div class="hero-gradient-bottom"></div>
-      <div class="hero-content">
-        <span class="hero-subtitle">BEYOND THE SURFACE</span>
-        <h1 class="hero-title">PATCH ME // CORE SQUAD</h1>
-        <p class="hero-description">
-          We are the architects of performance, redefining human mobility<br>
-          through technical innovation and radical fabric science.
-        </p>
-      </div>
-    </section>
-
-    <!-- Team Introduction Section -->
-    <section class="team-intro-section" id="team-intro">
-      <div class="team-intro-images">
-        <div class="team-intro-img-1">
-          <img src="assets/member-intro-1.png" alt="Performance gear detail">
-        </div>
-        <div class="team-intro-img-2">
-          <img src="assets/member-intro-2.png" alt="Performance gear detail">
-        </div>
-      </div>
-      <div class="team-intro-text">
-        <h2 class="team-intro-heading">
-          A PERFORMANCE WEAR TEAM BUILT FOR PEOPLE<br>
-          WHO REFUSE TO SIT OUT
-        </h2>
-        <p class="team-intro-desc-mixed">
-          <span class="font-orbitron">PATCH ME</span><span class="font-pretendard">는 피부 질환을 가진 사람들이 스포츠와 일상을 마찰 없이 즐길 수 있도록 기능성 의류를 연구하고 제작하는 팀입니다.</span>
-        </p>
-        <p class="team-intro-desc-kr">
-          우리는 피부를 숨기기 위한 옷을 만들지 않습니다.<br>
-          입고 싶어서 입는 옷, 움직임을 방해하지 않는 옷,<br>
-          피부가 버틸 수 있는 옷을 만듭니다.
-        </p>
-      </div>
-      <div class="team-intro-bottom">
-        <span class="team-intro-location">BASED IN SEOUL, KOREA</span>
-        <span class="team-intro-tagline">FUNCTIONAL WEAR · FOR REAL SKIN</span>
-      </div>
-    </section>
-
-    <!-- Member Cards Section -->
-    <section class="members-section" id="members">
-      <!-- Member 1: Lee Min Seok -->
-      <div class="member-card" id="member-lee">
-        <div class="member-photo-wrapper">
-          <div class="member-photo-bg">
-            <div class="member-photo-container">
-              <img src="assets/member-lee.png" alt="Lee Min Seok">
-            </div>
-            <div class="member-photo-gradient"></div>
-          </div>
-        </div>
-        <div class="member-info">
-          <div class="member-header">
-            <h3 class="member-name">Lee Min Seok</h3>
-            <span class="member-role">BRAND & STRATEGY LEAD</span>
-          </div>
-          <div class="member-description">
-            <p>
-              <span class="font-pretendard">피부 질환 당사자로서</span><span class="font-orbitron"> PATCH ME</span><span class="font-pretendard">를 시작했습니다.</span>
-            </p>
-            <p class="font-pretendard">불편함을 당연하게 여기던 일상을 바꾸고 싶었고,</p>
-            <p class="font-pretendard">그 시작이 옷이었습니다.</p>
-            <p class="font-pretendard">브랜드의 방향과 메시지를 설계합니다.</p>
-          </div>
-          <div class="member-tags">
-            <span class="tag">[ BRANDSTRATEGY ]</span>
-            <span class="tag">[ USER RESEARCH ]</span>
-            <span class="tag">[ COMMUNICATION ]</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Member 2: Cho Hae Jin -->
-      <div class="member-card" id="member-cho">
-        <div class="member-photo-wrapper">
-          <div class="member-photo-bg">
-            <div class="member-photo-container">
-              <img src="assets/member-cho.png" alt="Cho Hae Jin">
-            </div>
-            <div class="member-photo-gradient"></div>
-          </div>
-        </div>
-        <div class="member-info">
-          <div class="member-header">
-            <h3 class="member-name">Cho Hae Jin</h3>
-            <span class="member-role">DESIGN & EXPERIENCE LEAD</span>
-          </div>
-          <div class="member-description">
-            <p class="font-pretendard">착용 경험을 처음부터 다시 설계합니다.</p>
-            <p class="font-pretendard">소재가 피부에 닿는 방식, 봉제선의 위치,</p>
-            <p class="font-pretendard">움직임에 따라 달라지는 압박감까지.</p>
-            <p class="font-pretendard">기능이 곧 디자인이라고 믿습니다.</p>
-          </div>
-          <div class="member-tags">
-            <span class="tag">[ UI/UX DESIGN ]</span>
-            <span class="tag">[ PRODUCT DESIGN ]</span>
-            <span class="tag">[ INNOVATION ]</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Mission Section -->
-    <section class="mission-section" id="mission">
-      <div class="mission-header">
-        <img src="assets/icon-mission.svg" alt="" class="mission-icon">
-        <h2 class="mission-title">OUR MISSION</h2>
-        <div class="mission-divider-wrapper">
-          <div class="mission-divider"></div>
-        </div>
-      </div>
-      <div class="mission-cards">
-        <div class="mission-card" id="card-function">
-          <div class="mission-card-icon">
-            <img src="assets/icon-function.svg" alt="">
-          </div>
-          <h4 class="mission-card-title">FUNCTION</h4>
-          <p class="mission-card-desc">피부가 견딜 수 있는 소재만을 선택해, 가장 극한의 신체 환경에서도 버티는 옷을 만듭니다.</p>
-        </div>
-        <div class="mission-card" id="card-freedom">
-          <div class="mission-card-icon">
-            <img src="assets/icon-freedom.svg" alt="">
-          </div>
-          <h4 class="mission-card-title">FREEDOM</h4>
-          <p class="mission-card-desc">봉제선 하나, 소재 한 겹까지 마찰을 제거해<br>오직 움직임에만 집중할 수 있게 합니다.</p>
-        </div>
-        <div class="mission-card" id="card-confidence">
-          <div class="mission-card-icon">
-            <img src="assets/icon-confidence.svg" alt="">
-          </div>
-          <h4 class="mission-card-title">CONFIDENCE</h4>
-          <p class="mission-card-desc">숨기기 위한 옷이 아닌, 입고 싶어서 입는 옷<br>당신의 한계를 넘게 만드는 것이 우리의 목표</p>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer" id="footer">
-    <div class="footer-logo">
-      <img src="assets/logo.png" alt="PATCH ME Logo">
+<!-- ============================
+     2. ABOUT SECTION
+============================= -->
+<section class="t-about" id="about">
+  <div class="t-about-meta t-about-meta--top">
+    <span class="t-meta-left">BASED IN SEOUL, KOREA</span>
+    <span class="t-meta-right">FUNCTIONAL WEAR · FOR REAL SKIN</span>
+  </div>
+  <div class="t-about-main">
+    <h2 class="t-about-heading">A PERFORMANCE WEAR TEAM BUILT FOR PEOPLE WHO REFUSE TO SIT OUT</h2>
+    <div class="t-about-desc">
+      <p class="t-about-p1"><span class="t-brand-name">PATCH ME</span>는 피부 질환을 가진 사람들이 스포츠와 일상을 마찰 없이 즐길 수 있도록 기능성 의류를 연구하고 제작하는 팀입니다.</p>
+      <p class="t-about-p2">우리는 피부를 숨기기 위한 옷을 만들지 않습니다.<br>입고 싶어서 입는 옷, 움직임을 방해하지 않는 옷,<br>피부가 버틸 수 있는 옷을 만듭니다.</p>
     </div>
-    <div class="footer-links">
-      <a href="#" class="footer-link">PRIVACY</a>
-      <a href="#" class="footer-link">TERMINAL</a>
-      <a href="#" class="footer-link">CONTACT</a>
-      <a href="#" class="footer-link">ARCHIVE</a>
-    </div>
-    <div class="footer-copyright">
-      © 2026 PATCH ME // TECHNICAL GEAR DIVISION
-    </div>
-  </footer>
+  </div>
+  <div class="t-about-meta t-about-meta--bottom">
+    <span class="t-meta-left">BASED IN SEOUL, KOREA</span>
+    <span class="t-meta-right">FUNCTIONAL WEAR · FOR REAL SKIN</span>
+  </div>
+</section>
 
-  <script src="script.js"></script>
+<!-- ============================
+     3. MEMBERS SECTION
+============================= -->
+<section class="t-members" id="members">
+  <!-- Member 1: Lee Min Seok -->
+  <div class="t-member-card" id="t-member-lee">
+    <div class="t-member-photo">
+      <img src="assets/member-lee.png" alt="Lee Min Seok" class="t-member-img">
+      <div class="t-member-gradient"></div>
+    </div>
+    <div class="t-member-info">
+      <div class="t-member-header">
+        <h3 class="t-member-name">Lee Min Seok</h3>
+        <span class="t-member-role">BRAND &amp; STRATEGY LEAD</span>
+      </div>
+      <div class="t-member-desc">
+        <p>피부 질환 당사자로서 PATCH ME를 시작했습니다.</p>
+        <p>불편함을 당연하게 여기던 일상을 바꾸고 싶었고,</p>
+        <p>그 시작이 옷이었습니다.</p>
+        <p>브랜드의 방향과 메시지를 설계합니다.</p>
+      </div>
+      <div class="t-member-tags">
+        <span class="t-tag">[ BRANDSTRATEGY ]</span>
+        <span class="t-tag">[ USER RESEARCH ]</span>
+        <span class="t-tag">[ COMMUNICATION ]</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Member 2: Cho Hae Jin -->
+  <div class="t-member-card" id="t-member-cho">
+    <div class="t-member-photo">
+      <img src="assets/member-cho.png" alt="Cho Hae Jin" class="t-member-img">
+      <div class="t-member-gradient"></div>
+    </div>
+    <div class="t-member-info">
+      <div class="t-member-header">
+        <h3 class="t-member-name">Cho Hae Jin</h3>
+        <span class="t-member-role">DESIGN &amp; EXPERIENCE LEAD</span>
+      </div>
+      <div class="t-member-desc">
+        <p>착용 경험을 처음부터 다시 설계합니다.</p>
+        <p>소재가 피부에 닿는 방식, 봉제선의 위치,</p>
+        <p>움직임에 따라 달라지는 압박감까지.</p>
+        <p>기능이 곧 디자인이라고 믿습니다.</p>
+      </div>
+      <div class="t-member-tags">
+        <span class="t-tag">[ UI/UX DESIGN ]</span>
+        <span class="t-tag">[ PRODUCT DESIGN ]</span>
+        <span class="t-tag">[ INNOVATION ]</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     4. MISSION SECTION
+============================= -->
+<section class="t-mission" id="mission">
+  <div class="t-mission-header">
+    <h2 class="t-mission-title">OUR MISSION</h2>
+    <div class="t-mission-frame">
+      <img src="assets/team-mission-frame.png" alt="" class="t-mission-frame-img">
+    </div>
+  </div>
+  <div class="t-mission-cards">
+    <div class="t-mission-card">
+      <div class="t-mission-icon-wrap">
+        <img src="assets/team-icon-function.png" alt="" class="t-mission-icon">
+      </div>
+      <h4 class="t-mission-card-title">FUNCTION</h4>
+      <p class="t-mission-card-desc">피부가 견딜 수 있는 소재만을 선택해, 가장 극한의 신체 환경에서도 버티는 옷을 만듭니다.</p>
+    </div>
+    <div class="t-mission-card">
+      <div class="t-mission-icon-wrap">
+        <img src="assets/team-icon-freedom.png" alt="" class="t-mission-icon">
+      </div>
+      <h4 class="t-mission-card-title">FREEDOM</h4>
+      <p class="t-mission-card-desc">봉제선 하나, 소재 한 겹까지 마찰을 제거해 오직 움직임에만 집중할 수 있게 합니다.</p>
+    </div>
+    <div class="t-mission-card">
+      <div class="t-mission-icon-wrap">
+        <img src="assets/team-icon-confidence.png" alt="" class="t-mission-icon">
+      </div>
+      <h4 class="t-mission-card-title">CONFIDENCE</h4>
+      <p class="t-mission-card-desc">숨기기 위한 옷이 아닌, 입고 싶어서 입는 옷 당신의 한계를 넘게 만드는 것이 우리의 목표</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     FOOTER — identical to index.html
+============================= -->
+<footer class="m-footer" id="m-footer">
+  <div class="m-footer-inner">
+    <div class="m-footer-brand">
+      <div class="m-footer-logo">
+        <img src="assets/footer-logo.png" alt="PATCH ME">
+      </div>
+      <span class="m-footer-copy">© 2026 PATCH ME. ENGINEERED FOR SUPREMACY.</span>
+    </div>
+    <div class="m-footer-links">
+      <div class="m-footer-col">
+        <a href="#" class="m-footer-link">PRIVACY PROTOCOL</a>
+        <a href="#" class="m-footer-link">TECHNICAL SUPPORT</a>
+      </div>
+      <div class="m-footer-col">
+        <a href="#" class="m-footer-link">GLOBAL DISTRIBUTION</a>
+        <a href="#" class="m-footer-link">PRESS KIT</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

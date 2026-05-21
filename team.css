@@ -1,0 +1,351 @@
+/* ============================================
+   PATCH ME // Team Page
+   team.css
+   ============================================ */
+
+/* ──────────────────────────────────────────
+   1. HERO
+   ────────────────────────────────────────── */
+.t-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  overflow: hidden;
+  background: #0e0e0e;
+}
+.t-hero-bg { position: absolute; inset: 0; }
+.t-hero-bg-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.75; }
+
+.t-hero-content {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  width: max-content;
+  max-width: 90vw;
+}
+
+.t-hero-label {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(12px, 1.1vw, 18px);
+  color: var(--accent);
+  letter-spacing: 2px;
+  text-align: left;
+  margin-bottom: 6px;
+}
+.t-hero-title {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 64px);
+  color: white;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  margin-bottom: clamp(16px, 2vw, 40px);
+}
+.t-hero-sub {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(12px, 0.9vw, 16px);
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  line-height: 1.6;
+  white-space: normal;
+  max-width: min(700px, 80vw);
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ──────────────────────────────────────────
+   2. ABOUT
+   ────────────────────────────────────────── */
+.t-about {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  background: #0e0e0e;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(32px, 4.3vw, 83px) clamp(64px, 8.5vw, 160px);
+  overflow: hidden;
+}
+
+.t-about-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+.t-meta-left,
+.t-meta-right {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(10px, 0.8vw, 14px);
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.t-about-main {
+  display: flex;
+  align-items: center;
+  gap: clamp(32px, 9vw, 172px);
+  flex: 1;
+  padding: clamp(24px, 3vw, 48px) 0;
+}
+
+.t-about-heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(22px, 3.8vw, 64px);
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.9px;
+  line-height: 1;
+  flex: 0 0 clamp(280px, 53vw, 1018px);
+}
+
+.t-about-desc {
+  flex: 1;
+  max-width: 572px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2vw, 36px);
+}
+.t-about-p1,
+.t-about-p2 {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(12px, 0.9vw, 16px);
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  line-height: 1.5;
+}
+.t-brand-name { font-family: var(--font-display); font-weight: 400; }
+
+/* ──────────────────────────────────────────
+   3. MEMBERS
+   ────────────────────────────────────────── */
+.t-members {
+  display: flex;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.t-member-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(12px, 1.9vw, 36px);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.t-member-card.is-visible { opacity: 1; transform: translateY(0); }
+
+.t-member-photo {
+  position: relative;
+  background: #201f1f;
+  height: clamp(320px, 47vw, 832px);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.t-member-img {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(92%, 774px);
+  height: min(92%, 774px);
+  object-fit: cover;
+  opacity: 0.8;
+}
+.t-member-gradient {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, #0e0e0e 0%, rgba(14,14,14,0) 50%);
+}
+
+.t-member-info {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2.5vw, 36px);
+  padding: clamp(24px, 3vw, 60px) clamp(20px, 3vw, 60px);
+}
+.t-member-header {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6px, 0.7vw, 12px);
+}
+.t-member-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(16px, 1.7vw, 28px);
+  color: white;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+.t-member-role {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(10px, 0.8vw, 14px);
+  color: var(--accent);
+  letter-spacing: 2.7px;
+  text-transform: uppercase;
+}
+.t-member-desc {
+  display: flex;
+  flex-direction: column;
+}
+.t-member-desc p {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(12px, 0.9vw, 16px);
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  line-height: 1.5;
+}
+.t-member-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(6px, 0.6vw, 12px);
+  padding-top: clamp(12px, 1.5vw, 24px);
+}
+.t-tag {
+  display: inline-flex;
+  align-items: center;
+  background: #007065;
+  color: #9cf2e4;
+  font-family: var(--font-display);
+  font-weight: 350;
+  font-size: clamp(9px, 0.78vw, 15px);
+  letter-spacing: 2.7px;
+  padding: 6px 18px;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+/* ──────────────────────────────────────────
+   4. MISSION
+   ────────────────────────────────────────── */
+.t-mission {
+  position: relative;
+  background: var(--bg);
+  overflow: hidden;
+  padding-bottom: clamp(40px, 5vw, 80px);
+}
+
+.t-mission-header {
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 3vw, 48px);
+  padding: clamp(60px, 8.3vw, 160px) clamp(64px, 8.5vw, 160px) clamp(32px, 4vw, 80px);
+  overflow: hidden;
+}
+.t-mission-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(18px, 2.3vw, 44px);
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.t-mission-frame {
+  flex: 1;
+  height: clamp(32px, 3.8vw, 72px);
+  overflow: hidden;
+}
+.t-mission-frame-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: left center;
+  opacity: 0.85;
+}
+
+.t-mission-cards {
+  display: flex;
+  gap: clamp(8px, 1.9vw, 36px);
+  padding: 0 clamp(64px, 8.5vw, 160px);
+}
+.t-mission-card {
+  flex: 1;
+  background: #131313;
+  padding: clamp(20px, 2.5vw, 48px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 1.5vw, 24px);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.t-mission-card.is-visible { opacity: 1; transform: translateY(0); }
+
+.t-mission-icon-wrap { padding-bottom: clamp(4px, 0.6vw, 12px); }
+.t-mission-icon { height: clamp(18px, 1.6vw, 30px); width: auto; display: block; }
+
+.t-mission-card-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(14px, 1.5vw, 26px);
+  color: white;
+  letter-spacing: 0;
+}
+.t-mission-card-desc {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(12px, 0.9vw, 16px);
+  color: var(--text-muted);
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+}
+
+/* ──────────────────────────────────────────
+   RESPONSIVE — TABLET (≤1024px)
+   ────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .t-about { height: auto; min-height: 100vh; }
+  .t-about-main { flex-direction: column; gap: 32px; padding: 40px 0; }
+  .t-about-heading { flex: none; width: 100%; font-size: clamp(20px, 3.5vw, 48px); }
+  .t-about-desc { max-width: 100%; }
+
+  .t-members { flex-direction: column; }
+  .t-member-card { flex: none; }
+  .t-member-photo { height: clamp(280px, 60vw, 600px); }
+
+  .t-mission-cards { flex-direction: column; gap: 16px; }
+}
+
+/* ──────────────────────────────────────────
+   RESPONSIVE — MOBILE (≤768px)
+   ────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .t-hero { min-height: 100svh; }
+  .t-hero-content { width: 90vw; text-align: center; }
+  .t-hero-title { font-size: clamp(26px, 8vw, 48px); white-space: normal; }
+  .t-hero-label { text-align: center; font-size: 13px; }
+  .t-hero-sub { font-size: 14px; }
+
+  .t-about { padding: 40px 48px; min-height: 100svh; height: auto; }
+  .t-about-meta--bottom { display: none; }
+  .t-meta-left, .t-meta-right { font-size: 10px; }
+  .t-about-heading { font-size: clamp(20px, 5.5vw, 36px); line-height: 1.1; }
+  .t-about-p1, .t-about-p2 { font-size: 14px; }
+
+  .t-member-photo { height: clamp(260px, 75vw, 480px); }
+  .t-member-name { font-size: 18px; }
+  .t-member-role { font-size: 11px; letter-spacing: 2px; }
+  .t-member-desc p { font-size: 14px; }
+  .t-tag { font-size: 10px; padding: 5px 12px; letter-spacing: 2px; }
+
+  .t-mission-header { flex-direction: column; align-items: flex-start; gap: 12px; padding: 48px 48px 24px; }
+  .t-mission-frame { width: 100%; }
+  .t-mission-cards { padding: 0 48px; flex-direction: column; gap: 12px; }
+  .t-mission-card-title { font-size: 16px; }
+  .t-mission-card-desc { font-size: 14px; }
+}

@@ -3,13 +3,14 @@
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+
   // --- Mobile Menu Toggle ---
   const hamburger = document.getElementById('hamburger-btn');
   const navMenu = document.getElementById('nav-menu');
   const overlay = document.getElementById('mobile-overlay');
-  const navLinksInMenu = navMenu.querySelectorAll('.nav-link');
 
   function openMenu() {
+    if (!hamburger || !navMenu || !overlay) return;
     hamburger.classList.add('is-active');
     hamburger.setAttribute('aria-expanded', 'true');
     navMenu.classList.add('is-open');
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function closeMenu() {
+    if (!hamburger || !navMenu || !overlay) return;
     hamburger.classList.remove('is-active');
     hamburger.setAttribute('aria-expanded', 'false');
     navMenu.classList.remove('is-open');
@@ -25,18 +27,16 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   }
 
-  hamburger.addEventListener('click', () => {
-    navMenu.classList.contains('is-open') ? closeMenu() : openMenu();
-  });
-  overlay.addEventListener('click', closeMenu);
-  navLinksInMenu.forEach(link => {
-    link.addEventListener('click', () => { if (window.innerWidth <= 768) closeMenu(); });
+  if (hamburger) hamburger.addEventListener('click', () => navMenu.classList.contains('is-open') ? closeMenu() : openMenu());
+  if (overlay) overlay.addEventListener('click', closeMenu);
+  if (navMenu) navMenu.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => { if (window.innerWidth <= 1024) closeMenu(); });
   });
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 768 && navMenu.classList.contains('is-open')) closeMenu();
+    if (window.innerWidth > 1024 && navMenu && navMenu.classList.contains('is-open')) closeMenu();
   });
 
-  // --- Intersection Observer for scroll reveals ---
+  // --- Shared reveal observer ---
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -44,64 +44,39 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { root: null, rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
+  }, { rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
 
-  // Observe all elements with reveal classes
   document.querySelectorAll('.m-reveal, .m-reveal-left, .m-reveal-right, .m-reveal-scale, .animate-on-scroll').forEach(el => {
     revealObserver.observe(el);
   });
 
   // --- MAIN PAGE ANIMATIONS ---
-  const isMainPage = document.querySelector('.m-hero');
+  if (document.querySelector('.m-hero')) {
 
-  if (isMainPage) {
-    // 1. Hero section staggered reveals
-    const heroLabel = document.querySelector('.m-hero-content .m-section-label');
+    // 1. Hero
     const heroTitle = document.querySelector('.m-hero-title');
-    const heroDesc = document.querySelector('.m-hero-desc');
-    const heroCta = document.querySelector('.m-hero-cta');
-    const heroImage = document.querySelector('.m-hero-image');
-
-    [heroLabel, heroTitle, heroDesc, heroCta].forEach((el, i) => {
+    const heroSubtitle = document.querySelector('.m-hero-subtitle');
+    const heroBottom = document.querySelector('.m-hero-bottom');
+    [heroTitle, heroSubtitle].forEach((el, i) => {
       if (el) { el.classList.add('m-reveal', `m-delay-${i + 1}`); revealObserver.observe(el); }
     });
-    if (heroImage) { heroImage.classList.add('m-reveal-left'); revealObserver.observe(heroImage); }
+    if (heroBottom) { heroBottom.classList.add('m-reveal', 'm-delay-3'); revealObserver.observe(heroBottom); }
 
-    // 2. Problem section
-    const problemImage = document.querySelector('.m-problem-image');
+    // 2. Problem title
     const problemTitle = document.querySelector('.m-problem-title');
-    const problemDesc = document.querySelector('.m-problem-desc');
-    if (problemImage) { problemImage.classList.add('m-reveal-left'); revealObserver.observe(problemImage); }
-    if (problemTitle) { problemTitle.classList.add('m-reveal', 'm-delay-2'); revealObserver.observe(problemTitle); }
-    if (problemDesc) { problemDesc.classList.add('m-reveal-right', 'm-delay-3'); revealObserver.observe(problemDesc); }
+    if (problemTitle) { problemTitle.classList.add('m-reveal', 'm-delay-1'); revealObserver.observe(problemTitle); }
 
-    // 3. Solution section
-    const solutionLabel = document.querySelector('.m-solution .m-section-label');
-    const solutionImage = document.querySelector('.m-solution-image');
+    // 3. Solution
     const solutionTitle = document.querySelector('.m-solution-title');
-    const solutionDesc = document.querySelector('.m-solution-desc');
-    const specRows = document.querySelectorAll('.m-spec-row');
-    if (solutionLabel) { solutionLabel.classList.add('m-reveal'); revealObserver.observe(solutionLabel); }
-    if (solutionImage) { solutionImage.classList.add('m-reveal-scale'); revealObserver.observe(solutionImage); }
-    if (solutionTitle) { solutionTitle.classList.add('m-reveal', 'm-delay-2'); revealObserver.observe(solutionTitle); }
-    if (solutionDesc) { solutionDesc.classList.add('m-reveal', 'm-delay-3'); revealObserver.observe(solutionDesc); }
-    specRows.forEach((row, i) => {
-      row.classList.add('m-reveal', `m-delay-${i + 4}`);
-      revealObserver.observe(row);
-    });
+    const solutionBottom = document.querySelector('.m-solution-bottom');
+    if (solutionTitle) { solutionTitle.classList.add('m-reveal', 'm-delay-1'); revealObserver.observe(solutionTitle); }
+    if (solutionBottom) { solutionBottom.classList.add('m-reveal', 'm-delay-2'); revealObserver.observe(solutionBottom); }
 
-    // Add scanline to solution image
-    const solutionFrame = document.querySelector('.m-solution-image-frame');
-    if (solutionFrame) solutionFrame.classList.add('m-scanline');
-
-    // 4. Features section
-    const featuresLabel = document.querySelector('.m-features .m-section-label');
+    // 4. Features title
     const featuresTitle = document.querySelector('.m-features-title');
-    const featureItems = document.querySelectorAll('.m-feature-item');
-    if (featuresLabel) { featuresLabel.classList.add('m-reveal'); revealObserver.observe(featuresLabel); }
-    if (featuresTitle) { featuresTitle.classList.add('m-reveal', 'm-delay-2'); revealObserver.observe(featuresTitle); }
+    if (featuresTitle) { featuresTitle.classList.add('m-reveal', 'm-delay-1'); revealObserver.observe(featuresTitle); }
 
-    // Feature items with staggered observer
+    // Feature items staggered
     const featureObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -109,17 +84,13 @@ document.addEventListener('DOMContentLoaded', () => {
           featureObserver.unobserve(entry.target);
         }
       });
-    }, { rootMargin: '0px 0px -40px 0px', threshold: 0.1 });
-    featureItems.forEach((item, i) => {
+    }, { rootMargin: '0px 0px -40px 0px', threshold: 0.05 });
+    document.querySelectorAll('.m-feature-item').forEach((item, i) => {
       item.style.transitionDelay = `${i * 0.15}s`;
       featureObserver.observe(item);
     });
 
     // 5. Phase cards staggered
-    const phaseLabel = document.querySelector('.m-howitworks .m-section-label');
-    const phaseCards = document.querySelectorAll('.m-phase-card');
-    if (phaseLabel) { phaseLabel.classList.add('m-reveal'); revealObserver.observe(phaseLabel); }
-
     const phaseObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -127,120 +98,201 @@ document.addEventListener('DOMContentLoaded', () => {
           phaseObserver.unobserve(entry.target);
         }
       });
-    }, { rootMargin: '0px 0px -40px 0px', threshold: 0.1 });
-    phaseCards.forEach((card, i) => {
+    }, { rootMargin: '0px 0px -40px 0px', threshold: 0.05 });
+    document.querySelectorAll('.m-phase-card').forEach((card, i) => {
       card.style.transitionDelay = `${i * 0.2}s`;
       phaseObserver.observe(card);
     });
 
-    // 6. CTA section
+    // 6. CTA
     const ctaTitle = document.querySelector('.m-cta-title');
-    const ctaBtn = document.querySelector('.m-cta-btn');
     if (ctaTitle) { ctaTitle.classList.add('m-reveal'); revealObserver.observe(ctaTitle); }
-    if (ctaBtn) { ctaBtn.classList.add('m-reveal', 'm-delay-2'); revealObserver.observe(ctaBtn); }
+  }
 
-    // --- GLITCH EFFECT on hero title ---
-    if (heroTitle) {
-      heroTitle.setAttribute('data-text', heroTitle.textContent);
-      heroTitle.classList.add('glitch-text');
-      // Trigger glitch periodically
-      function triggerGlitch() {
-        heroTitle.classList.add('is-glitching');
-        setTimeout(() => heroTitle.classList.remove('is-glitching'), 200);
-      }
-      // Initial glitch after load
-      setTimeout(triggerGlitch, 1200);
-      // Random periodic glitch
-      setInterval(() => {
-        if (Math.random() > 0.6) triggerGlitch();
-      }, 4000);
+  // --- PRODUCT PAGE ANIMATIONS ---
+  if (document.querySelector('.p-hero')) {
+    // Hero content
+    const pSystem = document.querySelector('.p-hero-system');
+    const pTitle  = document.querySelector('.p-hero-title');
+    const pSub    = document.querySelector('.p-hero-sub');
+    const pScroll = document.querySelector('.p-hero-scroll');
+    [pSystem, pTitle, pSub, pScroll].forEach((el, i) => {
+      if (el) { el.classList.add('m-reveal', `m-delay-${i + 1}`); revealObserver.observe(el); }
+    });
+
+    // Friction section
+    const pFricTitle = document.querySelector('.p-friction-title');
+    const pFricDesc  = document.querySelector('.p-friction-desc');
+    if (pFricTitle) { pFricTitle.classList.add('m-reveal-left'); revealObserver.observe(pFricTitle); }
+    if (pFricDesc)  { pFricDesc.classList.add('m-reveal-right'); revealObserver.observe(pFricDesc); }
+
+    // Steps section
+    const pStepsTitle = document.querySelector('.p-steps-title');
+    if (pStepsTitle) { pStepsTitle.classList.add('m-reveal', 'm-delay-1'); revealObserver.observe(pStepsTitle); }
+
+    const pPhotos = document.querySelectorAll('.p-step-photo');
+    const photoObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); photoObs.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -40px 0px', threshold: 0.05 });
+    pPhotos.forEach((p, i) => {
+      p.style.opacity = '0'; p.style.transition = `opacity 0.7s ${i * 0.1}s ease`;
+      photoObs.observe(p);
+    });
+    document.addEventListener('animationframe_p', () => {});
+
+    const stepObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); stepObs.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -40px 0px', threshold: 0.05 });
+    document.querySelectorAll('.p-step-item').forEach((el, i) => {
+      el.style.transitionDelay = `${i * 0.15}s`;
+      stepObs.observe(el);
+    });
+
+    // Photos fade in via observer
+    const photoRevObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; photoRevObs.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -40px 0px', threshold: 0.05 });
+    pPhotos.forEach(p => photoRevObs.observe(p));
+
+    // Rules panels staggered
+    const rulesObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); rulesObs.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -40px 0px', threshold: 0.05 });
+    document.querySelectorAll('.p-rules-panel').forEach((el, i) => {
+      el.style.transitionDelay = `${i * 0.2}s`;
+      rulesObs.observe(el);
+    });
+
+    // Action card
+    const pActionCard = document.querySelector('.p-action-card');
+    const pActionTitle = document.querySelector('.p-action-title');
+    if (pActionTitle) { pActionTitle.classList.add('m-reveal', 'm-delay-1'); revealObserver.observe(pActionTitle); }
+    if (pActionCard) {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+      }, { rootMargin: '0px 0px -40px 0px', threshold: 0.1 });
+      obs.observe(pActionCard);
     }
 
-    // --- PARALLAX on scroll ---
-    const parallaxElements = document.querySelectorAll('.m-hero-bg, .m-solution-bg, .m-features-bg');
-    parallaxElements.forEach(el => el.classList.add('m-parallax-bg'));
+    // Join section
+    const pJoinTitle = document.querySelector('.p-join-title');
+    const pJoinSub   = document.querySelector('.p-join-sub');
+    const pJoinForm  = document.querySelector('.p-join-form');
+    if (pJoinTitle) { pJoinTitle.classList.add('m-reveal', 'm-delay-1'); revealObserver.observe(pJoinTitle); }
+    if (pJoinSub)   { pJoinSub.classList.add('m-reveal', 'm-delay-2'); revealObserver.observe(pJoinSub); }
+    if (pJoinForm)  { pJoinForm.classList.add('m-reveal', 'm-delay-3'); revealObserver.observe(pJoinForm); }
+  }
 
-    let ticking = false;
+  // --- Footer reveal ---
+  const footerBrand = document.querySelector('.m-footer-brand');
+  const footerLinks = document.querySelector('.m-footer-links');
+  if (footerBrand) { footerBrand.classList.add('m-reveal-left'); revealObserver.observe(footerBrand); }
+  if (footerLinks) { footerLinks.classList.add('m-reveal-right'); revealObserver.observe(footerLinks); }
+
+  // --- Glitch text effect ---
+  document.querySelectorAll('.glitch-text').forEach(el => {
+    if (!el.hasAttribute('data-text')) el.setAttribute('data-text', el.textContent.trim());
+
+    function triggerGlitch() {
+      el.classList.add('is-glitching');
+      setTimeout(() => el.classList.remove('is-glitching'), 200 + Math.random() * 200);
+    }
+
+    setTimeout(triggerGlitch, 1200 + Math.random() * 800);
+    setInterval(() => { if (Math.random() > 0.6) triggerGlitch(); }, 3000 + Math.random() * 2000);
+  });
+
+  // --- Phase card hover parallax ---
+  document.querySelectorAll('.m-phase-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      const img = card.querySelector('.m-phase-bg img');
+      if (img) img.style.transform = `scale(1.05) translate(${x * -10}px, ${y * -10}px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      const img = card.querySelector('.m-phase-bg img');
+      if (img) img.style.transform = 'scale(1) translate(0,0)';
+    });
+  });
+
+  // --- Nav: transparent on hero, dark after ---
+  const topNav = document.querySelector('.top-nav');
+  if (topNav) {
+    const hero = document.querySelector('.m-hero') || document.querySelector('.t-hero') || document.querySelector('.p-hero');
+    const threshold = hero ? hero.offsetHeight * 0.9 : window.innerHeight;
     window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const scrollY = window.scrollY;
-          parallaxElements.forEach(el => {
-            const section = el.closest('section');
-            if (!section) return;
-            const rect = section.getBoundingClientRect();
-            const inView = rect.top < window.innerHeight && rect.bottom > 0;
-            if (inView) {
-              const offset = (rect.top / window.innerHeight) * -30;
-              el.style.transform = `translateY(${offset}px)`;
-            }
-          });
-          ticking = false;
-        });
-        ticking = true;
-      }
-    });
-
-    // --- Footer reveal ---
-    const footerBrand = document.querySelector('.m-footer-brand');
-    const footerLinks = document.querySelector('.m-footer-links');
-    if (footerBrand) { footerBrand.classList.add('m-reveal-left'); revealObserver.observe(footerBrand); }
-    if (footerLinks) { footerLinks.classList.add('m-reveal-right'); revealObserver.observe(footerLinks); }
-
-    // --- Section labels - observe for divider animation ---
-    document.querySelectorAll('.m-section-label').forEach(label => {
-      if (!label.classList.contains('m-reveal') && !label.classList.contains('m-reveal-left')) {
-        label.classList.add('m-reveal');
-        revealObserver.observe(label);
-      }
-    });
+      topNav.classList.toggle('scrolled', window.scrollY > threshold);
+    }, { passive: true });
   }
 
-  // --- TEAM PAGE ANIMATIONS (kept from before) ---
-  const isTeamPage = document.querySelector('.hero-section');
-  if (isTeamPage) {
-    const heroSubtitle = document.querySelector('.hero-subtitle');
-    const heroTitle = document.querySelector('.hero-title');
-    const heroDesc = document.querySelector('.hero-description');
-    if (heroSubtitle) { heroSubtitle.classList.add('animate-on-scroll', 'fade-in-up'); revealObserver.observe(heroSubtitle); }
-    if (heroTitle) { heroTitle.classList.add('animate-on-scroll', 'fade-in-up', 'delay-2'); revealObserver.observe(heroTitle); }
-    if (heroDesc) { heroDesc.classList.add('animate-on-scroll', 'fade-in-up', 'delay-3'); revealObserver.observe(heroDesc); }
-
-    const teamIntroImages = document.querySelector('.team-intro-images');
-    const teamIntroText = document.querySelector('.team-intro-text');
-    if (teamIntroImages) { teamIntroImages.classList.add('animate-on-scroll', 'slide-in-left'); revealObserver.observe(teamIntroImages); }
-    if (teamIntroText) { teamIntroText.classList.add('animate-on-scroll', 'slide-in-right'); revealObserver.observe(teamIntroText); }
-
-    document.querySelectorAll('.member-card').forEach((card, i) => {
-      card.classList.add('animate-on-scroll', 'fade-in-up', `delay-${i + 1}`);
-      revealObserver.observe(card);
-    });
-    const missionHeader = document.querySelector('.mission-header');
-    if (missionHeader) { missionHeader.classList.add('animate-on-scroll', 'fade-in-up'); revealObserver.observe(missionHeader); }
-    document.querySelectorAll('.mission-card').forEach((card, i) => {
-      card.classList.add('animate-on-scroll', 'fade-in-up', `delay-${i + 1}`);
-      revealObserver.observe(card);
-    });
-  }
-
-  // --- Smooth scroll for nav links ---
-  document.querySelectorAll('.nav-link[href^="#"], .footer-link[href^="#"]').forEach(link => {
+  // --- Smooth scroll for anchor links ---
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', (e) => {
       const target = link.getAttribute('href');
       if (target && target !== '#') {
-        e.preventDefault();
-        const element = document.querySelector(target);
-        if (element) {
-          const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 80;
-          window.scrollTo({ top: element.getBoundingClientRect().top + window.pageYOffset - navHeight, behavior: 'smooth' });
+        const el = document.querySelector(target);
+        if (el) {
+          e.preventDefault();
+          const navH = topNav ? topNav.offsetHeight : 120;
+          window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - navH, behavior: 'smooth' });
         }
       }
     });
   });
 
-  // --- Nav background opacity on scroll ---
-  const topNav = document.querySelector('.top-nav');
-  window.addEventListener('scroll', () => {
-    topNav.style.background = window.scrollY > 50 ? 'rgba(19, 19, 19, 0.95)' : 'rgba(19, 19, 19, 0.8)';
-  });
+  // --- TEAM PAGE ANIMATIONS ---
+  if (document.querySelector('.t-hero')) {
+    // Hero content
+    const tLabel = document.querySelector('.t-hero-label');
+    const tTitle = document.querySelector('.t-hero-title');
+    const tSub = document.querySelector('.t-hero-sub');
+    [tLabel, tTitle, tSub].forEach((el, i) => {
+      if (el) { el.classList.add('m-reveal', `m-delay-${i + 1}`); revealObserver.observe(el); }
+    });
+
+    // About section
+    const tHeading = document.querySelector('.t-about-heading');
+    const tDesc = document.querySelector('.t-about-desc');
+    if (tHeading) { tHeading.classList.add('m-reveal-left'); revealObserver.observe(tHeading); }
+    if (tDesc) { tDesc.classList.add('m-reveal-right'); revealObserver.observe(tDesc); }
+
+    // Member meta rows
+    document.querySelectorAll('.t-about-meta').forEach(el => {
+      el.classList.add('m-reveal'); revealObserver.observe(el);
+    });
+
+    // Member cards staggered
+    const memberObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          memberObserver.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -40px 0px', threshold: 0.05 });
+    document.querySelectorAll('.t-member-card').forEach((card, i) => {
+      card.style.transitionDelay = `${i * 0.2}s`;
+      memberObserver.observe(card);
+    });
+
+    // Mission section
+    const missionTitle = document.querySelector('.t-mission-title');
+    if (missionTitle) { missionTitle.classList.add('m-reveal', 'm-delay-1'); revealObserver.observe(missionTitle); }
+
+    const missionCardObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          missionCardObserver.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -40px 0px', threshold: 0.05 });
+    document.querySelectorAll('.t-mission-card').forEach((card, i) => {
+      card.style.transitionDelay = `${i * 0.15}s`;
+      missionCardObserver.observe(card);
+    });
+  }
+
 });
