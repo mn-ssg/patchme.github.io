@@ -121,7 +121,7 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
 /* Nav left links */
 .nav-left {
   position: absolute;
-  left: 80px;
+  right: 80px;
   display: flex;
   gap: 54px;
   align-items: center;
