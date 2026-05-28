@@ -82,19 +82,10 @@
   align-items: center;
   flex-shrink: 0;
 }
-.t-meta-left,
-.t-meta-right {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(10px, 0.8vw, 14px);
-  color: var(--text-muted);
-  letter-spacing: 1px;
-  white-space: nowrap;
-}
 
 .t-about-main {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: clamp(32px, 9vw, 172px);
   flex: 1;
   padding: clamp(24px, 3vw, 48px) 0;
@@ -103,12 +94,17 @@
 .t-about-heading {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(22px, 3.8vw, 64px);
-  color: white;
+  font-size: clamp(22px, 5vw, 96px);
   text-transform: uppercase;
   letter-spacing: 0.9px;
   line-height: 1;
   flex: 0 0 clamp(280px, 53vw, 1018px);
+  /* 글자 색은 text-fill.js의 .tf-char가 담당 */
+}
+
+/* SplitText로 분리된 글자들: inline 표시 보장 */
+.tf-char {
+  display: inline;
 }
 
 .t-about-desc {
@@ -122,8 +118,8 @@
 .t-about-p2 {
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: clamp(12px, 0.9vw, 16px);
-  color: var(--text-muted);
+  font-size: clamp(13px, 1.25vw, 24px);
+  color: #b9cac2;
   letter-spacing: 1px;
   line-height: 1.5;
 }
@@ -151,8 +147,7 @@
 
 .t-member-photo {
   position: relative;
-  background: #201f1f;
-  height: clamp(320px, 47vw, 832px);
+  height: clamp(280px, 47vw, 680px);
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -167,7 +162,6 @@
 }
 .t-member-gradient {
   position: absolute; inset: 0;
-  background: linear-gradient(to top, #0e0e0e 0%, rgba(14,14,14,0) 50%);
 }
 
 .t-member-info {
@@ -184,7 +178,7 @@
 .t-member-name {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(16px, 1.7vw, 28px);
+  font-size: clamp(16px, 1.55vw, 30px);
   color: white;
   letter-spacing: 0;
   line-height: 1.2;
@@ -204,8 +198,8 @@
 .t-member-desc p {
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: clamp(12px, 0.9vw, 16px);
-  color: var(--text-muted);
+  font-size: clamp(12px, 1.02vw, 20px);
+  color: #b9cac2;
   letter-spacing: 1px;
   line-height: 1.5;
 }
@@ -243,7 +237,7 @@
   display: flex;
   align-items: center;
   gap: clamp(24px, 3vw, 48px);
-  padding: clamp(60px, 8.3vw, 160px) clamp(64px, 8.5vw, 160px) clamp(32px, 4vw, 80px);
+  padding: clamp(40px, 5.2vw, 100px) clamp(64px, 8.5vw, 160px) clamp(16px, 1.8vw, 32px);
   overflow: hidden;
 }
 .t-mission-title {
@@ -303,6 +297,85 @@
   color: var(--text-muted);
   line-height: 1.5;
   letter-spacing: 0.3px;
+}
+
+/* ──────────────────────────────────────────
+   ANIM-ACTIVE: ABOUT — Figma 기준 side padding 79px
+   ────────────────────────────────────────── */
+.anim-active .t-about .scroll-inner {
+  padding: clamp(32px, 4.3vw, 83px) clamp(40px, 4.1vw, 79px);
+}
+
+/* ──────────────────────────────────────────
+   ANIM-ACTIVE: MEMBERS — 1920×1080 layout
+   두 카드가 나란히, 사진 높이 vh 기반, 양쪽 마진
+   ────────────────────────────────────────── */
+.anim-active .t-members .scroll-inner {
+  display: flex;
+  overflow: hidden;
+  padding: clamp(20px, 4vh, 44px) clamp(60px, 11.5vw, 221px) 0;
+}
+.anim-active .t-member-card {
+  height: 100%;
+  overflow: hidden;
+  /* Figma 기준 29px, 기존 36px에서 축소 */
+  padding: clamp(10px, 1.5vw, 29px);
+}
+/* 55vh → 1080px에서 594px: 카드 전체가 1080px 안에 맞음 */
+.anim-active .t-member-photo {
+  height: clamp(240px, 55vh, 600px);
+}
+/* info 상하 패딩을 vh 기반으로 축소 */
+.anim-active .t-member-info {
+  padding: clamp(12px, 2.5vh, 28px) clamp(16px, 2.5vw, 48px);
+  gap: clamp(10px, 1.8vw, 24px);
+}
+/* info flex gap이 역할을 대신하므로 tags 자체 padding-top 제거 */
+.anim-active .t-member-tags {
+  padding-top: 0;
+}
+
+/* ──────────────────────────────────────────
+   ANIM-ACTIVE: MISSION + FOOTER MERGED
+   1920×1080 기준 — flex column, footer 하단 고정
+   ────────────────────────────────────────── */
+.anim-active .t-mission .scroll-inner {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+/* heading이 위 빈 공간을 밀어내고, cards가 아래 빈 공간을 밀어내
+   → heading + cards 블록이 푸터 위 공간의 정중앙에 배치됨 */
+.anim-active .t-mission .t-mission-header {
+  margin-top: auto;
+  padding-bottom: clamp(12px, 1.5vh, 20px); /* heading↔cards 간격 최소화 */
+}
+.anim-active .t-mission .t-mission-cards {
+  flex: none;
+  margin-bottom: auto;
+  padding-bottom: 0;
+}
+/* 푸터는 항상 하단에 */
+.anim-active .t-mission .m-footer {
+  flex-shrink: 0;
+  padding: 30px 45px;
+  background: var(--bg);
+  border-top: 1px solid rgb(255 255 255 / 0);
+  position: relative;
+  z-index: 2;
+}
+.anim-active .t-mission .m-footer-logo img {
+  height: 28px;
+}
+.anim-active .t-mission .m-footer-copy {
+  padding-left: 0;
+}
+.anim-active .t-mission .m-footer-brand {
+  gap: 12px;
+}
+/* section 자체의 padding-bottom 제거 (푸터가 담당) */
+.anim-active .t-mission {
+  padding-bottom: 0;
 }
 
 /* ──────────────────────────────────────────

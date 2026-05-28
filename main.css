@@ -6,7 +6,7 @@
 :root {
   --accent: #3dffd0;
   --accent-alt: #4cfdbf;
-  --bg: #0a0a0a;
+  --bg: #000000;
   --text-muted: #ffffff;
   --text-dim: #888780;
   --font-display: 'Orbitron', monospace;
@@ -524,10 +524,10 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
 
 .m-features-title {
   position: relative;
-  padding: clamp(50px, 6vw, 121px) clamp(64px, 8.5vw, 160px) 0;
+  padding: clamp(50px, 6.3vw, 121px) clamp(64px, 8.5vw, 160px) 0;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(18px, 2.3vw, 44px);
+  font-size: clamp(20px, 3.3vw, 64px);
   letter-spacing: 1px;
   color: white;
   text-transform: uppercase;
@@ -556,6 +556,9 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
 .m-feature-bg {
   position: absolute;
   inset: 0;
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+  transform-origin: center center;
 }
 .m-feature-bg img {
   position: absolute;
@@ -563,14 +566,18 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.6;
+  opacity: 1;
   transition: opacity 0.4s ease;
 }
-.m-feature-item:hover .m-feature-bg img { opacity: 0.6; }
+.m-feature-item:hover .m-feature-bg img { opacity: 1; }
 .m-feature-bg-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(0,0,0,0.7) 35%, rgba(0,0,0,0));
+  background: linear-gradient(to right,
+    #000 0%,
+    #000 25%,
+    rgba(0,0,0,0) 55%
+  );
 }
 
 .m-feature-left {
@@ -597,7 +604,7 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
 .m-feature-name {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(13px, 1.2vw, 22px);
+  font-size: clamp(14px, 1.6vw, 30px);
   letter-spacing: 3px;
   color: white;
   text-transform: uppercase;
@@ -615,12 +622,21 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
 .m-feature-desc {
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: clamp(12px, 0.9vw, 16px);
+  font-size: clamp(13px, 1.25vw, 24px);
   line-height: 1.5;
-  color: var(--text-muted);
+  color: #b9cac2;
   letter-spacing: 1px;
   text-align: right;
   white-space: nowrap;
+  /* 기본: 숨김 */
+  opacity: 0;
+  transform: translateX(14px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+/* 해당 row 호버 시 reveal */
+.m-feature-item:hover .m-feature-desc {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* ============================================
@@ -758,7 +774,7 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
 .m-cta-title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(18px, 2.3vw, 44px);
+  font-size: clamp(20px, 3.3vw, 64px);
   letter-spacing: 1px;
   color: white;
   text-transform: uppercase;
@@ -938,12 +954,7 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   background: var(--bg); /* carry the section background here so the wipe reveals it */
 }
 
-/* ---- Watermark band: now an anim-section, centred in viewport ---- */
-.anim-active .m-watermark-band .scroll-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* ---- Watermark band: now inside solution section, not its own anim-section ---- */
 
 /* ============================================
    Per-section overrides: content-sized sections
@@ -959,39 +970,89 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   overflow-y: auto;
 }
 
-/* — Solution: content may overflow on small screens — */
+/* — Solution: flex column so watermark sits pinned at bottom — */
 .anim-active .m-solution .scroll-inner {
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+/* Image shrinks relative to viewport height so content + watermark fit */
+.anim-active .m-solution .m-solution-img-wrap {
+  height: clamp(160px, 40vh, 530px);
+  flex-shrink: 0;
+}
+.anim-active .m-solution .m-solution-content {
+  flex: 1;
+  overflow: hidden;
+}
+.anim-active .m-solution .m-watermark-band {
+  margin-top: auto;
+  flex-shrink: 0;
 }
 
-/* — Features: content list can be tall, allow scroll — */
+/* — Features: flex column so rows auto-fill viewport height, no internal scroll — */
 .anim-active .m-features .scroll-inner {
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.anim-active .m-features .m-features-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.anim-active .m-features .m-features-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: clamp(20px, 4vh, 50px);
+  min-height: 0;
+}
+.anim-active .m-features .m-feature-item {
+  flex: 1;
+  height: auto;
+  min-height: 0;
 }
 
-/* — CTA: short content, vertically + horizontally centred — */
-.anim-active .m-cta .scroll-inner,
+/* — CTA: flex column — title fills upper area, footer pinned at bottom — */
+.anim-active .m-cta .scroll-inner {
+  display: flex;
+  flex-direction: column;
+}
+.anim-active .m-cta .m-cta-inner {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+.anim-active .m-cta .m-footer {
+  flex-shrink: 0;
+  padding: 30px 45px;
+  background: var(--bg);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+  z-index: 2;
+}
+.anim-active .m-cta .m-footer-logo img {
+  height: 28px;
+}
+.anim-active .m-cta .m-footer-copy {
+  padding-left: 0;
+}
+.anim-active .m-cta .m-footer-brand {
+  gap: 12px;
+}
+/* — p-join: simple centred layout — */
 .anim-active .p-join .scroll-inner {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* — Footer: short content, vertically centred —
-   The footer's natural height is much smaller than 100vh.
-   We centre it within the viewport-height overlay so it
-   looks proportional rather than stretched.                */
-.anim-active .m-footer.anim-section .scroll-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: clamp(40px, 5vw, 80px) clamp(64px, 7vw, 140px);
-  box-sizing: border-box;
-}
-.anim-active .m-footer.anim-section .m-footer-inner {
-  width: 100%;
-  max-width: 2160px;
-}
+/* — Footer is now inside .m-cta, styled via .anim-active .m-cta .m-footer — */
 
 /* — p-action (product page) — */
 .anim-active .p-action .scroll-inner {
@@ -1020,9 +1081,7 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   box-sizing: border-box;
 }
 
-/* — t-members: tall content — */
-.anim-active .t-members .scroll-inner { overflow-y: auto; }
+/* — t-members: handled in team.css (vh-based photo height) — */
 
-/* — t-mission: may overflow — */
-.anim-active .t-mission .scroll-inner { overflow-y: auto; }
+/* — t-mission: handled in team.css (footer merged inside) — */
 

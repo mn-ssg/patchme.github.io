@@ -11,6 +11,7 @@
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
   <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="team.css">
+
 </head>
 <body>
 
@@ -58,20 +59,12 @@
      2. ABOUT SECTION
 ============================= -->
 <section class="t-about anim-section" id="about">
-  <div class="t-about-meta t-about-meta--top">
-    <span class="t-meta-left">BASED IN SEOUL, KOREA</span>
-    <span class="t-meta-right">FUNCTIONAL WEAR · FOR REAL SKIN</span>
-  </div>
   <div class="t-about-main">
-    <h2 class="t-about-heading anim-heading">A PERFORMANCE WEAR TEAM BUILT FOR PEOPLE WHO REFUSE TO SIT OUT</h2>
+    <h2 class="t-about-heading">A PERFORMANCE<br>WEAR TEAM<br>BUILT FOR<br>PEOPLE<br>WHO REFUSE TO<br>SIT OUT</h2>
     <div class="t-about-desc">
       <p class="t-about-p1"><span class="t-brand-name">PATCH ME</span>는 피부 질환을 가진 사람들이 스포츠와 일상을 마찰 없이 즐길 수 있도록 기능성 의류를 연구하고 제작하는 팀입니다.</p>
       <p class="t-about-p2">우리는 피부를 숨기기 위한 옷을 만들지 않습니다.<br>입고 싶어서 입는 옷, 움직임을 방해하지 않는 옷,<br>피부가 버틸 수 있는 옷을 만듭니다.</p>
     </div>
-  </div>
-  <div class="t-about-meta t-about-meta--bottom">
-    <span class="t-meta-left">BASED IN SEOUL, KOREA</span>
-    <span class="t-meta-right">FUNCTIONAL WEAR · FOR REAL SKIN</span>
   </div>
 </section>
 
@@ -79,15 +72,17 @@
      3. MEMBERS SECTION
 ============================= -->
 <section class="t-members anim-section" id="members">
-  <!-- Member 1: Lee Min Seok -->
-  <div class="t-member-card" id="t-member-lee">
+  <!-- Member 1: Cho Hae Jin -->
+  <div class="t-member-card" id="t-member-cho">
     <div class="t-member-photo">
-      <img src="assets/member-lee.webp" alt="Lee Min Seok" class="t-member-img" loading="lazy">
+      <video class="t-member-img" autoplay muted loop playsinline>
+        <source src="assets/member-cho.mp4" type="video/mp4">
+      </video>
       <div class="t-member-gradient"></div>
     </div>
     <div class="t-member-info">
       <div class="t-member-header">
-        <h3 class="t-member-name">Lee Min Seok</h3>
+        <h3 class="t-member-name">Cho Hae Jin</h3>
         <span class="t-member-role">BRAND &amp; STRATEGY LEAD</span>
       </div>
       <div class="t-member-desc">
@@ -104,15 +99,17 @@
     </div>
   </div>
 
-  <!-- Member 2: Cho Hae Jin -->
-  <div class="t-member-card" id="t-member-cho">
+  <!-- Member 2: Lee Min Seok -->
+  <div class="t-member-card" id="t-member-lee">
     <div class="t-member-photo">
-      <img src="assets/member-cho.webp" alt="Cho Hae Jin" class="t-member-img" loading="lazy">
+      <video class="t-member-img" autoplay muted loop playsinline>
+        <source src="assets/member-lee.mp4" type="video/mp4">
+      </video>
       <div class="t-member-gradient"></div>
     </div>
     <div class="t-member-info">
       <div class="t-member-header">
-        <h3 class="t-member-name">Cho Hae Jin</h3>
+        <h3 class="t-member-name">Lee Min Seok</h3>
         <span class="t-member-role">DESIGN &amp; EXPERIENCE LEAD</span>
       </div>
       <div class="t-member-desc">
@@ -131,7 +128,7 @@
 </section>
 
 <!-- ============================
-     4. MISSION SECTION
+     4. MISSION + FOOTER SECTION (merged)
 ============================= -->
 <section class="t-mission anim-section" id="mission">
   <div class="t-mission-header">
@@ -163,36 +160,33 @@
       <p class="t-mission-card-desc">숨기기 위한 옷이 아닌, 입고 싶어서 입는 옷 당신의 한계를 넘게 만드는 것이 우리의 목표</p>
     </div>
   </div>
+  <footer class="m-footer" id="m-footer">
+    <div class="m-footer-inner">
+      <div class="m-footer-brand">
+        <div class="m-footer-logo">
+          <img src="assets/nav-logo.webp" alt="PATCH ME" loading="lazy">
+        </div>
+        <span class="m-footer-copy">© 2026 PATCH ME. ENGINEERED FOR SUPREMACY.</span>
+      </div>
+      <div class="m-footer-links">
+        <div class="m-footer-col">
+          <a href="#" class="m-footer-link">PRIVACY PROTOCOL</a>
+          <a href="#" class="m-footer-link">TECHNICAL SUPPORT</a>
+        </div>
+        <div class="m-footer-col">
+          <a href="#" class="m-footer-link">GLOBAL DISTRIBUTION</a>
+          <a href="#" class="m-footer-link">PRESS KIT</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </section>
-
-<!-- ============================
-     FOOTER — identical to index.html
-============================= -->
-<footer class="m-footer anim-section" id="m-footer">
-  <div class="m-footer-inner">
-    <div class="m-footer-brand">
-      <div class="m-footer-logo">
-        <img src="assets/footer-logo.webp" alt="PATCH ME" loading="lazy">
-      </div>
-      <span class="m-footer-copy">© 2026 PATCH ME. ENGINEERED FOR SUPREMACY.</span>
-    </div>
-    <div class="m-footer-links">
-      <div class="m-footer-col">
-        <a href="#" class="m-footer-link">PRIVACY PROTOCOL</a>
-        <a href="#" class="m-footer-link">TECHNICAL SUPPORT</a>
-      </div>
-      <div class="m-footer-col">
-        <a href="#" class="m-footer-link">GLOBAL DISTRIBUTION</a>
-        <a href="#" class="m-footer-link">PRESS KIT</a>
-      </div>
-    </div>
-  </div>
-</footer>
 
 <script src="script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/Observer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script src="text-fill.js"></script>
 <script src="scroll-anim.js"></script>
 </body>
 </html>

@@ -31,6 +31,9 @@ let currentIndex  = -1;
 let animating     = false;
 const topNav      = document.querySelector('.top-nav');
 
+/* About 섹션 인덱스 (text-fill.js의 TextFill이 로드된 경우에만 사용) */
+const aboutIdx = sections.findIndex(s => s.classList.contains('t-about'));
+
 /* Initial wipe state */
 gsap.set(outerWrappers, { yPercent: 100 });
 gsap.set(innerWrappers, { yPercent: -100 });
@@ -54,10 +57,8 @@ function canScrollInternally(direction) {
   const tolerance = 2; /* px rounding tolerance */
 
   if (direction === 1) {
-    /* scrolling DOWN → can we still scroll further down? */
     return inner.scrollTop + inner.clientHeight < inner.scrollHeight - tolerance;
   } else {
-    /* scrolling UP → can we still scroll further up? */
     return inner.scrollTop > tolerance;
   }
 }
@@ -78,7 +79,6 @@ function gotoSection(index, direction) {
 
   /* ── Outgoing section ───────────────────────── */
   if (currentIndex >= 0) {
-    /* Reset internal scroll position when leaving */
     const prevInner = innerWrappers[currentIndex];
     if (prevInner) prevInner.scrollTop = 0;
 
@@ -122,6 +122,11 @@ function gotoSection(index, direction) {
     item.classList.add('is-visible');
   });
 
+  /* ── About 섹션 진입: TextFill 리셋 ── */
+  if (index === aboutIdx && typeof TextFill !== 'undefined') {
+    TextFill.reset();
+  }
+
   currentIndex = index;
 }
 
@@ -141,24 +146,68 @@ document.addEventListener('DOMContentLoaded', () => {
     return h ? new SplitText(h, { type: 'chars' }) : null;
   });
 
+  /* TextFill 초기화 (team.html에 text-fill.js가 로드된 경우에만) */
+  if (typeof TextFill !== 'undefined') {
+    TextFill.init();
+  }
+
   Observer.create({
     type: 'wheel,touch,pointer',
     wheelSpeed: -1,
     onDown: () => {
       if (animating) return;
-      /* direction -1 = going to previous section */
       if (canScrollInternally(-1)) return;
+
+      /* About 섹션: fill 되감기 */
+      if (currentIndex === aboutIdx &&
+          typeof TextFill !== 'undefined' &&
+          !TextFill.isAtStart()) {
+        TextFill.advance(-1);
+        return;
+      }
+
       gotoSection(currentIndex - 1, -1);
     },
     onUp: () => {
       if (animating) return;
-      /* direction 1 = going to next section */
       if (canScrollInternally(1)) return;
+
+      /* About 섹션: fill 완료 전까지 다음 섹션 전환 차단 */
+      if (currentIndex === aboutIdx &&
+          typeof TextFill !== 'undefined' &&
+          !TextFill.isDone()) {
+        TextFill.advance(1);
+        return;
+      }
+
       gotoSection(currentIndex + 1, 1);
     },
     tolerance: 10,
-    preventDefault: false   /* allow native scroll inside overflow-y: auto sections */
+    preventDefault: false
   });
 
-  gotoSection(0, 1);
+  /* 첫 섹션은 wipe 없이 즉시 표시 (팀·프로덕트 진입 시 불필요한 애니메이션 제거) */
+  gsap.set(sections[0], { autoAlpha: 1, zIndex: 1 });
+  gsap.set(outerWrappers[0], { yPercent: 0 });
+  gsap.set(innerWrappers[0], { yPercent: 0 });
+
+  /* 첫 섹션의 글리치 헤딩 즉시 표시 */
+  const firstGlitch = sections[0].querySelector('.anim-heading.glitch-text');
+  if (firstGlitch) gsap.set(firstGlitch, { autoAlpha: 1, y: 0 });
+
+  /* 첫 섹션의 SplitText 헤딩 즉시 표시 */
+  if (splitHeadings[0]) {
+    gsap.set(splitHeadings[0].chars, { autoAlpha: 1, yPercent: 0 });
+  }
+
+  /* feature item 등 reveal 트리거 */
+  sections[0].querySelectorAll('.m-feature-item').forEach(item => {
+    item.classList.add('is-visible');
+  });
+
+  if (topNav) topNav.classList.toggle('scrolled', false);
+
+  if (0 === aboutIdx && typeof TextFill !== 'undefined') TextFill.reset();
+
+  currentIndex = 0;
 });
