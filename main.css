@@ -1188,16 +1188,7 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
 
 /* — Footer is now inside .m-cta, styled via .anim-active .m-cta .m-footer — */
 
-/* — p-action (product page) — */
-.anim-active .p-action .scroll-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: clamp(40px, 5vw, 96px) clamp(64px, 8.5vw, 160px);
-  gap: clamp(20px, 2.6vw, 50px);
-  box-sizing: border-box;
-}
+/* — p-action & p-rules: absolute-positioned layouts, no scroll-inner overrides needed — */
 
 /* — p-friction-steps: flex column, 상단 bg 고정 + 하단 슬라이더 — */
 .anim-active .p-friction-steps .scroll-inner {

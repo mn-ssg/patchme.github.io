@@ -26,10 +26,17 @@ sections.forEach(section => {
 const outerWrappers = sections.map(s => s.querySelector('.scroll-outer'));
 const innerWrappers = sections.map(s => s.querySelector('.scroll-inner'));
 
-let splitHeadings = [];
-let currentIndex  = -1;
-let animating     = false;
-const topNav      = document.querySelector('.top-nav');
+let splitHeadings    = [];
+let pRulesWords      = null;
+let pActionMainWords = null;
+let pActionSubWords  = null;
+let pActionStep      = 0;
+let pActionAnim      = false;
+let currentIndex     = -1;
+let animating        = false;
+const topNav         = document.querySelector('.top-nav');
+const pRulesIdx      = sections.findIndex(s => s.id === 'p-rules');
+const pActionIdx     = sections.findIndex(s => s.id === 'p-action');
 
 /* About 섹션 인덱스 (text-fill.js의 TextFill이 로드된 경우에만 사용) */
 const aboutIdx = sections.findIndex(s => s.classList.contains('t-about'));
@@ -82,6 +89,14 @@ function gotoSection(index, direction) {
     const prevInner = innerWrappers[currentIndex];
     if (prevInner) prevInner.scrollTop = 0;
 
+    /* p-rules 이탈 시 단어 상태 리셋 */
+    if (currentIndex === pRulesIdx && pRulesWords) {
+      gsap.set(pRulesWords, { autoAlpha: 0, y: 28, skewX: 0 });
+    }
+
+    /* p-action 이탈 — 리셋은 하지 않음 (위프 중 검은 화면 방지)
+       리셋은 아래 인커밍 블록에서 섹션이 다시 들어올 때 처리 */
+
     gsap.set(sections[currentIndex], { zIndex: 0 });
     tl.to(innerWrappers[currentIndex], { yPercent: -15 * dFactor })
       .set(sections[currentIndex], { autoAlpha: 0 });
@@ -117,6 +132,39 @@ function gotoSection(index, direction) {
     );
   }
 
+  /* ── p-action 재진입 시 리셋 (섹션이 visible 되기 직전) ── */
+  if (index === pActionIdx) {
+    pActionStep = 0;
+    pActionAnim = false;
+    if (pActionMainWords) gsap.set(pActionMainWords, { autoAlpha: 0, y: 28, skewX: 4 });
+    if (pActionSubWords)  gsap.set(pActionSubWords,  { autoAlpha: 0, y: 28, skewX: 4 });
+    const iw = sections[pActionIdx].querySelector('.p-action-img-wrap');
+    if (iw) gsap.set(iw, { autoAlpha: 0, y: 50, scale: 1.04 });
+  }
+
+  /* ── p-action: main quote stagger reveal ───── */
+  if (index === pActionIdx && pActionMainWords) {
+    tl.fromTo(pActionMainWords,
+      { autoAlpha: 0, y: 28, skewX: 4 },
+      { autoAlpha: 1, y: 0, skewX: 0, duration: 0.65, ease: 'power3.out',
+        stagger: { each: 0.07, from: 'start' } },
+      0.45
+    );
+  }
+
+  /* ── p-rules 텍스트 stagger reveal ─────────── */
+  if (index === pRulesIdx && pRulesWords) {
+    tl.fromTo(pRulesWords,
+      { autoAlpha: 0, y: 28, skewX: 4 },
+      {
+        autoAlpha: 1, y: 0, skewX: 0,
+        duration: 0.65, ease: 'power3.out',
+        stagger: { each: 0.07, from: 'start' }
+      },
+      0.45
+    );
+  }
+
   /* Trigger IO-based reveal animations inside the incoming section */
   sections[index].querySelectorAll('.m-fg-card').forEach(card => {
     card.classList.add('is-visible');
@@ -146,6 +194,32 @@ document.addEventListener('DOMContentLoaded', () => {
     return h ? new SplitText(h, { type: 'chars' }) : null;
   });
 
+  /* p-action 텍스트 단어 분리 & 초기 상태 설정 */
+  if (pActionIdx >= 0) {
+    const mainEl  = sections[pActionIdx].querySelector('.p-action-quote-main');
+    const subEl   = sections[pActionIdx].querySelector('.p-action-quote-sub');
+    const imgWrap = sections[pActionIdx].querySelector('.p-action-img-wrap');
+    if (mainEl) {
+      pActionMainWords = new SplitText(mainEl, { type: 'words' }).words;
+      gsap.set(pActionMainWords, { autoAlpha: 0, y: 28, skewX: 4 });
+    }
+    if (subEl) {
+      pActionSubWords = new SplitText(subEl, { type: 'words' }).words;
+      gsap.set(pActionSubWords, { autoAlpha: 0, y: 28, skewX: 4 });
+    }
+    if (imgWrap) gsap.set(imgWrap, { autoAlpha: 0, y: 50, scale: 1.04 });
+  }
+
+  /* p-rules 텍스트 단어 분리 & 초기 상태 설정 */
+  if (pRulesIdx >= 0) {
+    const rulesTextEl = sections[pRulesIdx].querySelector('.p-rules-text');
+    if (rulesTextEl) {
+      const split = new SplitText(rulesTextEl, { type: 'words' });
+      pRulesWords = split.words;
+      gsap.set(pRulesWords, { autoAlpha: 0, y: 28, skewX: 4 });
+    }
+  }
+
   /* TextFill 초기화 (team.html에 text-fill.js가 로드된 경우에만) */
   if (typeof TextFill !== 'undefined') {
     TextFill.init();
@@ -171,6 +245,33 @@ document.addEventListener('DOMContentLoaded', () => {
     onUp: () => {
       if (animating || window.sliderDragging) return;
       if (canScrollInternally(1)) return;
+
+      /* p-action: 스텝 0 → sub text + 이미지 reveal */
+      if (currentIndex === pActionIdx) {
+        if (pActionAnim) return;
+        if (pActionStep < 1) {
+          pActionAnim = true;
+          pActionStep = 1;
+          const tl2 = gsap.timeline({ onComplete: () => { pActionAnim = false; } });
+          if (pActionSubWords) {
+            tl2.fromTo(pActionSubWords,
+              { autoAlpha: 0, y: 28, skewX: 4 },
+              { autoAlpha: 1, y: 0, skewX: 0, duration: 0.65, ease: 'power3.out',
+                stagger: { each: 0.07, from: 'start' } },
+              0
+            );
+          }
+          const imgWrap = sections[pActionIdx].querySelector('.p-action-img-wrap');
+          if (imgWrap) {
+            tl2.fromTo(imgWrap,
+              { autoAlpha: 0, y: 50, scale: 1.04 },
+              { autoAlpha: 1, y: 0, scale: 1, duration: 1.2, ease: 'power2.out' },
+              0
+            );
+          }
+          return;
+        }
+      }
 
       /* About 섹션: fill 완료 전까지 다음 섹션 전환 차단 */
       if (currentIndex === aboutIdx &&

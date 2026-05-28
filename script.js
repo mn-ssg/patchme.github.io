@@ -154,23 +154,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { rootMargin: '0px 0px -40px 0px', threshold: 0.05 });
     pPhotos.forEach(p => photoRevObs.observe(p));
 
-    // Rules text fade-in
-    const rulesObs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); rulesObs.unobserve(e.target); } });
-    }, { rootMargin: '0px 0px -40px 0px', threshold: 0.1 });
-    const rulesText = document.querySelector('.p-rules-text');
-    if (rulesText) rulesObs.observe(rulesText);
+    // p-rules text stagger reveal — handled by scroll-anim.js / GSAP
 
-    // Action card
-    const pActionCard = document.querySelector('.p-action-card');
-    const pActionTitle = document.querySelector('.p-action-title');
-    if (pActionTitle) { pActionTitle.classList.add('m-reveal', 'm-delay-1'); revealObserver.observe(pActionTitle); }
-    if (pActionCard) {
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
-      }, { rootMargin: '0px 0px -40px 0px', threshold: 0.1 });
-      obs.observe(pActionCard);
-    }
+    // p-action — layout changed, no card observer needed
 
     // Join section
     const pJoinTitle = document.querySelector('.p-join-title');

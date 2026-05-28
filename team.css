@@ -389,9 +389,11 @@
 
   .t-members { flex-direction: column; }
   .t-member-card { flex: none; }
-  .t-member-photo { height: clamp(280px, 60vw, 600px); }
+  .t-member-photo { height: clamp(280px, 55vw, 500px); }
+  .t-member-name { font-size: clamp(16px, 2.5vw, 26px); }
 
   .t-mission-cards { flex-direction: column; gap: 16px; }
+  .t-mission-header { padding: clamp(32px, 4vw, 60px) clamp(40px, 6vw, 120px) 20px; }
 }
 
 /* ──────────────────────────────────────────
