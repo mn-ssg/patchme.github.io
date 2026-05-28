@@ -28,7 +28,6 @@ const innerWrappers = sections.map(s => s.querySelector('.scroll-inner'));
 
 let splitHeadings = [];
 let currentIndex  = -1;
-const wrap        = gsap.utils.wrap(0, sections.length);
 let animating     = false;
 const topNav      = document.querySelector('.top-nav');
 
@@ -37,7 +36,8 @@ gsap.set(outerWrappers, { yPercent: 100 });
 gsap.set(innerWrappers, { yPercent: -100 });
 
 function gotoSection(index, direction) {
-  index = wrap(index);
+  index = Math.max(0, Math.min(sections.length - 1, index));
+  if (index === currentIndex) { animating = false; return; }
   animating = true;
   const dFactor = direction === -1 ? -1 : 1;
 
