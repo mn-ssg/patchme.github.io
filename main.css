@@ -913,6 +913,7 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
    ============================================ */
 .anim-active { overflow: hidden; }
 
+/* ---- Base: all anim-sections are fixed overlays ---- */
 .anim-active .anim-section {
   position: fixed !important;
   top: 0 !important; left: 0 !important;
@@ -920,9 +921,10 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   height: 100vh !important;
   min-height: 0 !important;
   overflow: hidden !important;
+  background: transparent !important; /* let outgoing section show through */
 }
 
-/* Wipe wrappers */
+/* ---- Wipe wrappers ---- */
 .scroll-outer {
   position: absolute;
   inset: 0;
@@ -933,12 +935,41 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   height: 100%;
   overflow: hidden;
   position: relative;
+  background: var(--bg); /* carry the section background here so the wipe reveals it */
 }
 
-/* Hide decorative divider (not a full-screen section) */
-.anim-active .m-watermark-band { display: none !important; }
+/* ---- Watermark band: now an anim-section, centred in viewport ---- */
+.anim-active .m-watermark-band .scroll-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-/* Sections whose flex-centering was on the section → move to scroll-inner */
+/* ============================================
+   Per-section overrides: content-sized sections
+   The section stays 100vh (fixed overlay), but
+   scroll-inner uses flexbox to centre the actual
+   content at its natural height.
+   ============================================ */
+
+/* — Hero: full-screen, no overrides needed — */
+
+/* — Problem: content is tall, allow internal scroll if it overflows — */
+.anim-active .m-problem .scroll-inner {
+  overflow-y: auto;
+}
+
+/* — Solution: content may overflow on small screens — */
+.anim-active .m-solution .scroll-inner {
+  overflow-y: auto;
+}
+
+/* — Features: content list can be tall, allow scroll — */
+.anim-active .m-features .scroll-inner {
+  overflow-y: auto;
+}
+
+/* — CTA: short content, vertically + horizontally centred — */
 .anim-active .m-cta .scroll-inner,
 .anim-active .p-join .scroll-inner {
   display: flex;
@@ -946,6 +977,23 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   justify-content: center;
 }
 
+/* — Footer: short content, vertically centred —
+   The footer's natural height is much smaller than 100vh.
+   We centre it within the viewport-height overlay so it
+   looks proportional rather than stretched.                */
+.anim-active .m-footer.anim-section .scroll-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(40px, 5vw, 80px) clamp(64px, 7vw, 140px);
+  box-sizing: border-box;
+}
+.anim-active .m-footer.anim-section .m-footer-inner {
+  width: 100%;
+  max-width: 2160px;
+}
+
+/* — p-action (product page) — */
 .anim-active .p-action .scroll-inner {
   display: flex;
   flex-direction: column;
@@ -956,14 +1004,14 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   box-sizing: border-box;
 }
 
-/* p-steps: tall section, allow internal scroll */
+/* — p-steps: tall section, allow internal scroll — */
 .anim-active .p-steps .scroll-inner {
   overflow-y: auto;
   padding: clamp(40px, 5vw, 96px) clamp(64px, 8.5vw, 160px) clamp(48px, 5.2vw, 100px);
   box-sizing: border-box;
 }
 
-/* t-about: flex column layout */
+/* — t-about: flex column layout — */
 .anim-active .t-about .scroll-inner {
   display: flex;
   flex-direction: column;
@@ -972,18 +1020,9 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   box-sizing: border-box;
 }
 
-/* t-members: tall content */
+/* — t-members: tall content — */
 .anim-active .t-members .scroll-inner { overflow-y: auto; }
 
-/* t-mission: may overflow */
+/* — t-mission: may overflow — */
 .anim-active .t-mission .scroll-inner { overflow-y: auto; }
-
-/* Footer: center content */
-.anim-active .m-footer.anim-section .scroll-inner {
-  display: flex;
-  align-items: center;
-  padding: clamp(64px, 7vw, 140px);
-  box-sizing: border-box;
-}
-.anim-active .m-footer.anim-section .m-footer-inner { width: 100%; }
 

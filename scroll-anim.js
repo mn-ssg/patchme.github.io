@@ -35,6 +35,33 @@ const topNav      = document.querySelector('.top-nav');
 gsap.set(outerWrappers, { yPercent: 100 });
 gsap.set(innerWrappers, { yPercent: -100 });
 
+/* ── Internal-scroll helper ────────────────────────
+   For sections whose content is taller than the viewport,
+   allow the user to scroll *inside* the section before
+   transitioning to the next/previous section.            */
+function canScrollInternally(direction) {
+  if (currentIndex < 0) return false;
+  const inner = innerWrappers[currentIndex];
+  if (!inner) return false;
+
+  /* Only sections with overflow-y: auto/scroll can actually scroll */
+  const style = getComputedStyle(inner);
+  if (style.overflowY !== 'auto' && style.overflowY !== 'scroll') return false;
+
+  /* Check if there's actually content to scroll (content taller than container) */
+  if (inner.scrollHeight <= inner.clientHeight + 2) return false;
+
+  const tolerance = 2; /* px rounding tolerance */
+
+  if (direction === 1) {
+    /* scrolling DOWN → can we still scroll further down? */
+    return inner.scrollTop + inner.clientHeight < inner.scrollHeight - tolerance;
+  } else {
+    /* scrolling UP → can we still scroll further up? */
+    return inner.scrollTop > tolerance;
+  }
+}
+
 function gotoSection(index, direction) {
   index = Math.max(0, Math.min(sections.length - 1, index));
   if (index === currentIndex) { animating = false; return; }
@@ -51,6 +78,10 @@ function gotoSection(index, direction) {
 
   /* ── Outgoing section ───────────────────────── */
   if (currentIndex >= 0) {
+    /* Reset internal scroll position when leaving */
+    const prevInner = innerWrappers[currentIndex];
+    if (prevInner) prevInner.scrollTop = 0;
+
     gsap.set(sections[currentIndex], { zIndex: 0 });
     tl.to(innerWrappers[currentIndex], { yPercent: -15 * dFactor })
       .set(sections[currentIndex], { autoAlpha: 0 });
@@ -86,6 +117,11 @@ function gotoSection(index, direction) {
     );
   }
 
+  /* Trigger IO-based reveal animations inside the incoming section */
+  sections[index].querySelectorAll('.m-feature-item').forEach(item => {
+    item.classList.add('is-visible');
+  });
+
   currentIndex = index;
 }
 
@@ -108,10 +144,20 @@ document.addEventListener('DOMContentLoaded', () => {
   Observer.create({
     type: 'wheel,touch,pointer',
     wheelSpeed: -1,
-    onDown: () => !animating && gotoSection(currentIndex - 1, -1),
-    onUp:   () => !animating && gotoSection(currentIndex + 1,  1),
+    onDown: () => {
+      if (animating) return;
+      /* direction -1 = going to previous section */
+      if (canScrollInternally(-1)) return;
+      gotoSection(currentIndex - 1, -1);
+    },
+    onUp: () => {
+      if (animating) return;
+      /* direction 1 = going to next section */
+      if (canScrollInternally(1)) return;
+      gotoSection(currentIndex + 1, 1);
+    },
     tolerance: 10,
-    preventDefault: true
+    preventDefault: false   /* allow native scroll inside overflow-y: auto sections */
   });
 
   gotoSection(0, 1);
