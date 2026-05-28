@@ -838,10 +838,6 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   .nav-menu { display: flex !important; }
   .nav-logo { left: 50% !important; }
 
-  /* Hero */
-  .m-hero-bottom { flex-direction: column; align-items: center; gap: 16px; }
-  .m-hero-bottom-left, .m-hero-bottom-right { max-width: 100%; text-align: center; }
-
   /* Problem */
   .m-problem-title { font-size: clamp(16px, 2vw, 36px); }
 
