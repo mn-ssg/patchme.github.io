@@ -85,9 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }, { rootMargin: '0px 0px -40px 0px', threshold: 0.05 });
-    document.querySelectorAll('.m-feature-item').forEach((item, i) => {
-      item.style.transitionDelay = `${i * 0.15}s`;
-      featureObserver.observe(item);
+    document.querySelectorAll('.m-fg-card').forEach((card, i) => {
+      card.style.transitionDelay = `${i * 0.12}s`;
+      featureObserver.observe(card);
     });
 
     // 5. Phase cards staggered
@@ -154,14 +154,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { rootMargin: '0px 0px -40px 0px', threshold: 0.05 });
     pPhotos.forEach(p => photoRevObs.observe(p));
 
-    // Rules panels staggered
+    // Rules text fade-in
     const rulesObs = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); rulesObs.unobserve(e.target); } });
-    }, { rootMargin: '0px 0px -40px 0px', threshold: 0.05 });
-    document.querySelectorAll('.p-rules-panel').forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.2}s`;
-      rulesObs.observe(el);
-    });
+    }, { rootMargin: '0px 0px -40px 0px', threshold: 0.1 });
+    const rulesText = document.querySelector('.p-rules-text');
+    if (rulesText) rulesObs.observe(rulesText);
 
     // Action card
     const pActionCard = document.querySelector('.p-action-card');

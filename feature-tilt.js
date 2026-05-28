@@ -1,31 +1,29 @@
 /* ============================================
-   Feature List — Tilt & Description Reveal
+   Bento Grid — Card Tilt Animation
    feature-tilt.js
    ============================================ */
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.m-feature-item').forEach(item => {
-    const bg   = item.querySelector('.m-feature-bg');
-    const desc = item.querySelector('.m-feature-desc');
-    if (!bg) return;
+  document.querySelectorAll('.m-fg-card').forEach(card => {
 
-    /* ── Background tilt ── */
-    item.addEventListener('mousemove', e => {
-      const rect = item.getBoundingClientRect();
-      const dx = (e.clientX - rect.left - rect.width  / 2) / (rect.width  / 2);
-      const dy = (e.clientY - rect.top  - rect.height / 2) / (rect.height / 2);
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const dx = (e.clientX - rect.left - rect.width  / 2) / (rect.width  / 2); // -1~1
+      const dy = (e.clientY - rect.top  - rect.height / 2) / (rect.height / 2); // -1~1
 
-      const rotY =  dx * 12;
-      const rotX = -dy *  5;
+      const rotY =  dx * 10;
+      const rotX = -dy *  8;
 
-      bg.style.transition = 'transform 0.1s ease-out';
-      bg.style.transform  = `perspective(700px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.07)`;
+      card.style.transition = 'transform 0.1s ease-out';
+      card.style.transform  =
+        `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.025)`;
     });
 
-    item.addEventListener('mouseleave', () => {
-      bg.style.transition = 'transform 0.75s cubic-bezier(0.16,1,0.3,1)';
-      bg.style.transform  = '';
-      bg.addEventListener('transitionend', () => {
-        bg.style.transition = '';
+    card.addEventListener('mouseleave', () => {
+      card.style.transition = 'transform 0.7s cubic-bezier(0.16,1,0.3,1), ' +
+                              'opacity 0.7s ease';
+      card.style.transform  = '';
+      card.addEventListener('transitionend', () => {
+        card.style.transition = '';
       }, { once: true });
     });
   });

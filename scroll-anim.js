@@ -118,8 +118,8 @@ function gotoSection(index, direction) {
   }
 
   /* Trigger IO-based reveal animations inside the incoming section */
-  sections[index].querySelectorAll('.m-feature-item').forEach(item => {
-    item.classList.add('is-visible');
+  sections[index].querySelectorAll('.m-fg-card').forEach(card => {
+    card.classList.add('is-visible');
   });
 
   /* ── About 섹션 진입: TextFill 리셋 ── */
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
     type: 'wheel,touch,pointer',
     wheelSpeed: -1,
     onDown: () => {
-      if (animating) return;
+      if (animating || window.sliderDragging) return;
       if (canScrollInternally(-1)) return;
 
       /* About 섹션: fill 되감기 */
@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
       gotoSection(currentIndex - 1, -1);
     },
     onUp: () => {
-      if (animating) return;
+      if (animating || window.sliderDragging) return;
       if (canScrollInternally(1)) return;
 
       /* About 섹션: fill 완료 전까지 다음 섹션 전환 차단 */

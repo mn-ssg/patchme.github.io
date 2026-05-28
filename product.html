@@ -45,7 +45,7 @@
 ============================= -->
 <section class="p-hero anim-section" id="p-hero">
   <div class="p-hero-bg">
-    <img src="assets/prod-hero-bg.webp" alt="" class="p-hero-bg-img" fetchpriority="high">
+    <video class="p-hero-bg-img" src="assets/prod-hero-bg.mp4" autoplay muted loop playsinline></video>
   </div>
   <div class="p-hero-content">
     <span class="p-hero-system">SYSTEM_ONLINE</span>
@@ -59,80 +59,96 @@
 </section>
 
 <!-- ============================
-     2. THE FRICTION
+     2+3. THE FRICTION + FOUR STEPS (merged)
 ============================= -->
-<section class="p-friction anim-section" id="p-friction">
-  <div class="p-friction-inner">
-    <h2 class="p-friction-title anim-heading">THE FRICTION</h2>
-    <p class="p-friction-desc">아토피, 건선 등 민감한 피부를 가진 사람들은 격렬한 운동이나 일상 활동 시 땀과 원단의 마찰로 인한 극심한 가려움과 따가움을 겪습니다. 기능성 옷은 디자인이 아쉽고, 스트리트 패션 의류는 피부에 자극적입니다. 게다가 피부 트러블을 숨기기 위해 스타일을 포기하고 늘 헐렁하고 지루한 옷만 찾아 헤매야 하는 심리적 답답함과 제약을 동시에 마주하고 있습니다.</p>
-  </div>
-  <div class="p-friction-frame">
-    <img src="assets/prod-friction-frame.webp" alt="" class="p-friction-frame-img" loading="lazy">
-  </div>
-</section>
+<section class="p-friction-steps anim-section" id="p-friction">
 
-<!-- ============================
-     3. THREE STEPS TO FREEDOM
-============================= -->
-<section class="p-steps anim-section" id="p-steps">
-  <h2 class="p-steps-title anim-heading">THREE STEPS TO <span class="p-accent">FREEDOM</span></h2>
-  <div class="p-steps-body">
-    <div class="p-steps-photos">
-      <img src="assets/prod-steps-a.webp" alt="" class="p-step-photo" loading="lazy">
-      <img src="assets/prod-steps-b.webp" alt="" class="p-step-photo" loading="lazy">
-      <img src="assets/prod-steps-c.webp" alt="" class="p-step-photo" loading="lazy">
-      <img src="assets/prod-steps-d.webp" alt="" class="p-step-photo" loading="lazy">
+  <!-- 상단: THE FRICTION -->
+  <div class="pfs-top">
+    <div class="pfs-top-bg">
+      <img src="assets/prod-friction-frame.webp" alt="" loading="lazy">
+      <div class="pfs-top-overlay"></div>
     </div>
-    <div class="p-steps-list">
-      <div class="p-step-item">
-        <span class="p-step-num">01</span>
-        <h3 class="p-step-name">착용</h3>
-        <p class="p-step-desc">피부 자극을 원천 차단하는 무자극 원단과 봉제선이 없는 독점 공법으로 입는 순간 무자극 케어를 시작합니다.</p>
-      </div>
-      <div class="p-step-item">
-        <span class="p-step-num">02</span>
-        <h3 class="p-step-name">활동</h3>
-        <p class="p-step-desc">격렬한 운동이나 움직임 중 발생하는 땀을 즉시 기화시켜 원단이 피부에 달라붙거나 발진을 일으키는 것을 막아줍니다.</p>
-      </div>
-      <div class="p-step-item">
-        <span class="p-step-num">03</span>
-        <h3 class="p-step-name">당당함</h3>
-        <p class="p-step-desc">더 이상 피부를 가리거나 숨기지 않고, 트렌디한 스트리트 실루엣으로 자신감 있게 일상을 지배합니다.</p>
-      </div>
+    <div class="pfs-top-content">
+      <h2 class="pfs-friction-title">THE<br>FRICTION</h2>
+      <p class="pfs-friction-desc">
+        땀과 원단의 마찰, 민감한 피부에 쌓이는 자극.<br>
+        기능성은 있지만 디자인이 없고,<br>
+        스타일은 있지만 피부를 해칩니다.
+      </p>
     </div>
   </div>
+
+  <!-- 하단: FOUR STEPS TO FREEDOM -->
+  <div class="pfs-bottom">
+    <div class="pfs-bottom-head">
+      <h2 class="pfs-steps-title anim-heading">FOUR STEPS TO <span class="p-accent">FREEDOM</span></h2>
+      <span class="pfs-drag-hint">DRAG TO EXPLORE</span>
+    </div>
+
+    <div class="pfs-slider-wrap" id="pfs-slider-wrap">
+      <div class="pfs-slider" id="pfs-slider">
+        <div class="pfs-card">
+          <div class="pfs-card-img">
+            <img src="assets/prod-steps-a.webp" alt="" loading="lazy">
+          </div>
+          <div class="pfs-card-meta">
+            <span class="pfs-num">01</span>
+            <span class="pfs-name">착용</span>
+          </div>
+          <p class="pfs-desc">무자극 원단과 봉제선 없는 공법으로<br>마찰 없는 케어를 시작합니다.</p>
+        </div>
+        <div class="pfs-card">
+          <div class="pfs-card-img">
+            <img src="assets/prod-steps-b.webp" alt="" loading="lazy">
+          </div>
+          <div class="pfs-card-meta">
+            <span class="pfs-num">02</span>
+            <span class="pfs-name">활동</span>
+          </div>
+          <p class="pfs-desc">땀을 즉시 기화시켜 원단이<br>피부에 달라붙거나 자극하지 않습니다.</p>
+        </div>
+        <div class="pfs-card">
+          <div class="pfs-card-img">
+            <img src="assets/prod-steps-c.webp" alt="" loading="lazy">
+          </div>
+          <div class="pfs-card-meta">
+            <span class="pfs-num">03</span>
+            <span class="pfs-name">당당함</span>
+          </div>
+          <p class="pfs-desc">피부를 가리지 않고 스트리트<br>실루엣으로 자신감 있게 움직입니다.</p>
+        </div>
+        <div class="pfs-card">
+          <div class="pfs-card-img">
+            <img src="assets/prod-steps-d.webp" alt="" loading="lazy">
+          </div>
+          <div class="pfs-card-meta">
+            <span class="pfs-num">04</span>
+            <span class="pfs-name">회복</span>
+          </div>
+          <p class="pfs-desc">체온을 안정적으로 유지해<br>불쾌한 냉감 없이 빠르게 회복합니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 얇은 프로그레스 바 -->
+    <div class="pfs-progress">
+      <div class="pfs-progress-fill" id="pfs-progress-fill"></div>
+    </div>
+  </div>
+
 </section>
 
 <!-- ============================
      4. REWRITING THE RULES
 ============================= -->
 <section class="p-rules anim-section" id="p-rules">
-  <h2 class="p-rules-title anim-heading">REWRITING THE RULES</h2>
-  <div class="p-rules-panels">
-    <div class="p-rules-panel">
-      <div class="p-rules-bg">
-        <img src="assets/prod-rules-a.webp" alt="" class="p-rules-bg-img" loading="lazy">
-        <div class="p-rules-overlay"></div>
-      </div>
-      <h3 class="p-rules-panel-title">Zero-Seam</h3>
-      <p class="p-rules-panel-desc">초음파 접합 무봉제 기술</p>
-    </div>
-    <div class="p-rules-panel">
-      <div class="p-rules-bg">
-        <img src="assets/prod-rules-b.webp" alt="" class="p-rules-bg-img" loading="lazy">
-        <div class="p-rules-overlay"></div>
-      </div>
-      <h3 class="p-rules-panel-title">Bio-Mapping</h3>
-      <p class="p-rules-panel-desc">스마트 흡습속건 바이오 매핑 원단</p>
-    </div>
-    <div class="p-rules-panel">
-      <div class="p-rules-bg">
-        <img src="assets/prod-rules-c.webp" alt="" class="p-rules-bg-img" loading="lazy">
-        <div class="p-rules-overlay"></div>
-      </div>
-      <h3 class="p-rules-panel-title">Silhouette</h3>
-      <p class="p-rules-panel-desc">테크웨어 스트리트 핏</p>
-    </div>
+  <div class="p-rules-img-wrap">
+    <video class="p-rules-fabric-video" src="assets/prod-rules-fabric.mp4" autoplay muted loop playsinline></video>
+  </div>
+  <div class="p-rules-text">
+    <p><span class="p-rules-accent">피부를 위해</span> 설계된 원단</p>
+    <p>입는 순간, <span class="p-rules-accent">차이가 느껴진다.</span></p>
   </div>
 </section>
 
@@ -149,7 +165,7 @@
 </section>
 
 <!-- ============================
-     6. JOIN THE MOVEMENT
+     6. JOIN THE MOVEMENT + FOOTER (merged)
 ============================= -->
 <section class="p-join anim-section" id="p-join">
   <div class="p-join-bg">
@@ -164,33 +180,30 @@
       <button class="p-join-btn" type="button">프리오더 알림 신청하기</button>
     </div>
   </div>
+  <footer class="m-footer" id="m-footer">
+    <div class="m-footer-inner">
+      <div class="m-footer-brand">
+        <div class="m-footer-logo">
+          <img src="assets/nav-logo.webp" alt="PATCH ME" loading="lazy">
+        </div>
+        <span class="m-footer-copy">© 2026 PATCH ME. ENGINEERED FOR SUPREMACY.</span>
+      </div>
+      <div class="m-footer-links">
+        <div class="m-footer-col">
+          <a href="#" class="m-footer-link">PRIVACY PROTOCOL</a>
+          <a href="#" class="m-footer-link">TECHNICAL SUPPORT</a>
+        </div>
+        <div class="m-footer-col">
+          <a href="#" class="m-footer-link">GLOBAL DISTRIBUTION</a>
+          <a href="#" class="m-footer-link">PRESS KIT</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </section>
 
-<!-- ============================
-     FOOTER — identical to index.html
-============================= -->
-<footer class="m-footer anim-section" id="m-footer">
-  <div class="m-footer-inner">
-    <div class="m-footer-brand">
-      <div class="m-footer-logo">
-        <img src="assets/footer-logo.webp" alt="PATCH ME" loading="lazy">
-      </div>
-      <span class="m-footer-copy">© 2026 PATCH ME. ENGINEERED FOR SUPREMACY.</span>
-    </div>
-    <div class="m-footer-links">
-      <div class="m-footer-col">
-        <a href="#" class="m-footer-link">PRIVACY PROTOCOL</a>
-        <a href="#" class="m-footer-link">TECHNICAL SUPPORT</a>
-      </div>
-      <div class="m-footer-col">
-        <a href="#" class="m-footer-link">GLOBAL DISTRIBUTION</a>
-        <a href="#" class="m-footer-link">PRESS KIT</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
 <script src="script.js"></script>
+<script src="steps-slider.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/Observer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
