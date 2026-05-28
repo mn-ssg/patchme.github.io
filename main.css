@@ -487,7 +487,7 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.12;
+  opacity: 0.6;
   mix-blend-mode: luminosity;
 }
 
@@ -563,7 +563,7 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.4;
+  opacity: 0.6;
   transition: opacity 0.4s ease;
 }
 .m-feature-item:hover .m-feature-bg img { opacity: 0.6; }
@@ -866,7 +866,6 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   .m-problem-left, .m-problem-right { height: 300px; flex: none; width: 100%; }
   .m-problem-title { top: 44px; transform: none; font-size: 18px; }
   .m-badge { display: none; }
-  .m-problem-left-desc { font-size: 13px; bottom: 16px; left: 16px; right: 16px; }
 
   /* Solution */
   .m-solution-img-wrap { height: 220px; }
@@ -884,14 +883,6 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   .m-feature-name { font-size: 14px; white-space: normal; }
   .m-feature-right { padding-right: 48px; }
   .m-feature-desc { font-size: 11px; white-space: normal; text-align: right; max-width: 140px; }
-
-  /* Phases */
-  .m-howitworks { height: auto; }
-  .m-phases-grid { grid-template-columns: 1fr; }
-  .m-phase-card { height: 300px; }
-  .m-phase-title { writing-mode: horizontal-tb; transform: none; font-size: 26px; }
-  .m-phase-desc { text-align: left; font-size: 13px; }
-  .m-phase-bottom { flex-direction: row; align-items: flex-end; justify-content: space-between; }
 
   /* CTA */
   .m-cta { height: 280px; }
