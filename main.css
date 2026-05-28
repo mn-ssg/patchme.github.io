@@ -908,3 +908,82 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
 
 /* Team styles → team.css  |  Product styles → product.css */
 
+/* ============================================
+   SCROLL ANIMATION (GSAP)
+   ============================================ */
+.anim-active { overflow: hidden; }
+
+.anim-active .anim-section {
+  position: fixed !important;
+  top: 0 !important; left: 0 !important;
+  width: 100% !important;
+  height: 100vh !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Wipe wrappers */
+.scroll-outer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.scroll-inner {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Hide decorative divider (not a full-screen section) */
+.anim-active .m-watermark-band { display: none !important; }
+
+/* Sections whose flex-centering was on the section → move to scroll-inner */
+.anim-active .m-cta .scroll-inner,
+.anim-active .p-join .scroll-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.anim-active .p-action .scroll-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(40px, 5vw, 96px) clamp(64px, 8.5vw, 160px);
+  gap: clamp(20px, 2.6vw, 50px);
+  box-sizing: border-box;
+}
+
+/* p-steps: tall section, allow internal scroll */
+.anim-active .p-steps .scroll-inner {
+  overflow-y: auto;
+  padding: clamp(40px, 5vw, 96px) clamp(64px, 8.5vw, 160px) clamp(48px, 5.2vw, 100px);
+  box-sizing: border-box;
+}
+
+/* t-about: flex column layout */
+.anim-active .t-about .scroll-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(32px, 4.3vw, 83px) clamp(64px, 8.5vw, 160px);
+  box-sizing: border-box;
+}
+
+/* t-members: tall content */
+.anim-active .t-members .scroll-inner { overflow-y: auto; }
+
+/* t-mission: may overflow */
+.anim-active .t-mission .scroll-inner { overflow-y: auto; }
+
+/* Footer: center content */
+.anim-active .m-footer.anim-section .scroll-inner {
+  display: flex;
+  align-items: center;
+  padding: clamp(64px, 7vw, 140px);
+  box-sizing: border-box;
+}
+.anim-active .m-footer.anim-section .m-footer-inner { width: 100%; }
+

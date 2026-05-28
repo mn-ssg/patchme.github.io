@@ -43,13 +43,13 @@
 <!-- ============================
      1. HERO SECTION
 ============================= -->
-<section class="p-hero" id="p-hero">
+<section class="p-hero anim-section" id="p-hero">
   <div class="p-hero-bg">
     <img src="assets/prod-hero-bg.webp" alt="" class="p-hero-bg-img" fetchpriority="high">
   </div>
   <div class="p-hero-content">
     <span class="p-hero-system">SYSTEM_ONLINE</span>
-    <h1 class="p-hero-title glitch-text" data-text="XPLORE COLLECTION">EXPLORE COLLECTION</h1>
+    <h1 class="p-hero-title glitch-text anim-heading" data-text="XPLORE COLLECTION">EXPLORE COLLECTION</h1>
     <p class="p-hero-sub">피부 조건이 한계가 되지 않도록,<br>당신의 대담한 움직임을 지원하는 기능성 스트리트 스포츠웨어.</p>
     <div class="p-hero-scroll">
       <span class="p-hero-scroll-text">컬렉션 둘러보기</span>
@@ -61,9 +61,9 @@
 <!-- ============================
      2. THE FRICTION
 ============================= -->
-<section class="p-friction" id="p-friction">
+<section class="p-friction anim-section" id="p-friction">
   <div class="p-friction-inner">
-    <h2 class="p-friction-title">THE FRICTION</h2>
+    <h2 class="p-friction-title anim-heading">THE FRICTION</h2>
     <p class="p-friction-desc">아토피, 건선 등 민감한 피부를 가진 사람들은 격렬한 운동이나 일상 활동 시 땀과 원단의 마찰로 인한 극심한 가려움과 따가움을 겪습니다. 기능성 옷은 디자인이 아쉽고, 스트리트 패션 의류는 피부에 자극적입니다. 게다가 피부 트러블을 숨기기 위해 스타일을 포기하고 늘 헐렁하고 지루한 옷만 찾아 헤매야 하는 심리적 답답함과 제약을 동시에 마주하고 있습니다.</p>
   </div>
   <div class="p-friction-frame">
@@ -74,8 +74,8 @@
 <!-- ============================
      3. THREE STEPS TO FREEDOM
 ============================= -->
-<section class="p-steps" id="p-steps">
-  <h2 class="p-steps-title">THREE STEPS TO <span class="p-accent">FREEDOM</span></h2>
+<section class="p-steps anim-section" id="p-steps">
+  <h2 class="p-steps-title anim-heading">THREE STEPS TO <span class="p-accent">FREEDOM</span></h2>
   <div class="p-steps-body">
     <div class="p-steps-photos">
       <img src="assets/prod-steps-a.webp" alt="" class="p-step-photo" loading="lazy">
@@ -106,8 +106,8 @@
 <!-- ============================
      4. REWRITING THE RULES
 ============================= -->
-<section class="p-rules" id="p-rules">
-  <h2 class="p-rules-title">REWRITING THE RULES</h2>
+<section class="p-rules anim-section" id="p-rules">
+  <h2 class="p-rules-title anim-heading">REWRITING THE RULES</h2>
   <div class="p-rules-panels">
     <div class="p-rules-panel">
       <div class="p-rules-bg">
@@ -139,8 +139,8 @@
 <!-- ============================
      5. IN ACTION
 ============================= -->
-<section class="p-action" id="p-action">
-  <h2 class="p-action-title">IN ACTION</h2>
+<section class="p-action anim-section" id="p-action">
+  <h2 class="p-action-title anim-heading">IN ACTION</h2>
   <div class="p-action-card">
     <div class="p-action-bar"></div>
     <p class="p-action-quote-gray">"평소 아토피 피부로 인해 땀이 나면 가려움이 심해 크로스핏을 망설이던 민우 씨..."</p>
@@ -151,13 +151,13 @@
 <!-- ============================
      6. JOIN THE MOVEMENT
 ============================= -->
-<section class="p-join" id="p-join">
+<section class="p-join anim-section" id="p-join">
   <div class="p-join-bg">
     <img src="assets/prod-join-bg.webp" alt="" class="p-join-bg-img" loading="lazy">
     <div class="p-join-darken"></div>
   </div>
   <div class="p-join-content">
-    <h2 class="p-join-title glitch-text" data-text="JOIN THE MOVEMENT">JOIN THE MOVEMENT</h2>
+    <h2 class="p-join-title glitch-text anim-heading" data-text="JOIN THE MOVEMENT">JOIN THE MOVEMENT</h2>
     <p class="p-join-sub">피부의 자유를 가장 먼저 경험하세요.<br>지금 PATCH ME 프리오더 알림을 신청하고 특별한 혜택을 받으세요.</p>
     <div class="p-join-form">
       <input type="email" class="p-join-input" placeholder="ENTER COMM LINK (EMAIL)" autocomplete="email">
@@ -169,7 +169,7 @@
 <!-- ============================
      FOOTER — identical to index.html
 ============================= -->
-<footer class="m-footer" id="m-footer">
+<footer class="m-footer anim-section" id="m-footer">
   <div class="m-footer-inner">
     <div class="m-footer-brand">
       <div class="m-footer-logo">
@@ -191,5 +191,9 @@
 </footer>
 
 <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Observer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/SplitText.min.js"></script>
+<script src="scroll-anim.js"></script>
 </body>
 </html>

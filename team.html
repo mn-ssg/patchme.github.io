@@ -43,13 +43,13 @@
 <!-- ============================
      1. HERO SECTION
 ============================= -->
-<section class="t-hero" id="t-hero">
+<section class="t-hero anim-section" id="t-hero">
   <div class="t-hero-bg">
     <img src="assets/team-hero-bg.webp" alt="" class="t-hero-bg-img" fetchpriority="high">
   </div>
   <div class="t-hero-content">
     <span class="t-hero-label">BEYOND THE SURFACE</span>
-    <h1 class="t-hero-title glitch-text" data-text="CORE SQUAD">CORE SQUAD</h1>
+    <h1 class="t-hero-title glitch-text anim-heading" data-text="CORE SQUAD">CORE SQUAD</h1>
     <p class="t-hero-sub">우리는 퍼포먼스의 설계자입니다. 기술적 혁신과 급진적인 원단 과학으로 인간의 움직임을 재정의합니다.</p>
   </div>
 </section>
@@ -57,13 +57,13 @@
 <!-- ============================
      2. ABOUT SECTION
 ============================= -->
-<section class="t-about" id="about">
+<section class="t-about anim-section" id="about">
   <div class="t-about-meta t-about-meta--top">
     <span class="t-meta-left">BASED IN SEOUL, KOREA</span>
     <span class="t-meta-right">FUNCTIONAL WEAR · FOR REAL SKIN</span>
   </div>
   <div class="t-about-main">
-    <h2 class="t-about-heading">A PERFORMANCE WEAR TEAM BUILT FOR PEOPLE WHO REFUSE TO SIT OUT</h2>
+    <h2 class="t-about-heading anim-heading">A PERFORMANCE WEAR TEAM BUILT FOR PEOPLE WHO REFUSE TO SIT OUT</h2>
     <div class="t-about-desc">
       <p class="t-about-p1"><span class="t-brand-name">PATCH ME</span>는 피부 질환을 가진 사람들이 스포츠와 일상을 마찰 없이 즐길 수 있도록 기능성 의류를 연구하고 제작하는 팀입니다.</p>
       <p class="t-about-p2">우리는 피부를 숨기기 위한 옷을 만들지 않습니다.<br>입고 싶어서 입는 옷, 움직임을 방해하지 않는 옷,<br>피부가 버틸 수 있는 옷을 만듭니다.</p>
@@ -78,7 +78,7 @@
 <!-- ============================
      3. MEMBERS SECTION
 ============================= -->
-<section class="t-members" id="members">
+<section class="t-members anim-section" id="members">
   <!-- Member 1: Lee Min Seok -->
   <div class="t-member-card" id="t-member-lee">
     <div class="t-member-photo">
@@ -133,9 +133,9 @@
 <!-- ============================
      4. MISSION SECTION
 ============================= -->
-<section class="t-mission" id="mission">
+<section class="t-mission anim-section" id="mission">
   <div class="t-mission-header">
-    <h2 class="t-mission-title">OUR MISSION</h2>
+    <h2 class="t-mission-title anim-heading">OUR MISSION</h2>
     <div class="t-mission-frame">
       <img src="assets/team-mission-frame.webp" alt="" class="t-mission-frame-img" loading="lazy">
     </div>
@@ -168,7 +168,7 @@
 <!-- ============================
      FOOTER — identical to index.html
 ============================= -->
-<footer class="m-footer" id="m-footer">
+<footer class="m-footer anim-section" id="m-footer">
   <div class="m-footer-inner">
     <div class="m-footer-brand">
       <div class="m-footer-logo">
@@ -190,5 +190,9 @@
 </footer>
 
 <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Observer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/SplitText.min.js"></script>
+<script src="scroll-anim.js"></script>
 </body>
 </html>

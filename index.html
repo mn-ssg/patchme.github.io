@@ -42,14 +42,14 @@
 <!-- ============================
      1. HERO SECTION
 ============================= -->
-<section class="m-hero" id="hero">
+<section class="m-hero anim-section" id="hero">
   <div class="m-hero-bg">
     <video class="m-hero-bg-img" autoplay muted loop playsinline>
       <source src="assets/hero-bg.mp4" type="video/mp4">
     </video>
   </div>
   <div class="m-hero-center">
-    <h1 class="m-hero-title glitch-text" data-text="PATCH ME">
+    <h1 class="m-hero-title glitch-text anim-heading" data-text="PATCH ME">
       <span class="m-hero-patch">PATCH </span><span class="m-hero-me">ME</span>
     </h1>
     <p class="m-hero-subtitle">FUNCTIONAL WEAR FOR REAL SKIN</p>
@@ -59,8 +59,8 @@
 <!-- ============================
      2. PROBLEM SECTION
 ============================= -->
-<section class="m-problem" id="problem">
-  <h2 class="m-problem-title">
+<section class="m-problem anim-section" id="problem">
+  <h2 class="m-problem-title anim-heading">
     DESIGNED FOR THE <span class="m-accent">WRONG SKIN</span>
   </h2>
   <div class="m-problem-split">
@@ -83,12 +83,12 @@
 <!-- ============================
      3. SOLUTION SECTION
 ============================= -->
-<section class="m-solution" id="solution">
+<section class="m-solution anim-section" id="solution">
   <div class="m-solution-img-wrap">
     <img src="assets/solution-bg.webp" alt="" class="m-solution-top-img" loading="lazy">
   </div>
   <div class="m-solution-content">
-    <h2 class="m-solution-title glitch-text" data-text="THE FRICTION PROTOCOL">
+    <h2 class="m-solution-title glitch-text anim-heading" data-text="THE FRICTION PROTOCOL">
       THE <span class="m-accent">FRICTION</span> PROTOCOL
     </h2>
     <div class="m-solution-divider">
@@ -119,9 +119,9 @@
 <!-- ============================
      5. FEATURES SECTION
 ============================= -->
-<section class="m-features" id="features">
+<section class="m-features anim-section" id="features">
   <div class="m-features-inner">
-    <h2 class="m-features-title">
+    <h2 class="m-features-title anim-heading">
       SYSTEM <span class="m-accent">SPECIFICATIONS</span>
     </h2>
     <div class="m-features-list">
@@ -171,20 +171,20 @@
 <!-- ============================
      7. CTA SECTION
 ============================= -->
-<section class="m-cta" id="cta">
+<section class="m-cta anim-section" id="cta">
   <div class="m-cta-bg">
     <img src="assets/cta-bg.webp" alt="" class="m-cta-bg-img" loading="lazy">
     <div class="m-cta-darken"></div>
   </div>
   <div class="m-cta-inner">
-    <h2 class="m-cta-title glitch-text" data-text="READY FOR DEPLOYMENT?">READY FOR DEPLOYMENT?</h2>
+    <h2 class="m-cta-title glitch-text anim-heading" data-text="READY FOR DEPLOYMENT?">READY FOR DEPLOYMENT?</h2>
   </div>
 </section>
 
 <!-- ============================
      FOOTER
 ============================= -->
-<footer class="m-footer" id="m-footer">
+<footer class="m-footer anim-section" id="m-footer">
   <div class="m-footer-inner">
     <div class="m-footer-brand">
       <div class="m-footer-logo">
@@ -206,5 +206,9 @@
 </footer>
 
 <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Observer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/SplitText.min.js"></script>
+<script src="scroll-anim.js"></script>
 </body>
 </html>
