@@ -218,7 +218,7 @@
   display: flex;
   align-items: center;
   gap: clamp(24px, 3vw, 48px);
-  padding: clamp(40px, 5.2vw, 100px) clamp(64px, 8.5vw, 160px) clamp(16px, 1.8vw, 32px);
+  padding: clamp(40px, 5.2vw, 100px) clamp(64px, 8.5vw, 160px) clamp(32px, 3.5vw, 56px);
   overflow: hidden;
 }
 .t-mission-title {
@@ -325,7 +325,7 @@
    → heading + cards 블록이 푸터 위 공간의 정중앙에 배치됨 */
 .anim-active .t-mission .t-mission-header {
   margin-top: auto;
-  padding-bottom: clamp(12px, 1.5vh, 20px); /* heading↔cards 간격 최소화 */
+  padding-bottom: clamp(28px, 3.5vh, 44px);
 }
 .anim-active .t-mission .t-mission-cards {
   flex: none;
