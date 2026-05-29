@@ -477,10 +477,10 @@
 
 .p-action-img-wrap {
   position: absolute;
-  left: 0;
-  top: 48.5%;
-  width: 135vw;
-  min-width: 800px;
+  left: 6vw;
+  top: 36%;
+  width: 88vw;
+  min-width: 560px;
   transform-origin: center bottom;
 }
 
@@ -678,7 +678,7 @@
   }
   .p-action-quote-sub  { font-size: clamp(12px, 3.5vw, 16px); }
   .p-action-text { width: 90vw; }
-  .p-action-img-wrap { width: 200vw; top: 50%; }
+  .p-action-img-wrap { width: 140vw; top: 44%; left: 0; }
 
   /* Join */
   .p-join { height: auto; min-height: 100svh; padding: 60px 24px; }
