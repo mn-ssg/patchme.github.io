@@ -6,7 +6,7 @@
 gsap.registerPlugin(Observer, SplitText);
 
 const sections = Array.from(document.querySelectorAll('.anim-section'));
-if (!sections.length) return;
+if (!sections.length) { throw new Error('no anim-sections'); }
 
 /* Activate fixed-section layout via CSS */
 document.body.classList.add('anim-active');
