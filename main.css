@@ -207,7 +207,7 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   transform: translateX(100%) !important;
   transition: transform 0.4s cubic-bezier(0.16,1,0.3,1) !important;
   z-index: 999 !important;
-  border-left: 1px solid rgba(61,255,208,0.1) !important;
+  border-left: 1px solid rgba(76,253,191,0.1) !important;
 }
 .nav-menu.is-open {
   transform: translateX(0) !important;

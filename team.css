@@ -203,25 +203,6 @@
   letter-spacing: 1px;
   line-height: 1.5;
 }
-.t-member-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: clamp(6px, 0.6vw, 12px);
-  padding-top: clamp(12px, 1.5vw, 24px);
-}
-.t-tag {
-  display: inline-flex;
-  align-items: center;
-  background: #007065;
-  color: var(--accent);
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(9px, 0.78vw, 15px);
-  letter-spacing: 2.7px;
-  padding: 6px 18px;
-  border-radius: 9999px;
-  white-space: nowrap;
-}
 
 /* ──────────────────────────────────────────
    4. MISSION
@@ -313,7 +294,7 @@
 .anim-active .t-members .scroll-inner {
   display: flex;
   overflow: hidden;
-  padding: clamp(20px, 4vh, 44px) clamp(60px, 11.5vw, 221px) 0;
+  padding: clamp(48px, 9vh, 96px) clamp(60px, 11.5vw, 221px) 0;
 }
 .anim-active .t-member-card {
   height: 100%;
@@ -329,10 +310,6 @@
 .anim-active .t-member-info {
   padding: clamp(12px, 2.5vh, 28px) clamp(16px, 2.5vw, 48px);
   gap: clamp(10px, 1.8vw, 24px);
-}
-/* info flex gap이 역할을 대신하므로 tags 자체 padding-top 제거 */
-.anim-active .t-member-tags {
-  padding-top: 0;
 }
 
 /* ──────────────────────────────────────────
@@ -416,7 +393,6 @@
   .t-member-name { font-size: 18px; }
   .t-member-role { font-size: 11px; letter-spacing: 2px; }
   .t-member-desc p { font-size: 14px; }
-  .t-tag { font-size: 10px; padding: 5px 12px; letter-spacing: 2px; }
 
   .t-mission-header { flex-direction: column; align-items: flex-start; gap: 12px; padding: 48px 48px 24px; }
   .t-mission-frame { width: 100%; }

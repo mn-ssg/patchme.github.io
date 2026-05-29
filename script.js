@@ -165,6 +165,26 @@ document.addEventListener('DOMContentLoaded', () => {
     if (pJoinTitle) { pJoinTitle.classList.add('m-reveal', 'm-delay-1'); revealObserver.observe(pJoinTitle); }
     if (pJoinSub)   { pJoinSub.classList.add('m-reveal', 'm-delay-2'); revealObserver.observe(pJoinSub); }
     if (pJoinForm)  { pJoinForm.classList.add('m-reveal', 'm-delay-3'); revealObserver.observe(pJoinForm); }
+
+    // Pre-order signup feedback
+    const joinInput = document.querySelector('.p-join-input');
+    const joinBtn   = document.querySelector('.p-join-btn');
+    if (joinInput && joinBtn) {
+      joinBtn.addEventListener('click', () => {
+        const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(joinInput.value.trim());
+        if (!valid) {
+          joinInput.focus();
+          joinInput.style.borderColor = '#ff0080';
+          return;
+        }
+        joinInput.style.borderColor = '';
+        joinInput.value = '';
+        joinInput.disabled = true;
+        joinBtn.textContent = '신청이 완료되었습니다 ✓';
+        joinBtn.disabled = true;
+        joinBtn.style.color = 'var(--accent)';
+      });
+    }
   }
 
   // --- Footer reveal ---
