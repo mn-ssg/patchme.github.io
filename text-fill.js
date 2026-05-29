@@ -6,6 +6,7 @@
 const TextFill = (() => {
   const DIM            = 'rgba(255,255,255,0.12)';
   const WHITE          = '#ffffff';
+  const ACCENT         = '#4cfdbf';
   const CHARS_PER_STEP = 10;   // 스크롤 1회당 채울 글자 수
   const STAGGER        = 0.045; // 글자 간 지연 (초)
   const FILL_DURATION  = 0.35; // 글자 하나 채우기 시간
@@ -65,7 +66,7 @@ const TextFill = (() => {
 
       batch.forEach((char, i) => {
         gsap.to(char, {
-          color: WHITE,
+          color: char.closest('.tf-accent-word') ? ACCENT : WHITE,
           duration: FILL_DURATION,
           delay: i * STAGGER,
           ease: 'power2.out',
