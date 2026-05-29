@@ -1283,5 +1283,20 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   .anim-active .m-cta .m-footer-brand,
   .anim-active .p-join .m-footer-brand,
   .anim-active .t-mission .m-footer-brand { gap: 6px; }
+
+  /* 섹션 높이: 100svh — iOS 주소창이 콘텐츠 가리는 현상 방지 */
+  .anim-active .anim-section { height: 100svh !important; }
+
+  /* 내용 긴 섹션: 내부 스크롤 허용으로 하단 잘림 방지 */
+  .anim-active .scroll-inner {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  /* solution은 watermark 고정 필요 — overflow hidden 유지 */
+  .anim-active .m-solution .scroll-inner { overflow: hidden; }
+
+  /* features 카드: min-height 제거 (flex:1 컨테이너가 크기 결정) */
+  .anim-active .m-fg-card--lg,
+  .anim-active .m-fg-card { min-height: 0; }
 }
 
