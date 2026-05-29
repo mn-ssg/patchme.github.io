@@ -3,10 +3,18 @@
    Ref: codepen.io/BrianCross/pen/PoWapLP
    ============================================ */
 
+(function () {
+
 gsap.registerPlugin(Observer, SplitText);
 
 const sections = Array.from(document.querySelectorAll('.anim-section'));
-if (!sections.length) { throw new Error('no anim-sections'); }
+if (!sections.length) return;
+
+/* 모바일(≤768px): GSAP 스크롤 건너뛰고 일반 CSS 스크롤 사용 */
+if (window.innerWidth <= 768) {
+  sections.forEach(s => { s.style.visibility = 'visible'; s.style.opacity = '1'; });
+  return;
+}
 
 /* Activate fixed-section layout via CSS */
 document.body.classList.add('anim-active');
@@ -312,3 +320,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   currentIndex = 0;
 });
+
+})();

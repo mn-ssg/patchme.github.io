@@ -1002,17 +1002,26 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   .m-watermark-band { height: 80px; }
   .m-watermark-title { font-size: 36px; }
 
-  /* Features */
-  .m-feature-item { height: 100px; }
-  .m-feature-left { width: 180px; padding-left: 48px; }
-  .m-feature-data { font-size: 9px; }
-  .m-feature-name { font-size: 14px; white-space: normal; }
-  .m-feature-right { padding-right: 48px; }
-  .m-feature-desc { font-size: 11px; white-space: normal; text-align: right; max-width: 140px; }
+  /* Features — bento grid: 단일 컬럼 */
+  .m-features { min-height: auto; }
+  .m-features-title { padding: 40px 24px 0; }
+  .m-features-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 16px 24px 40px;
+    min-height: auto;
+    gap: 10px;
+  }
+  .m-fg-card--lg { grid-row: auto; min-height: 320px; }
+  .m-fg-card { min-height: 240px; }
+  .m-fg-desc { opacity: 1; transform: translateY(0); }
 
-  /* CTA */
-  .m-cta { height: 280px; }
+  /* CTA: 안에 footer 있어서 고정 높이 제거 */
+  .m-cta { height: auto; min-height: 220px; }
   .m-cta-title { font-size: 18px; }
+
+  /* Solution 좌우 패딩 축소 */
+  .m-solution-content { padding-left: 24px; padding-right: 24px; }
 
   /* Footer */
   .m-footer-inner { flex-direction: column; gap: 32px; }
