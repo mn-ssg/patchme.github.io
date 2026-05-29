@@ -400,3 +400,25 @@
   .t-mission-card-title { font-size: 16px; }
   .t-mission-card-desc { font-size: 14px; }
 }
+
+/* ── ANIM-ACTIVE + MOBILE: Members 세로 스택 + 내부 스크롤 ── */
+@media (max-width: 768px) {
+  .anim-active .t-members .scroll-inner {
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 16px 16px 0;
+  }
+  .anim-active .t-member-card {
+    height: auto;
+    padding: 10px;
+  }
+  .anim-active .t-member-photo {
+    height: 54vw;
+    min-height: 180px;
+  }
+  .anim-active .t-member-info {
+    padding: 14px 12px;
+    gap: 10px;
+  }
+}
