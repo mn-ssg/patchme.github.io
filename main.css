@@ -1024,10 +1024,10 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   .m-solution-content { padding-left: 24px; padding-right: 24px; }
 
   /* Footer */
-  .m-footer-inner { flex-direction: column; gap: 32px; }
-  .m-footer-logo img { height: 60px; }
+  .m-footer-inner { flex-direction: column; gap: 16px; }
+  .m-footer-logo img { height: 36px; }
   .m-footer-copy { font-size: 10px; padding-left: 0; }
-  .m-footer-links { flex-direction: row; gap: 32px; }
+  .m-footer-links { flex-direction: row; gap: 24px; }
   .m-footer-link { font-size: 10px; }
 }
 
@@ -1268,5 +1268,20 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
     padding-left: 24px;
     padding-right: 24px;
   }
+
+  /* Footer: 모바일에서 훨씬 컴팩트하게 */
+  .anim-active .m-cta .m-footer,
+  .anim-active .p-join .m-footer,
+  .anim-active .t-mission .m-footer { padding: 14px 24px; }
+
+  .anim-active .m-footer-inner { gap: 10px; }
+
+  .anim-active .m-cta .m-footer-logo img,
+  .anim-active .p-join .m-footer-logo img,
+  .anim-active .t-mission .m-footer-logo img { height: 20px; }
+
+  .anim-active .m-cta .m-footer-brand,
+  .anim-active .p-join .m-footer-brand,
+  .anim-active .t-mission .m-footer-brand { gap: 6px; }
 }
 
