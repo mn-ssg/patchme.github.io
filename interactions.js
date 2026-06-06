@@ -25,7 +25,7 @@
       requestAnimationFrame(loop);
     })();
 
-    const hoverSel = 'a, button, input, .nav-link, .nav-logo, .m-fg-card, .pfs-card, .pfs-slider-wrap, .glitch-text, .m-sol-cell, [data-magnetic]';
+    const hoverSel = 'a, button, input, .nav-link, .nav-logo, .m-fg-card, .pc-card, .pfs-card, .pfs-slider-wrap, .glitch-text, .m-sol-cell, [data-magnetic]';
     document.querySelectorAll(hoverSel).forEach(el => {
       el.addEventListener('mouseenter', () => ring.classList.add('big'));
       el.addEventListener('mouseleave', () => ring.classList.remove('big'));
@@ -92,14 +92,13 @@
     addEventListener('patchme:section', e => {
       const sec = document.querySelectorAll('.anim-section')[e.detail.index];
       if (!sec) return;
-      const h = sec.querySelector('.glitch-text');
-      if (h) scrambleEl(h);
+      sec.querySelectorAll('.glitch-text').forEach(scrambleEl);
     });
   }
 
   function initTiltGlow() {
     if (!MOTION_OK) return;
-    document.querySelectorAll('.m-fg-card, .t-mission-card').forEach(card => {
+    document.querySelectorAll('.m-fg-card, .t-mission-card, .pc-card').forEach(card => {
       const spot = document.createElement('div');
       spot.className = 'fx-spot';
       card.appendChild(spot);
