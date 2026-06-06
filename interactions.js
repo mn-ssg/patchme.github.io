@@ -119,9 +119,29 @@
     });
   }
 
+  function initScrollReact() {
+    const track = document.getElementById('cta-marquee-track');
+    if (!track) return;
+    let x = 0, vel = 0, half = 0;
+    const base = MOTION_OK ? 0.5 : 0;
+    const measure = () => { half = track.scrollWidth / 2; };
+    requestAnimationFrame(measure);
+    addEventListener('resize', measure);
+    addEventListener('patchme:section', e => { vel += 55 * (e.detail.direction || 1); });
+    (function loop() {
+      vel *= 0.9;
+      x -= (base + vel * 0.15);
+      if (half) { if (x <= -half) x += half; if (x > 0) x -= half; }
+      const skew = MOTION_OK ? Math.max(-14, Math.min(14, vel * 0.3)) : 0;
+      track.style.transform = `translateX(${x}px) skewX(${skew}deg)`;
+      requestAnimationFrame(loop);
+    })();
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     if (CURSOR_OK) initCursor();
     initScramble();
     initTiltGlow();
+    initScrollReact();
   });
 })();

@@ -29,3 +29,18 @@ body.cursor-custom a, body.cursor-custom button { cursor: none; }
   position: absolute; inset: 0; z-index: 1; pointer-events: none;
   opacity: 0; transition: opacity .3s; mix-blend-mode: screen;
 }
+
+/* --- CTA reactive marquee --- */
+.cta-marquee {
+  position: absolute; left: 0; right: 0; top: 64%;
+  z-index: 1; pointer-events: none; overflow: hidden;
+  opacity: .9; mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.cta-marquee-track {
+  display: inline-flex; white-space: nowrap;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(26px, 4vw, 56px); letter-spacing: 2px;
+  will-change: transform;
+}
+.cta-marquee-track b { color: var(--accent); }
+.cta-marquee-track span { color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.35); }

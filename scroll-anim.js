@@ -75,6 +75,7 @@ function gotoSection(index, direction) {
   if (index === currentIndex) { animating = false; return; }
   animating = true;
   const dFactor = direction === -1 ? -1 : 1;
+  window.dispatchEvent(new CustomEvent('patchme:section', { detail: { index, direction } }));
 
   /* Nav style: transparent on hero, dark everywhere else */
   if (topNav) topNav.classList.toggle('scrolled', index > 0);
