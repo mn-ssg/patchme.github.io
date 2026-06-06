@@ -577,6 +577,7 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   position: relative;
   overflow: hidden;
   background: #111;
+  border-radius: var(--frame-radius);
   will-change: transform;
   /* 입장 애니메이션 초기 상태 */
   opacity: 0;

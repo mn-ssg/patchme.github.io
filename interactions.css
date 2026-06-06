@@ -51,10 +51,6 @@ body.cursor-custom a, body.cursor-custom button { cursor: none; }
 /* keep p-join body content above the backdrop marquee too */
 .p-join .p-join-content { position: relative; z-index: 2; }
 
-/* tilt spotlight on team mission cards (flat dark panels) */
-.t-mission-card { position: relative; }
-.t-mission-card > :not(.fx-spot) { position: relative; z-index: 2; }
-
 /* product collection: keep card content above the injected spotlight */
 .pc-card .pc-ov,
 .pc-card .pc-code,
