@@ -1079,6 +1079,11 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   overflow-y: auto;
 }
 
+/* — Product collection: rescue scroll on short landscape viewports — */
+.anim-active .p-collection .scroll-inner {
+  overflow-y: auto;
+}
+
 /* — Solution: grid fills full viewport height — */
 .anim-active .m-solution .scroll-inner {
   overflow: hidden;
