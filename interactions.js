@@ -50,7 +50,53 @@
     });
   }
 
+  const SCR_CHARS = '!<>-_\\/[]{}—=+*^?#________';
+  function scrambleEl(el) {
+    if (REDUCED) return;
+    const finalHTML = el.dataset.fxFinal || el.innerHTML;
+    el.dataset.fxFinal = finalHTML;
+    const text = el.textContent;
+    const queue = [];
+    for (let i = 0; i < text.length; i++) {
+      const start = Math.floor(Math.random() * 18);
+      const end = start + Math.floor(Math.random() * 18);
+      queue.push({ to: text[i], start, end, char: '' });
+    }
+    let frame = 0;
+    (function run() {
+      let out = '', done = 0;
+      for (const q of queue) {
+        if (frame >= q.end) { done++; out += q.to; }
+        else if (frame >= q.start) {
+          if (!q.char || Math.random() < 0.28) q.char = SCR_CHARS[Math.floor(Math.random() * SCR_CHARS.length)];
+          out += `<span class="fx-scr">${q.char}</span>`;
+        }
+      }
+      el.innerHTML = out;
+      if (done < queue.length) { frame++; requestAnimationFrame(run); }
+      else el.innerHTML = finalHTML; // restore accent spans
+    })();
+  }
+
+  function initScramble() {
+    const targets = [...document.querySelectorAll('.glitch-text')];
+    targets.forEach(el => {
+      el.classList.add('scramble-active');      // CSS kills the old glitch layers
+      el.dataset.fxFinal = el.innerHTML;
+      if (!REDUCED) scrambleEl(el);              // decode on load
+      el.addEventListener('mouseenter', () => scrambleEl(el)); // re-scramble on hover
+    });
+    // decode the incoming section's heading on each transition
+    addEventListener('patchme:section', e => {
+      const sec = document.querySelectorAll('.anim-section')[e.detail.index];
+      if (!sec) return;
+      const h = sec.querySelector('.glitch-text');
+      if (h) scrambleEl(h);
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     if (CURSOR_OK) initCursor();
+    initScramble();
   });
 })();

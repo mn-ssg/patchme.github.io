@@ -18,3 +18,8 @@ body.cursor-custom a, body.cursor-custom button { cursor: none; }
 .fx-cur-ring.big {
   width: 74px; height: 74px; background: rgba(76,253,191,.12);
 }
+
+/* --- text scramble: neutralize old glitch, color scrambling glyphs --- */
+.glitch-text.scramble-active::before,
+.glitch-text.scramble-active::after { display: none !important; }
+.fx-scr { color: var(--accent); }
