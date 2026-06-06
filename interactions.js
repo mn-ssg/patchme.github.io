@@ -95,8 +95,33 @@
     });
   }
 
+  function initTiltGlow() {
+    document.querySelectorAll('.m-fg-card').forEach(card => {
+      const spot = document.createElement('div');
+      spot.className = 'fx-spot';
+      card.appendChild(spot);
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const dx = (e.clientX - r.left - r.width / 2) / (r.width / 2);
+        const dy = (e.clientY - r.top - r.height / 2) / (r.height / 2);
+        card.style.transition = 'transform .1s ease-out';
+        card.style.transform =
+          `perspective(900px) rotateX(${-dy * 8}deg) rotateY(${dx * 10}deg) scale(1.025)`;
+        spot.style.opacity = '1';
+        spot.style.background =
+          `radial-gradient(circle at ${e.clientX - r.left}px ${e.clientY - r.top}px, rgba(76,253,191,.30), transparent 55%)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transition = 'transform .7s cubic-bezier(.16,1,.3,1)';
+        card.style.transform = '';
+        spot.style.opacity = '0';
+      });
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     if (CURSOR_OK) initCursor();
     initScramble();
+    initTiltGlow();
   });
 })();

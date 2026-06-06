@@ -23,3 +23,9 @@ body.cursor-custom a, body.cursor-custom button { cursor: none; }
 .glitch-text.scramble-active::before,
 .glitch-text.scramble-active::after { display: none !important; }
 .fx-scr { color: var(--accent); }
+
+/* --- bento tilt spotlight --- */
+.fx-spot {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  opacity: 0; transition: opacity .3s; mix-blend-mode: screen;
+}
