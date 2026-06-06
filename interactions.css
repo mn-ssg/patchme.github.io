@@ -3,3 +3,18 @@
 /* hide OS cursor only when custom cursor is active */
 body.cursor-custom { cursor: none; }
 body.cursor-custom a, body.cursor-custom button { cursor: none; }
+
+/* --- custom cursor --- */
+.fx-cur-dot, .fx-cur-ring {
+  position: fixed; top: 0; left: 0; border-radius: 50%;
+  pointer-events: none; z-index: 99999;
+  transform: translate(-50%, -50%); mix-blend-mode: difference;
+}
+.fx-cur-dot  { width: 7px; height: 7px; background: #fff; }
+.fx-cur-ring {
+  width: 38px; height: 38px; border: 1px solid var(--accent);
+  transition: width .25s, height .25s, background .25s, opacity .25s;
+}
+.fx-cur-ring.big {
+  width: 74px; height: 74px; background: rgba(76,253,191,.12);
+}
