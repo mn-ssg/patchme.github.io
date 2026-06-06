@@ -34,6 +34,8 @@
     const magSel = '.nav-link, .nav-logo, .p-join-btn, [data-magnetic]';
     document.querySelectorAll(magSel).forEach(el => {
       const inner = el.querySelector('span') || el;
+      let timer;
+      el.addEventListener('mouseenter', () => { clearTimeout(timer); el.style.transition = ''; });
       el.addEventListener('mousemove', e => {
         const r = el.getBoundingClientRect();
         const x = e.clientX - r.left - r.width / 2;
@@ -45,7 +47,7 @@
         el.style.transition = 'transform .4s cubic-bezier(.16,1,.3,1)';
         el.style.transform = '';
         if (inner !== el) inner.style.transform = '';
-        setTimeout(() => { el.style.transition = ''; }, 400);
+        timer = setTimeout(() => { el.style.transition = ''; }, 400);
       });
     });
   }
@@ -96,15 +98,16 @@
   }
 
   function initTiltGlow() {
+    if (!MOTION_OK) return;
     document.querySelectorAll('.m-fg-card').forEach(card => {
       const spot = document.createElement('div');
       spot.className = 'fx-spot';
       card.appendChild(spot);
+      card.addEventListener('mouseenter', () => { card.style.transition = 'transform .1s ease-out'; });
       card.addEventListener('mousemove', e => {
         const r = card.getBoundingClientRect();
         const dx = (e.clientX - r.left - r.width / 2) / (r.width / 2);
         const dy = (e.clientY - r.top - r.height / 2) / (r.height / 2);
-        card.style.transition = 'transform .1s ease-out';
         card.style.transform =
           `perspective(900px) rotateX(${-dy * 8}deg) rotateY(${dx * 10}deg) scale(1.025)`;
         spot.style.opacity = '1';
@@ -126,8 +129,9 @@
     const base = MOTION_OK ? 0.5 : 0;
     const measure = () => { half = track.scrollWidth / 2; };
     requestAnimationFrame(measure);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
     addEventListener('resize', measure);
-    addEventListener('patchme:section', e => { vel += 55 * (e.detail.direction || 1); });
+    addEventListener('patchme:section', e => { if (MOTION_OK) vel += 55 * (e.detail.direction || 1); });
     (function loop() {
       vel *= 0.9;
       x -= (base + vel * 0.15);
