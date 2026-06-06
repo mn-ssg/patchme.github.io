@@ -1,0 +1,5 @@
+/* interactions.css — award-level interactions. Isolated & reversible. */
+
+/* hide OS cursor only when custom cursor is active */
+body.cursor-custom { cursor: none; }
+body.cursor-custom a, body.cursor-custom button { cursor: none; }
