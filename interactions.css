@@ -46,4 +46,11 @@ body.cursor-custom a, body.cursor-custom button { cursor: none; }
 .cta-marquee-track b { color: transparent; -webkit-text-stroke: 1px rgba(76,253,191,.45); }
 .cta-marquee-track span { color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.18); }
 /* lift the title above the moving backdrop */
-.m-cta .m-cta-title { position: relative; z-index: 3; text-shadow: 0 4px 30px rgba(0,0,0,.65); }
+.m-cta .m-cta-title,
+.p-join .p-join-title { position: relative; z-index: 3; text-shadow: 0 4px 30px rgba(0,0,0,.65); }
+/* keep p-join body content above the backdrop marquee too */
+.p-join .p-join-content { position: relative; z-index: 2; }
+
+/* tilt spotlight on team mission cards (flat dark panels) */
+.t-mission-card { position: relative; }
+.t-mission-card > :not(.fx-spot) { position: relative; z-index: 2; }

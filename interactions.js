@@ -99,7 +99,7 @@
 
   function initTiltGlow() {
     if (!MOTION_OK) return;
-    document.querySelectorAll('.m-fg-card').forEach(card => {
+    document.querySelectorAll('.m-fg-card, .t-mission-card').forEach(card => {
       const spot = document.createElement('div');
       spot.className = 'fx-spot';
       card.appendChild(spot);
