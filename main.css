@@ -10,13 +10,17 @@
   --color-secondary: #b9cac2;
   --text-dim: #888780;
   --font-display: 'Orbitron', monospace;
-  --font-body: 'Pretendard', sans-serif;
+  --font-body: 'Orbitron', monospace;
   /* Type scale */
   --fs-hero:    clamp(28px, 3.8vw, 64px);
   --fs-display: clamp(20px, 3.3vw, 56px);
   --fs-title:   clamp(18px, 2.3vw, 44px);
   --fs-body:    clamp(12px, 0.9vw, 16px);
   --fs-label:   clamp(10px, 0.8vw, 14px);
+  /* Spacing — black "frame" gutter shared across heavy sections */
+  --frame:      clamp(20px, 4.2vw, 80px);
+  --frame-gap:  clamp(10px, 1.4vw, 28px);
+  --frame-radius: clamp(10px, 1.2vw, 20px);
 }
 
 /* --- Reset & base --- */
@@ -340,6 +344,8 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   display: flex;
   width: 100%;
   height: 100%;
+  gap: var(--frame-gap);
+  padding: var(--frame);
 }
 
 .m-problem-left,
@@ -347,6 +353,7 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   position: relative;
   flex: 1;
   overflow: hidden;
+  border-radius: var(--frame-radius);
 }
 
 .m-problem-bg-img {
@@ -383,139 +390,147 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
 
 .m-problem-left-desc {
   position: absolute;
-  bottom: clamp(40px, 8%, 83px);
-  left: clamp(16px, 14%, 269px);
-  right: clamp(20px, 25%, 200px);
-  max-width: 360px;
+  bottom: clamp(32px, 6%, 72px);
+  left: clamp(16px, 5%, 60px);
+  max-width: 320px;
+  z-index: 3;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  opacity: 0.45;
+}
+
+.m-problem-left:hover .m-problem-left-desc { opacity: 1; }
+
+.m-problem-stat {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(22px, 2.8vw, 48px);
+  letter-spacing: 2px;
+  color: white;
+  line-height: 1;
+  margin-bottom: clamp(6px, 0.8vw, 12px);
+}
+
+.m-problem-left-desc p {
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: clamp(12px, 0.9vw, 16px);
-  line-height: 1.5;
-  color: var(--text-muted);
+  font-size: var(--fs-body);
+  line-height: 1.7;
+  color: rgba(255,255,255,0.75);
   letter-spacing: 1px;
-  z-index: 3;
+}
+
+.m-problem-right-desc {
+  position: absolute;
+  bottom: clamp(32px, 6%, 72px);
+  left: clamp(16px, 5%, 48px);
+  right: clamp(16px, 8%, 60px);
+  max-width: 340px;
+  z-index: 2;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  opacity: 0.4;
+}
+
+.m-problem-right:hover .m-problem-right-desc { opacity: 1; }
+
+.m-problem-right-desc p {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--fs-body);
+  line-height: 1.7;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: 1px;
+}
+.m-problem-right-desc p + p {
+  margin-top: 1em;
+  color: rgba(255,255,255,0.6);
 }
 
 /* ============================================
-   3. SOLUTION SECTION
+   3. SOLUTION SECTION — mosaic grid
    ============================================ */
 .m-solution {
-  position: relative;
-  min-height: clamp(500px, 51vw, 984px);
   background: var(--bg);
-  overflow: hidden;
 }
 
-.m-solution-img-wrap {
-  position: relative;
-  height: clamp(260px, 34vw, 654px);
-  overflow: hidden;
+.m-solution-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, clamp(240px, 28vw, 535px));
+  gap: var(--frame-gap);
+  padding: var(--frame);
 }
-.m-solution-top-img {
+
+.m-sol-cell {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+  border-radius: var(--frame-radius);
+}
+
+.m-sol-cell img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.m-solution-content {
-  position: relative;
-  padding: clamp(24px, 3vw, 48px) clamp(64px, 8.5vw, 160px) clamp(40px, 5vw, 80px);
-  z-index: 2;
-}
-
-.m-solution-divider {
-  margin-bottom: clamp(16px, 2vw, 32px);
-  line-height: 0;
-}
-.m-solution-line {
-  width: 100%;
-  max-width: 1920px;
-  height: auto;
+  object-position: center;
   display: block;
-  opacity: 0.5;
+}
+
+.m-sol-title-cell {
+  display: flex;
+  align-items: flex-start;
+  padding: clamp(20px, 2.5vw, 48px);
 }
 
 .m-solution-title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(18px, 2.3vw, 44px);
+  font-size: var(--fs-display);
   letter-spacing: 1px;
   color: white;
   text-transform: uppercase;
-  line-height: 1.1;
-  margin-bottom: clamp(20px, 2.5vw, 40px);
+  line-height: 1.05;
 }
 
-.m-solution-bottom {
+.m-sol-desc {
   display: flex;
-  gap: clamp(24px, 4vw, 60px);
-  align-items: flex-start;
+  flex-direction: column;
+  gap: clamp(12px, 1.5vw, 24px);
+  padding: clamp(20px, 2.5vw, 48px);
+  justify-content: center;
 }
 
 .m-solution-label {
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: clamp(11px, 0.8vw, 14px);
+  font-size: var(--fs-label);
   letter-spacing: 1px;
   color: white;
-  white-space: nowrap;
-  flex-shrink: 0;
-  padding-top: 4px;
+  text-transform: uppercase;
 }
 
 .m-solution-desc {
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: clamp(12px, 0.9vw, 16px);
+  font-size: var(--fs-body);
   line-height: 1.8;
-  color: var(--text-muted);
+  color: var(--color-secondary);
   letter-spacing: 1px;
-  max-width: 1017px;
 }
 .m-solution-desc p + p { margin-top: 1em; }
 
-/* ============================================
-   4. WATERMARK BAND
-   ============================================ */
-.m-watermark-band {
-  position: relative;
-  height: 166px;
-  overflow: hidden;
-  background: var(--bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* Staggered fade-in per cell */
+.m-solution-grid .m-sol-cell:nth-child(1) { transition-delay: 0ms; }
+.m-solution-grid .m-sol-cell:nth-child(2) { transition-delay: 80ms; }
+.m-solution-grid .m-sol-cell:nth-child(3) { transition-delay: 160ms; }
+.m-solution-grid .m-sol-cell:nth-child(4) { transition-delay: 240ms; }
+.m-solution-grid .m-sol-cell:nth-child(5) { transition-delay: 200ms; }
+.m-solution-grid .m-sol-cell:nth-child(6) { transition-delay: 280ms; }
+.m-solution-grid .m-sol-cell:nth-child(7) { transition-delay: 360ms; }
+.m-solution-grid .m-sol-cell:nth-child(8) { transition-delay: 440ms; }
 
-.m-watermark-bg {
-  position: absolute;
-  inset: 0;
-}
-.m-watermark-bg img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.6;
-  mix-blend-mode: luminosity;
-}
-
-.m-watermark-title {
-  position: relative;
-  z-index: 2;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(32px, 5vw, 64px);
-  text-transform: uppercase;
-  letter-spacing: 0;
-  line-height: 1;
-  text-align: center;
-  pointer-events: none;
-  white-space: nowrap;
-}
-.m-wm-patch { color: white; }
-.m-wm-me { color: var(--accent); }
 
 /* ============================================
    5. FEATURES SECTION
@@ -858,7 +873,9 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
 
 .m-cta-bg {
   position: absolute;
-  inset: 0;
+  inset: var(--frame);
+  overflow: hidden;
+  border-radius: var(--frame-radius);
 }
 .m-cta-bg-img {
   position: absolute;
@@ -930,28 +947,6 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   padding-left: 33px;
 }
 
-.m-footer-links {
-  display: flex;
-  gap: clamp(24px, 4vw, 72px);
-  align-items: flex-start;
-}
-.m-footer-col {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-.m-footer-link {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(10px, 0.8vw, 15px);
-  letter-spacing: 1.5px;
-  color: var(--text-dim);
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  white-space: nowrap;
-}
-.m-footer-link:hover { color: white; }
 
 
 /* ============================================
@@ -988,21 +983,19 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
 
   /* Problem */
   .m-problem { height: auto; min-height: 600px; }
+  .m-problem-stat { font-size: 20px; }
+  .m-problem-left-desc p, .m-problem-right-desc p { font-size: 11px; }
   .m-problem-split { flex-direction: column; height: auto; }
   .m-problem-left, .m-problem-right { height: 300px; flex: none; width: 100%; }
   .m-problem-title { top: 44px; transform: none; font-size: 18px; }
   .m-badge { display: none; }
 
   /* Solution */
-  .m-solution-img-wrap { height: 220px; }
-  .m-solution-bottom { flex-direction: column; gap: 12px; }
-  .m-solution-label { font-size: 12px; }
+  .m-solution-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(4, clamp(180px, 28vw, 300px)); }
+  .m-sol-empty { display: none; }
 
   /* Watermark */
-  .m-watermark-band { height: 80px; }
-  .m-watermark-title { font-size: 36px; }
-
-  /* Features — bento grid: 단일 컬럼 */
+/* Features — bento grid: 단일 컬럼 */
   .m-features { min-height: auto; }
   .m-features-title { padding: 40px 24px 0; }
   .m-features-grid {
@@ -1020,15 +1013,13 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   .m-cta { height: auto; min-height: 220px; }
   .m-cta-title { font-size: 18px; }
 
-  /* Solution 좌우 패딩 축소 */
-  .m-solution-content { padding-left: 24px; padding-right: 24px; }
+  /* Solution */
+  .m-sol-title-cell, .m-sol-desc { padding: 20px; }
 
   /* Footer */
   .m-footer-inner { flex-direction: column; gap: 16px; }
   .m-footer-logo img { height: 36px; }
   .m-footer-copy { font-size: 10px; padding-left: 0; }
-  .m-footer-links { flex-direction: row; gap: 24px; }
-  .m-footer-link { font-size: 10px; }
 }
 
 /* ============================================
@@ -1038,7 +1029,6 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   .m-hero-title { font-size: 40px; }
   .m-problem-split { flex-direction: column; }
   .m-problem-left, .m-problem-right { height: 280px; }
-  .m-footer-links { flex-direction: column; }
 }
 
 /* Team styles → team.css  |  Product styles → product.css */
@@ -1089,24 +1079,13 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   overflow-y: auto;
 }
 
-/* — Solution: flex column so watermark sits pinned at bottom — */
+/* — Solution: grid fills full viewport height — */
 .anim-active .m-solution .scroll-inner {
-  display: flex;
-  flex-direction: column;
   overflow: hidden;
 }
-/* Image shrinks relative to viewport height so content + watermark fit */
-.anim-active .m-solution .m-solution-img-wrap {
-  height: clamp(160px, 40vh, 530px);
-  flex-shrink: 0;
-}
-.anim-active .m-solution .m-solution-content {
-  flex: 1;
-  overflow: hidden;
-}
-.anim-active .m-solution .m-watermark-band {
-  margin-top: auto;
-  flex-shrink: 0;
+.anim-active .m-solution .m-solution-grid {
+  height: 100%;
+  grid-template-rows: repeat(2, 1fr);
 }
 
 /* — Features: Bento Grid fills viewport height — */
@@ -1163,10 +1142,15 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   display: flex;
   flex-direction: column;
 }
-.anim-active .p-join .p-join-bg,
 .anim-active .p-join .p-join-darken {
   position: absolute;
   inset: 0;
+}
+.anim-active .p-join .p-join-bg {
+  position: absolute;
+  inset: var(--frame);
+  overflow: hidden;
+  border-radius: var(--frame-radius);
 }
 .anim-active .p-join .p-join-content {
   flex: 1;
@@ -1263,11 +1247,9 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   .anim-active .m-fg-card--lg { grid-row: auto; }
   .anim-active .m-fg-desc { opacity: 1; transform: translateY(0); }
 
-  /* Solution: 컨텐츠 패딩 축소 */
-  .anim-active .m-solution .m-solution-content {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
+  /* Solution: 모바일에서 패딩 축소 */
+  .anim-active .m-solution .m-sol-title-cell,
+  .anim-active .m-solution .m-sol-desc { padding: 16px; }
 
   /* Footer: 모바일에서 훨씬 컴팩트하게 */
   .anim-active .m-cta .m-footer,
@@ -1292,7 +1274,6 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
-  /* solution은 watermark 고정 필요 — overflow hidden 유지 */
   .anim-active .m-solution .scroll-inner { overflow: hidden; }
 
   /* features 카드: min-height 제거 (flex:1 컨테이너가 크기 결정) */

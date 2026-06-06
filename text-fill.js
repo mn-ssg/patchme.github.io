@@ -7,9 +7,9 @@ const TextFill = (() => {
   const DIM            = 'rgba(255,255,255,0.12)';
   const WHITE          = '#ffffff';
   const ACCENT         = '#4cfdbf';
-  const CHARS_PER_STEP = 10;   // 스크롤 1회당 채울 글자 수
-  const STAGGER        = 0.045; // 글자 간 지연 (초)
-  const FILL_DURATION  = 0.35; // 글자 하나 채우기 시간
+  const CHARS_PER_STEP = 20;   // 스크롤 1회당 채울 글자 수
+  const STAGGER        = 0.028; // 글자 간 지연 (초)
+  const FILL_DURATION  = 0.28; // 글자 하나 채우기 시간
 
   let chars   = [];
   let filled  = 0;     // 다음에 채울 글자 인덱스

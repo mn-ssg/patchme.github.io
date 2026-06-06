@@ -34,8 +34,8 @@
 
 .p-hero-content {
   position: absolute;
-  left: 50%; top: 50%;
-  transform: translate(-50%, -48%);
+  left: 50%; top: 55%;
+  transform: translate(-50%, -50%);
   z-index: 2;
   text-align: center;
   width: 90vw;
@@ -74,31 +74,6 @@
   margin-bottom: clamp(40px, 5.5vw, 106px);
 }
 
-.p-hero-scroll {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-.p-hero-scroll-text {
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: clamp(12px, 0.9vw, 16px);
-  color: var(--text-muted);
-  letter-spacing: 1px;
-}
-.p-hero-scroll-arrow {
-  width: clamp(20px, 1.56vw, 30px);
-  height: auto;
-  display: block;
-  animation: p-bounce 2s ease-in-out infinite;
-}
-
-@keyframes p-bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(6px); }
-}
-
 /* ──────────────────────────────────────────
    2. THE FRICTION
    ────────────────────────────────────────── */
@@ -118,6 +93,8 @@
   height: clamp(180px, 38vh, 410px);
   flex-shrink: 0;
   overflow: hidden;
+  margin: var(--frame) var(--frame) 0;
+  border-radius: var(--frame-radius);
 }
 .pfs-top-bg { position: absolute; inset: 0; }
 .pfs-top-bg img {
@@ -535,7 +512,12 @@
   align-items: center;
   justify-content: center;
 }
-.p-join-bg { position: absolute; inset: 0; }
+.p-join-bg {
+  position: absolute;
+  inset: var(--frame);
+  overflow: hidden;
+  border-radius: var(--frame-radius);
+}
 .p-join-bg-img { width: 100%; height: 100%; object-fit: cover; }
 .p-join-darken { position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
 

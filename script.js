@@ -66,11 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const problemTitle = document.querySelector('.m-problem-title');
     if (problemTitle) { problemTitle.classList.add('m-reveal', 'm-delay-1'); revealObserver.observe(problemTitle); }
 
-    // 3. Solution
-    const solutionTitle = document.querySelector('.m-solution-title');
-    const solutionBottom = document.querySelector('.m-solution-bottom');
-    if (solutionTitle) { solutionTitle.classList.add('m-reveal', 'm-delay-1'); revealObserver.observe(solutionTitle); }
-    if (solutionBottom) { solutionBottom.classList.add('m-reveal', 'm-delay-2'); revealObserver.observe(solutionBottom); }
+    // 3. Solution — cells already have m-reveal in HTML, observer picks them up via querySelectorAll above
 
     // 4. Features title
     const featuresTitle = document.querySelector('.m-features-title');

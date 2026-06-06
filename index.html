@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +7,9 @@
   <title>PATCH ME // FUNCTIONAL WEAR FOR REAL SKIN</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="product.css">
   <link rel="stylesheet" href="loader.css">
 </head>
 <body>
@@ -72,7 +72,7 @@
 </section>
 
 <!-- ============================
-     2. PROBLEM SECTION
+     2. USE CASE
 ============================= -->
 <section class="m-problem anim-section" id="problem">
   <h2 class="m-problem-title anim-heading">
@@ -98,47 +98,142 @@
           </text>
         </svg>
       </div>
+      <div class="m-problem-left-desc">
+        <span class="m-problem-stat">1 IN 3</span>
+        <p>athletes train through a chronic<br>skin condition every session.</p>
+      </div>
     </div>
     <div class="m-problem-right">
       <img src="assets/problem-right.webp" alt="" class="m-problem-bg-img" loading="lazy">
-    </div>
-  </div>
-</section>
-
-<!-- ============================
-     3. SOLUTION SECTION (watermark band merged inside)
-============================= -->
-<section class="m-solution anim-section" id="solution">
-  <div class="m-solution-img-wrap">
-    <img src="assets/solution-bg.webp" alt="" class="m-solution-top-img" loading="lazy">
-  </div>
-  <div class="m-solution-content">
-    <h2 class="m-solution-title glitch-text anim-heading" data-text="THE FRICTION PROTOCOL">
-      THE <span class="m-accent">FRICTION</span> PROTOCOL
-    </h2>
-    <div class="m-solution-divider">
-      <img src="assets/solution-line.webp" alt="" class="m-solution-line" loading="lazy">
-    </div>
-    <div class="m-solution-bottom">
-      <span class="m-solution-label">DESCRIPTION</span>
-      <div class="m-solution-desc">
-        <p>마찰은 퍼포먼스의 적입니다. 일반 소재는 격렬한 움직임 속에서 피부를 긁고, 자극하고, 당신의 한계를 끌어내립니다. 땀이 차고, 소재가 쓸리고, 집중해야 할 순간에 피부가 먼저 무너집니다.</p>
-        <p>그 불편함에 익숙해질 필요 없습니다.</p>
+      <div class="m-problem-right-desc">
+        <p>Scratching after every rep.<br>Skipping sessions to let skin heal.<br>Wearing long sleeves to hide the flare.</p>
+        <p>Standard fabrics were never<br>designed for your skin.</p>
       </div>
     </div>
   </div>
-  <div class="m-watermark-band">
-    <div class="m-watermark-bg">
-      <img src="assets/watermark-bg.webp" alt="" loading="lazy">
+</section>
+
+<!-- ============================
+     3. PROBLEM
+============================= -->
+<section class="m-solution anim-section" id="solution">
+  <div class="m-solution-grid">
+    <!-- Row 1 -->
+    <div class="m-sol-cell m-sol-fabric m-reveal">
+      <img src="assets/solution-fabric.webp" alt="" loading="lazy">
     </div>
-    <h2 class="m-watermark-title">
-      <span class="m-wm-patch">PATCH </span><span class="m-wm-me">ME</span>
-    </h2>
+    <div class="m-sol-cell m-sol-title-cell m-reveal">
+      <h2 class="m-solution-title glitch-text anim-heading" data-text="THE FRICTION PROTOCOL">
+        THE <span class="m-accent">FRICTION</span> PROTOCOL
+      </h2>
+    </div>
+    <div class="m-sol-cell m-sol-runner m-reveal">
+      <img src="assets/solution-runner.webp" alt="" loading="lazy">
+    </div>
+    <div class="m-sol-cell m-sol-neon-material m-reveal">
+      <img src="assets/solution-neon-material.webp" alt="" loading="lazy">
+    </div>
+    <!-- Row 2 -->
+    <div class="m-sol-cell m-sol-empty m-reveal"></div>
+    <div class="m-sol-cell m-sol-arm m-reveal">
+      <img src="assets/solution-arm.webp" alt="" loading="lazy">
+    </div>
+    <div class="m-sol-cell m-sol-desc m-reveal">
+      <span class="m-solution-label">DESCRIPTION</span>
+      <div class="m-solution-desc">
+        <p>Friction is the enemy of performance. Standard fabrics scratch, irritate, and pull down your limits under intense movement. Sweat builds, fabric chafes, your skin gives out before you do.</p>
+        <p>You don't have to get used to it.</p>
+      </div>
+    </div>
+    <div class="m-sol-cell m-sol-neon-figure m-reveal">
+      <img src="assets/solution-neon-figure.webp" alt="" loading="lazy">
+    </div>
   </div>
 </section>
 
 <!-- ============================
-     5. FEATURES SECTION
+     4. HOW IT WORKS
+============================= -->
+<section class="p-friction-steps anim-section" id="p-friction">
+
+  <!-- 상단: THE FRICTION -->
+  <div class="pfs-top">
+    <div class="pfs-top-bg">
+      <img src="assets/prod-friction-frame.webp" alt="" loading="lazy">
+      <div class="pfs-top-overlay"></div>
+    </div>
+    <div class="pfs-top-content">
+      <h2 class="pfs-friction-title">THE<br>FRICTION</h2>
+      <p class="pfs-friction-desc">
+        Sweat against fabric. Irritation that builds on sensitive skin.<br>
+        Functional but ugly,<br>
+        stylish but harmful.
+      </p>
+    </div>
+  </div>
+
+  <!-- 하단: FOUR STEPS TO FREEDOM -->
+  <div class="pfs-bottom">
+    <div class="pfs-bottom-head">
+      <h2 class="pfs-steps-title anim-heading">FOUR STEPS TO <span class="p-accent">FREEDOM</span></h2>
+      <span class="pfs-drag-hint">DRAG TO EXPLORE</span>
+    </div>
+
+    <div class="pfs-slider-wrap" id="pfs-slider-wrap">
+      <div class="pfs-slider" id="pfs-slider">
+        <div class="pfs-card">
+          <div class="pfs-card-img">
+            <img src="assets/prod-steps-a.webp" alt="" loading="lazy">
+          </div>
+          <div class="pfs-card-meta">
+            <span class="pfs-num">01</span>
+            <span class="pfs-name">WEAR</span>
+          </div>
+          <p class="pfs-desc">Non-irritating fabric and seamless<br>construction. Zero friction from<br>the first layer.</p>
+        </div>
+        <div class="pfs-card">
+          <div class="pfs-card-img">
+            <img src="assets/prod-steps-b.webp" alt="" loading="lazy">
+          </div>
+          <div class="pfs-card-meta">
+            <span class="pfs-num">02</span>
+            <span class="pfs-name">MOVE</span>
+          </div>
+          <p class="pfs-desc">Instant sweat evaporation keeps<br>fabric from sticking or irritating<br>your skin in action.</p>
+        </div>
+        <div class="pfs-card">
+          <div class="pfs-card-img">
+            <img src="assets/prod-steps-c.webp" alt="" loading="lazy">
+          </div>
+          <div class="pfs-card-meta">
+            <span class="pfs-num">03</span>
+            <span class="pfs-name">OWN IT</span>
+          </div>
+          <p class="pfs-desc">Move with confidence in a street<br>silhouette — nothing to hide,<br>nothing holding you back.</p>
+        </div>
+        <div class="pfs-card">
+          <div class="pfs-card-img">
+            <img src="assets/prod-steps-d.webp" alt="" loading="lazy">
+          </div>
+          <div class="pfs-card-meta">
+            <span class="pfs-num">04</span>
+            <span class="pfs-name">RECOVER</span>
+          </div>
+          <p class="pfs-desc">Stable body temperature regulation<br>for fast recovery — no unpleasant<br>cold sensation.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 얇은 프로그레스 바 -->
+    <div class="pfs-progress">
+      <div class="pfs-progress-fill" id="pfs-progress-fill"></div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============================
+     5. KEY FEATURES
 ============================= -->
 <section class="m-features anim-section" id="features">
   <div class="m-features-inner">
@@ -157,7 +252,7 @@
           <span class="m-fg-label">DATA_01</span>
           <div class="m-fg-foot">
             <h3 class="m-fg-name">SEAMLESS<br>WELDING</h3>
-            <p class="m-fg-desc">초음파 본딩 솔기로 실 마찰을 완전히 제거합니다.</p>
+            <p class="m-fg-desc">Ultrasonic bonding eliminates thread friction entirely.</p>
           </div>
         </div>
       </div>
@@ -172,7 +267,7 @@
           <span class="m-fg-label">DATA_02</span>
           <div class="m-fg-foot">
             <h3 class="m-fg-name">NANO-COATING</h3>
-            <p class="m-fg-desc">소수성 배리어가 수분을 차단하고 마찰을 방지합니다.</p>
+            <p class="m-fg-desc">Hydrophobic barrier blocks moisture and prevents friction.</p>
           </div>
         </div>
       </div>
@@ -187,7 +282,7 @@
           <span class="m-fg-label">DATA_03</span>
           <div class="m-fg-foot">
             <h3 class="m-fg-name">AERO-MESH</h3>
-            <p class="m-fg-desc">타겟 환기 존이 고열 부위에 맞게 설계되었습니다.</p>
+            <p class="m-fg-desc">Targeted ventilation zones engineered for high-heat areas.</p>
           </div>
         </div>
       </div>
@@ -197,7 +292,7 @@
 </section>
 
 <!-- ============================
-     7. CTA + FOOTER SECTION (merged)
+     6. CTA + FOOTER SECTION (merged)
 ============================= -->
 <section class="m-cta anim-section" id="cta">
   <div class="m-cta-bg">
@@ -215,22 +310,13 @@
         </div>
         <span class="m-footer-copy">© 2026 PATCH ME. ENGINEERED FOR SUPREMACY.</span>
       </div>
-      <div class="m-footer-links">
-        <div class="m-footer-col">
-          <a href="#" class="m-footer-link">PRIVACY PROTOCOL</a>
-          <a href="#" class="m-footer-link">TECHNICAL SUPPORT</a>
-        </div>
-        <div class="m-footer-col">
-          <a href="#" class="m-footer-link">GLOBAL DISTRIBUTION</a>
-          <a href="#" class="m-footer-link">PRESS KIT</a>
-        </div>
-      </div>
     </div>
   </footer>
 </section>
 
 <script src="loader.js"></script>
 <script src="script.js"></script>
+<script src="steps-slider.js"></script>
 <script src="feature-tilt.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/Observer.min.js"></script>
