@@ -342,6 +342,20 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
   object-fit: cover;
 }
 
+/* Bottom black gradient for text legibility */
+.m-problem-left::after,
+.m-problem-right::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 70%;
+  background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.7) 35%, rgba(0,0,0,0.3) 65%, transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+
 .m-problem-overlay {
   position: absolute;
   inset: 0;
@@ -459,17 +473,20 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
 .m-sol-title-cell {
   display: flex;
   align-items: flex-start;
-  padding: clamp(20px, 2.5vw, 48px);
+  padding: clamp(20px, 2.5vw, 48px) clamp(12px, 1.5vw, 24px) clamp(20px, 2.5vw, 48px) clamp(14px, 1.8vw, 28px);
 }
 
 .m-solution-title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: var(--fs-display);
-  letter-spacing: 1px;
+  font-size: clamp(20px, 2.9vw, 48px);
+  letter-spacing: 0.5px;
   color: white;
   text-transform: uppercase;
   line-height: 1.05;
+  max-width: 100%;
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .m-sol-desc {
