@@ -5,6 +5,11 @@
 
 gsap.registerPlugin(Observer, SplitText);
 
+/* Respect reduced-motion: keep the section layout, but cut transitions to
+   near-instant so there is no large sliding/wipe motion. Decorative effects
+   (cursor, scramble, parallax, marquee) are already gated in interactions.js. */
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 const sections = Array.from(document.querySelectorAll('.anim-section'));
 if (!sections.length) { throw new Error('no anim-sections'); }
 
@@ -84,6 +89,7 @@ function gotoSection(index, direction) {
     defaults: { duration: 1.25, ease: 'power1.inOut' },
     onComplete: () => { animating = false; }
   });
+  if (RM) tl.timeScale(1000); /* reduced-motion: instant cut */
 
   /* ── Outgoing section ───────────────────────── */
   if (currentIndex >= 0) {
@@ -254,6 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
           pActionAnim = true;
           pActionStep = 1;
           const tl2 = gsap.timeline({ onComplete: () => { pActionAnim = false; } });
+          if (RM) tl2.timeScale(1000);
           if (pActionSubWords) {
             tl2.fromTo(pActionSubWords,
               { autoAlpha: 0, y: 28, skewX: 4 },

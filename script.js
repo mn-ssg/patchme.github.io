@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
         joinInput.style.borderColor = '';
         joinInput.value = '';
         joinInput.disabled = true;
-        joinBtn.textContent = '신청이 완료되었습니다 ✓';
+        joinBtn.textContent = "YOU'RE ON THE LIST ✓";
         joinBtn.disabled = true;
         joinBtn.style.color = 'var(--accent)';
       });

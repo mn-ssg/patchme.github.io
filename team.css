@@ -76,13 +76,6 @@
   overflow: hidden;
 }
 
-.t-about-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-shrink: 0;
-}
-
 .t-about-main {
   display: flex;
   align-items: flex-end;
@@ -387,8 +380,6 @@
   .t-hero-sub { font-size: 14px; }
 
   .t-about { padding: 40px 48px; min-height: 100svh; height: auto; }
-  .t-about-meta--bottom { display: none; }
-  .t-meta-left, .t-meta-right { font-size: 10px; }
   .t-about-heading { font-size: clamp(20px, 5.5vw, 36px); line-height: 1.1; }
   .t-about-p1, .t-about-p2 { font-size: 14px; }
 
