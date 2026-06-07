@@ -977,9 +977,15 @@ body { background: var(--bg); color: white; font-family: var(--font-body); overf
 
   /* Hero */
   .m-hero { min-height: 100svh; }
-  .m-hero-center { top: 42%; }
-  .m-hero-title { font-size: clamp(24px, 8vw, 48px); }
-  .m-hero-subtitle { font-size: clamp(11px, 2.5vw, 15px); }
+  .m-hero-center { top: 42%; width: 92vw; white-space: normal; }
+  .m-hero-title { font-size: clamp(24px, 8vw, 48px); white-space: nowrap; }
+  .m-hero-subtitle {
+    font-size: clamp(11px, 2.5vw, 15px);
+    text-align: center;
+    margin-left: 0;
+    letter-spacing: 1.5px;
+    max-width: 100%;
+  }
   .m-hero-bottom { display: none; }
 
   /* Problem */

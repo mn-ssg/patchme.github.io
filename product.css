@@ -59,6 +59,7 @@
   font-size: clamp(26px, 3.8vw, 64px);
   color: white;
   text-transform: uppercase;
+  letter-spacing: 1px;
   line-height: 1;
   white-space: nowrap;
   margin-bottom: clamp(14px, 2vw, 40px);
